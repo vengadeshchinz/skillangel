@@ -1,0 +1,244 @@
+<ng-template #schedule let-modal>
+    <!-- Not scheduled popup-->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"> &nbsp; INFO 🤔</h4>
+    </div>
+
+    <div class="modal-body">
+        <h5> Hi, {{uname}}, <br><br> you are not scheduled to solve puzzles now.
+            <br><br>Do you want to proceed?<br>
+        </h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn-outline-dark modalbtn yesbtn"
+            style="margin-right: 40px; padding-left: 10px; padding-right: 10px" (click)="callWords()">Yes</button>
+        <button type="button" class="btn-outline-dark modalbtn nobtn"
+            style="margin-right: 20px; padding-left: 10px; padding-right: 10px" (click)="cancelModal()">No</button>
+    </div>
+</ng-template>
+
+
+<ng-template #crctschedule let-modal>
+    <!-- correct scheduled popup-->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"> &nbsp; INFO 😀</h4>
+    </div>
+
+    <div class="modal-body">
+        <h5> Hi, {{uname}}, <br><br>Are you sure you want to proceed to the puzzles?<br>
+        </h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn-outline-dark modalbtn yesbtn"
+            style="margin-right: 40px; padding-left: 10px; padding-right: 10px" (click)="callWords()">Yes</button>
+        <button type="button" class="btn-outline-dark modalbtn nobtn"
+            style="margin-right: 20px; padding-left: 10px; padding-right: 10px" (click)="cancelModal()">No</button>
+    </div>
+</ng-template>
+
+<ng-template #sessionshow let-modal>
+    <!-- session popup-->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"> &nbsp; INFO 😀</h4>
+    </div>
+
+    <div class="modal-body">
+        <h5> Hi {{uname}}, <br><br>Your profile is already logged in on another device.
+            <br><br>Do you want to continue on this device?<br>
+        </h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn-outline-dark modalbtn yesbtn"
+            style="margin-right: 40px; padding-left: 10px; padding-right: 10px" (click)="callothermodels()">Yes</button>
+        <button type="button" class="btn-outline-dark modalbtn nobtn"
+            style="margin-right: 20px; padding-left: 10px; padding-right: 10px" (click)="cancelModal()">No</button>
+    </div>
+</ng-template>
+
+
+<div class=" ngxUiLoaderBlurred">
+    <!-- container-fluid -->
+    <div class=" row justify-content-center" style=" height: 100%;overflow-y: scroll;overflow-x: hidden;">
+        <div class="col-12 col-md-6 col6sty" style="background: url(../../assets/images/newbg.png)">
+            <div class="row logosty">
+                <img class="cur" alt="text" src="../../assets/images/skillangels.png" style="height: 120px; "
+                    (click)="loadbase()" />
+            </div>
+            <div class="row contentsty">
+                Digital Game Based Puzzles to Improve Higher Order Thinking Skills (HOTS)
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div *ngIf="false">
+                <a style="float: right;color:#FF7551;text-decoration: underline;" class="nav-link"
+                    (click)="gotoReport()">Contact us</a>
+            </div>
+            <div class="row welsty" style="align-content: center;padding-bottom: 10px;">
+                Welcome to SkillAngels
+            </div>
+            <div *ngIf="model_val" class="row webcent">
+                <div class="col-5 col-lg-5 baselogsty cur">
+                    Login Via Email/Mobile
+                </div>
+                <div class="col-3 col-lg-3 baselogOtp cur" *ngIf="opt_btn_new" (click)="callOtp(1)">
+                    Login Via OTP
+                </div>
+            </div>
+            <div *ngIf="model_val" class="row usertxtsty">
+                Username
+            </div>
+            <div *ngIf="model_val" class="row webcent" style="margin-bottom: 1vw;">
+                <div class="col-12" style="padding-left: 0px;"> <input class="useriptsty" matInput maxlength="35"
+                        type="text" placeholder="" name="usrnm" [(ngModel)]="username"></div>
+
+            </div>
+            <div *ngIf="model_val" class="row usertxtsty">
+                <div class="col-6" style="padding-left: 0px;">Password</div>
+                <div class="col-6 cur" style="color:#FF7551;" *ngIf="opt_btn_new" (click)="callOtp(2)">Forget password?
+                </div>
+            </div>
+            <div *ngIf="model_val" class="row webcent" style="margin-bottom: 1vw;">
+                <div class="col-12" style="padding-left: 0px;"> <input class="useriptsty" matInput maxlength="15"
+                        type="password" placeholder="" name="psw" [(ngModel)]="password"></div>
+            </div>
+            <div *ngIf="model_val" class="row justify-content-center">
+                <h6 *ngIf="iserr" class="errscss">
+                    {{errmsg}}</h6>
+            </div>
+            <div *ngIf="model_val" class="row webcent" style="margin-top: 1vw;">
+                <div class="col-3 logsty cur" (click)="checkLogin()">Login</div>
+                <div class="col-1 logsysty cur" (click)="checkLogin()">
+                    <mat-icon class="">arrow_forward</mat-icon>
+                </div>
+                <div class="col-4 cur usertxtsty_new" style="align-self:center;color:#FF7551;" (click)="reg_new()">
+                    Create an account?
+
+                </div>
+
+                <div *ngIf="false" class="row webcent" style="margin-top: 2vw;">
+                    <div class="col-4 col-lg-4 basegglog cur" *ngIf="opt_btn_new" (click)="googleInitialize()">
+                        <img alt="text" src="../../assets/images/g_logo.png" style="height: 20px;" />
+                        Sign in with Google
+                    </div>
+                    <div class="col-4 col-lg-4 basefblog cur" *ngIf="opt_btn_new" (click)="login()">
+                        <img alt="text" src="../../assets/images/fb_logo.png" style="height: 20px;" />
+                        Sign in with Facebook
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div *ngIf="!model_val">
+                <div class="row webcent">
+                    <div class="col-5 col-lg-5 baselogsty1 cur" (click)="loginfn()">
+                        Login Via Email/Mobile
+                    </div>
+                    <div *ngIf="for_vis" class="col-3 col-lg-3 baselogOtp1 cur">
+                        Login Via OTP
+                    </div>
+                    <div *ngIf="!for_vis" class="col-4 col-lg-4 baselogOtp1 cur">
+                        Forget Password
+                    </div>
+                </div>
+
+
+                <div *ngIf="opt_btn">
+                    <div class="row usertxtsty" style="margin-top: 2vw;">
+                        Registered mobile number
+                    </div>
+                    <div class="row webcent" style="margin-bottom: 1vw;">
+
+                        <div class="col-12" style="padding-left: 0px;"> <input class=" useriptsty" ng2TelInput
+                                [ng2TelInputOptions]="{initialCountry: 'in'}" (countryChange)="countryChange($event)"
+                                [(ngModel)]="phoneno" type="text" /></div>
+
+                    </div>
+                    <h6 class="errscss">
+                        {{phone_err}}</h6>
+                    <div class="row webcent" style="margin-top: 2vw;">
+                        <div class="col-3 logsty cur" (click)="callOtpSubmit(1)">Send OTP</div>
+                        <div class="col-1 logsysty cur" (click)="callOtpSubmit(1)">
+                            <mat-icon class="">arrow_forward</mat-icon>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="opt_btn1">
+                    <div class="row usertxtsty">
+                        <div class="col-6" style="padding-left: 0px;">Please enter OTP</div>
+                        <div class="col-6 cur" style="color:#FF7551;" (click)="callOtpSubmit(2)">Resend OTP?
+                        </div>
+                    </div>
+                    <div class="row webcent" style="margin-bottom: 1vw;">
+                        <div class="col-12" style="padding-left: 0px;"> <input class="useriptsty" matInput
+                                maxlength="15" type="password" placeholder="OTP" name="psw" [(ngModel)]="otp_val">
+                        </div>
+                    </div>
+                    <!-- <div *ngIf="opt_btn1">OTP expires in <span #time1 id="time1">10:00</span> minutes!</div> -->
+
+                    <h6 class="errscss">
+                        {{otp_error}}</h6>
+                    <div class="row webcent" style="margin-top: 2vw;">
+                        <div class="col-3 logsty cur" (click)="callOtpSubmit1()">Submit</div>
+                        <div class="col-1 logsysty cur" (click)="callOtpSubmit1()">
+                            <mat-icon class="">arrow_forward</mat-icon>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div *ngIf="opt_btn2">
+                    <div class="restpasssty">
+                        Reset Password</div>
+                    <div class="row usertxtsty" style="margin-top: .3vw;">
+                        New password
+                    </div>
+                    <div class="row webcent" style="margin-bottom: 1vw;">
+                        <div class="col-12" style="padding-left: 0px;"> <input class="useriptsty1" matInput
+                                maxlength="25" [type]='this.eye_type' placeholder="" name="newpass_val"
+                                [(ngModel)]="newpass_val">
+                            <span class="span1">
+                                <i class="fa fa-eye eye" aria-hidden="true" *ngIf="show"></i>
+                                <i class="fa fa-eye-slash eye" aria-hidden="true" *ngIf="!show"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row usertxtsty" style="margin-top: 1vw;">
+                        Confirm password
+                    </div>
+                    <div class="row webcent" style="margin-bottom: 1vw;">
+                        <div class="col-12" style="padding-left: 0px;"> <input class="useriptsty1" matInput
+                                maxlength="25" [type]='this.eye_type1' placeholder="" name="newpass_con_val"
+                                [(ngModel)]="newpass_con_val">
+                            <span class="span1" (click)="onClick1()">
+                                <i class="fa fa-eye eye1" aria-hidden="true" *ngIf="show1"></i>
+                                <i class="fa fa-eye-slash eye1" aria-hidden="true" *ngIf="!show1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <h6 class="errscss">
+                        {{newpass_error}}</h6>
+                    <div class="row webcent" style="margin-top: 2vw;">
+                        <div class="col-3 logsty cur" (click)="callOtpSubmit2()">Submit</div>
+                        <div class="col-1 logsysty cur" (click)="callOtpSubmit2()">
+                            <mat-icon class="">arrow_forward</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="!istimer" style="float: right;margin-right: 20px;color: red;">OTP expires in
+                <div #timeset id="timeset">{{timerStartVal}}:00</div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <ngx-ui-loader [loaderId]="'loader-login'"></ngx-ui-loader>

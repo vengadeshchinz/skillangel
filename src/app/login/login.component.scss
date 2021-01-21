@@ -1,0 +1,779 @@
+@import "../../theme";
+@import "../../assets/scss/functions.scss";
+
+
+$secondary-color: white;
+$primary-color: #ce93f7;
+
+a {
+    cursor: pointer;
+    color: blue;
+}
+
+.error_msg {
+    color: #136fd0;
+    font-weight: bold;
+    font-variant-caps: all-petite-caps
+}
+
+.ngxUiLoaderBlurred {
+    height: 100%;
+}
+
+// ::ng-deep .iti--allow-dropdown input, .iti--allow-dropdown input[type=text], .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input, .iti--separate-dial-code input[type=text], .iti--separate-dial-code input[type=tel] {
+// width: 240px !important;
+// margin-top: 15px;
+// // border-color:#7aa043;
+// // background-color:rgba(228, 226, 226, 0.459);
+// }
+.titletext {
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: bold;
+    color: #3f3d56;
+}
+
+
+@media screen and (max-width: 2050px) {
+    .container {
+        margin-top: 15vh;
+        width: 35vw;
+    }
+
+    .titletext {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-top: 20vh;
+
+        width: 50vw;
+    }
+
+    .titletext {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        margin-top: 15vh;
+        width: 60vw;
+    }
+
+    .titletext {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 20vh;
+        width: 60vw;
+    }
+
+    .titletext {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        margin-top: 12vh;
+        width: 80vw;
+    }
+
+    .titletext {
+        font-size: 8vw;
+    }
+}
+
+.c1 {
+    background-color: $secondary-color;
+    height: 100%;
+    overflow-y: auto;
+    background-image: url(../../assets/images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // width: 100%;
+}
+
+.forgetpassword:hover {
+    cursor: pointer;
+}
+
+span {
+    background-color: #3f3d56;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 5px;
+    border-right-color: #3f3d56;
+    border-right-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+// .container {
+//   background-color: #fff;
+//   padding-bottom: 7vh;
+//   min-width: 300px;
+//   border-radius: 20px;
+//   border-style: solid;
+//   border-color: #3a1616;
+
+// }
+
+p {
+    margin-top: 7vh;
+    margin-bottom: 50px;
+    color: $secondary-color;
+    font-weight: bold;
+}
+
+
+
+
+@media screen and (max-width: 2050px) {
+    .container {
+        margin-top: 10vh;
+        width: 35vw;
+    }
+
+    .titletext {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-top: 15vh;
+
+        width: 50vw;
+    }
+
+    .titletext {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        margin-top: 10vh;
+        width: 60vw;
+    }
+
+    .titletext {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 15vh;
+        width: 60vw;
+    }
+
+    .titletext {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        margin-top: 7vh;
+        width: 80vw;
+    }
+
+    .titletext {
+        font-size: 8vw;
+    }
+}
+
+.input-field {
+    background: white;
+    padding: 1vh;
+    outline: none;
+    border: #3f3d56;
+    border-style: solid;
+    width: 60% !important;
+    margin-top: 1px !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.input-field1 {
+    background: white;
+    padding: 1vh;
+    padding-left: 0px;
+    outline: none;
+    border: #3f3d56;
+    border-style: solid;
+    width: 60% !important;
+    margin-top: .5px !important;
+    border-right: none;
+    border-radius: 0px;
+}
+
+.span1 {
+    background-color: white;
+    text-align: center;
+    color: #3f3d56;
+    border: solid;
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.eye {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.eye1 {
+    color: #3f3d56;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+::ng-deep .input-container {
+    place-content: center !important;
+
+}
+
+.val {
+    width: 100%;
+}
+
+.input-field:focus {
+    border: 2px solid #3F51B5;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 15px;
+    width: 75%;
+}
+
+.LoginBtn {
+    background-color: #3f3d56;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-style: solid;
+    border-color: orange;
+    border-radius: 10px;
+    margin-top: 50px;
+    cursor: pointer;
+    width: 120px;
+    opacity: 1;
+}
+
+h6 {
+    margin-top: 2vh;
+    text-align: center;
+    color: white;
+}
+
+@media screen and (max-width: 2000px) {
+    .logout {
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    .logout {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .logout {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .logout {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logout {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .logout {
+        font-size: 6vw;
+    }
+}
+
+::ng-deep .modal-content {
+    outline: none !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+::ng-deep .modal-header {
+
+    background-color: black !important;
+    color: white !important;
+    border-top-left-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+    border: #ffcb61 !important;
+    border-style: solid !important;
+}
+
+::ng-deep .modal-body {
+
+    background-color: white !important;
+    color: black !important;
+    font-size: 19px;
+    border: #ffcb61 !important;
+    border-style: solid !important;
+}
+
+::ng-deep .modal-footer {
+    background-color: black !important;
+    color: white !important;
+    border-bottom-left-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+    border: #ffcb61 !important;
+    border-style: solid !important;
+}
+
+::ng-deep .modalbtn {
+    padding: 8px;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 120px;
+    border-radius: 20px;
+    color: white !important;
+    outline: none !important;
+}
+
+.yesbtn {
+    background: green;
+}
+
+.nobtn {
+    background: red;
+}
+
+.regbtn {
+    text-align: center;
+    color: #136fd0 !important;
+    font-weight: bold;
+    font-size: 18px;
+    // text-decoration-line: underline;
+}
+
+.regbtn1 {
+    text-align: center;
+    color: #136fd0 !important;
+    font-weight: bold;
+    font-size: 14px;
+    // text-decoration-line: underline;
+}
+
+.regbtn:hover {
+    cursor: pointer;
+}
+
+
+::ng-deep button,
+input,
+optgroup,
+select,
+textarea {
+    border-radius: 5px;
+    border-color: #136fd0;
+}
+
+::ng-deep .iti--allow-dropdown input,
+.iti--allow-dropdown input[type=text],
+.iti--allow-dropdown input[type=tel],
+.iti--separate-dial-code input,
+.iti--separate-dial-code input[type=text],
+.iti--separate-dial-code input[type=tel] {
+    background: white !important;
+    outline: none !important;
+    border: #3f3d56 !important;
+    border-style: solid !important;
+    width: 100% !important;
+    margin: 5px !important;
+    border-radius: 5px;
+}
+
+::ng-deep .iti__selected-flag:focus {
+    outline: none !important;
+}
+
+
+
+
+
+/////////////////////////@at-root
+.cur {
+    cursor: pointer;
+}
+
+.col6sty {
+
+    background-size: cover;
+    background-repeat: no-repeat, no-repeat;
+    background-color: #000;
+    //    background-size: 100%, 100%;
+    //    background-position: center;  
+}
+
+.col6sty1 {
+    background: linear-gradient(180.04deg, rgba(0, 0, 0, 0.84) 43.46%, rgba(0, 0, 0, 0.45) 99.97%);
+    opacity: 0.9;
+}
+
+.logosty {
+    margin-top: 6vw;
+    justify-content: space-around;
+
+}
+
+.contentsty {
+    margin-top: 2vw;
+    margin-left: 7vw;
+    margin-right: 7vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 40px;
+    /* or 120% */
+
+    text-align: center;
+    letter-spacing: -0.03em;
+
+    color: #FFFFFF;
+    // background: linear-gradient(180.04deg, rgba(0, 0, 0, 0.84) 43.46%, rgba(0, 0, 0, 0.45) 99.97%);
+    opacity: 0.9;
+    border-radius: 6px;
+    justify-content: space-evenly;
+}
+
+.welsty {
+    margin-top: 9vw;
+    margin-left: 20%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+    /* identical to box height */
+
+    letter-spacing: -0.02em;
+    color: #2F3044;
+}
+
+.baselogsty {
+    align-items: flex-start;
+    padding: 7px 10px;
+
+    background: rgba(255, 117, 81, 0.1);
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: #FF7551;
+    text-align: center;
+}
+
+.baselogOtp {
+    padding: 7px 10px;
+
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 2vw;
+    text-align: center;
+}
+
+.usertxtsty {
+    margin-left: 20%;
+    margin-top: 1vw;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #2F3044;
+}
+
+.useriptsty {
+
+    background: #EEF1F5;
+    border-radius: 12px;
+    border: none;
+    padding: 12px;
+    width: 75% !important;
+}
+
+.logsty {
+    padding: 4.75148px 3px;
+    background: #FF7551;
+    border-radius: 4.87574px 0px 0px 4.87574px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 29px;
+    /* identical to box height, or 183% */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.logsysty {
+    padding: 4.75148px 3px;
+    background: #FF8450;
+    border-radius: 0px 4.87574px 4.87574px 0px;
+
+    font-family: SF Pro Text;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 29px;
+    /* identical to box height, or 150% */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.basegglog {
+    padding: 7px;
+    background: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+
+    opacity: 0.7;
+}
+
+.basefblog {
+    padding: 7px;
+    margin-left: 1vw;
+    background: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+
+    opacity: 0.7;
+}
+
+.baselogsty1 {
+    align-items: flex-start;
+    padding: 7px 10px;
+
+
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.7);
+
+    text-align: center;
+
+}
+
+.baselogOtp1 {
+    padding: 7px 10px;
+
+    background: rgba(255, 117, 81, 0.1);
+    border-radius: 6px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    margin-left: 2vw;
+    color: #FF7551;
+    text-align: center;
+}
+
+::ng-deep .iti--allow-dropdown input,
+.iti--allow-dropdown input[type=text],
+.iti--allow-dropdown input[type=tel],
+.iti--separate-dial-code input,
+.iti--separate-dial-code input[type=text],
+.iti--separate-dial-code input[type=tel] {
+    outline: none !important;
+    border: none !important;
+    border-style: none !important;
+    width: 100% !important;
+    margin: 5px !important;
+    background: #EEF1F5 !important;
+    border-radius: 12px !important;
+}
+
+::ng-deep .iti__selected-flag:focus {
+    outline: none !important;
+}
+
+span {
+    font-size: 0px !important;
+}
+
+.span1 {
+    background: #EEF1F5;
+    text-align: center;
+    color: #FF7551;
+    padding: 25px;
+    border: none;
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    vertical-align: super;
+}
+
+.eye {
+    // padding-top:5px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.eye1 {
+    // padding-top:5px;
+    color: #FF7551;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.useriptsty1 {
+    background: #EEF1F5;
+    border: none;
+    padding: 12px;
+    width: 55%;
+    border-right: none;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+::ng-deep .useriptsty:focus {
+    outline: none !important;
+}
+
+::ng-deep .useriptsty1:focus {
+    outline: none !important;
+}
+
+.errscss {
+    text-align: -webkit-center;
+    color: #FF7551;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.webcent {
+    margin-left: 20%;
+    // align-content: center;
+}
+
+.restpasssty {
+    line-height: 21px;
+    color: #FF7551;
+    font-size: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 1vw;
+    margin-left: 20%;
+}
+
+// .row{
+//     margin-right: 0px !important;
+//     margin-left: 0px !important;
+// }
+
+.usertxtsty_new {
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #2F3044;
+}
+

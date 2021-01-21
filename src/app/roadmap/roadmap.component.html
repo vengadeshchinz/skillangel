@@ -1,0 +1,456 @@
+<div (window:resize)="onResize1($event)" ngxUiLoaderBlurred id="capture">
+  <!-- Assessment Cycle List -->
+  
+  <div *ngIf="!istrophy && !isleaderboard&&isRoadMap" class="banner"
+    [ngStyle]="{'background-color': colortheme_bg_base_sec}" style="margin-bottom: 2vw;">
+    <div class="banner_txt" [ngStyle]="{'color': colortheme_txt}">Roadmap</div>
+  </div>
+  <div *ngIf="!istrophy && !isleaderboard&&!isRoadMap" class="banner"
+    [ngStyle]="{'background-color': colortheme_bg_base_sec}" style="margin-bottom: 2vw;">
+    <div class="banner_txt" [ngStyle]="{'color': colortheme_txt}">Report</div>
+  </div>
+  <div class="row" style="margin: 9px;" *ngIf="!isRoadMap && !istrophy  && !isleaderboard">
+    <mat-icon class='icon_alg' (click)="backFn()">keyboard_backspace</mat-icon>
+    <p (click)="backFn()" class='icon_alg'>Back</p>
+  </div>
+
+  <div *ngIf="isRoadMap && !istrophy && !isleaderboard">
+
+    <div>
+      <!--  <div *ngIf="after_post" class="row justify-content-end ">
+        <mat-icon class="event_icon_cls" [ngStyle]="{'color': colortheme_txt}" style="cursor: pointer;" (click)="certificatefn()">layers icon</mat-icon>
+        <p class="event_txt_cls" [ngStyle]="{'color': colortheme_txt}" (click)="certificatefn()">
+          Generate Certificate</p>
+      </div> -->
+      <div class="roadmap_wrapper">
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-md-7"> -->
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7">
+              <div class="roadmap_container" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                <div class="row pad-top-30">
+                  <div class="col-md-12">
+                    <div class="initial_circle" [ngStyle]="{'background-color': conditional[0] ? color1: color2}"
+                      (click)="scoreFn(1,0)">
+                      <div class="initial_txt">INITIAL ASSESSMENT</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of initial assessment -->
+
+                <div class="initial_img">
+                  <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-dasharray="10,10" d="M 154,380 C 52,120 253,254 253,29" stroke="#4A4A4A"
+                      stroke-width="2" fill="transparent" />
+                  </svg>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="detailed_ass_wrapper">
+                      <div class="main-circle1">
+                        <div class="sub-cirlce_1_1" [ngStyle]="{'background-color': conditional[1] ? color1: color2}"
+                          (click)="scoreFn(0,1)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">1</div>
+                        </div>
+                        <div class="sub-cirlce_1_2" [ngStyle]="{'background-color': conditional[2] ? color1: color2}"
+                          (click)="scoreFn(0,2)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">2</div>
+                        </div>
+                        <div class="sub-cirlce_1_3" [ngStyle]="{'background-color': conditional[3] ? color1: color2}"
+                          (click)="scoreFn(0,3)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">3</div>
+                        </div>
+                        <div class="sub-cirlce_1_4" [ngStyle]="{'background-color': conditional[4] ? color1: color2}"
+                          (click)="scoreFn(0,4)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">4</div>
+                        </div>
+                        <div class="sub-cirlce_1_5" [ngStyle]="{'background-color': conditional[5] ? color1: color2}"
+                          (click)="scoreFn(0,5)" >
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">5</div>
+                        </div>
+                        <div class="sub-cirlce_1_6" [ngStyle]="{'background-color': conditional[6] ? color1: color2}"
+                          (click)="scoreFn(0,6)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">6</div>
+                        </div>
+                        <div class="sub-cirlce_1_7" [ngStyle]="{'background-color': conditional[7] ? color1: color2}"
+                          (click)="scoreFn(0,7)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">7</div>
+                        </div>
+                        <div class="sub-cirlce_1_8" [ngStyle]="{'background-color': conditional[8] ? color1: color2}"
+                          (click)="scoreFn(0,8)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">8</div>
+                        </div>
+                        <div class="center-circ" [ngStyle]="{'background-color': conditional[8] ? color1: color2}"
+                          (click)="scoreFn(1,1)">
+                          <div class="initial_txt">DETAILED ASSESSMENT</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of detailed assessment -->
+
+                <div class="second_svg" *ngIf="isfull_val">
+                  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-dasharray="10,10" d="M270,280 C249,114 148,135 171,55" stroke="#4A4A4A"
+                      stroke-width="2" fill="transparent" />
+                  </svg>
+                </div>
+
+                <div class="row" *ngIf="isfull_val">
+                  <div class="col-md-12">
+                    <div class="detailed_ass_wrapper1">
+                      <div class="main-circle2">
+                        <div class="sub-cirlce_2_1" [ngStyle]="{'background-color': conditional[9] ? color1: color2}"
+                          (click)="scoreFn(0,09)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">9</div>
+                        </div>
+                        <div class="sub-cirlce_2_2" [ngStyle]="{'background-color': conditional[10] ? color1: color2}"
+                          (click)="scoreFn(0,10)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">10</div>
+                        </div>
+                        <div class="sub-cirlce_2_3" [ngStyle]="{'background-color': conditional[11] ? color1: color2}"
+                          (click)="scoreFn(0,11)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">11</div>
+                        </div>
+                        <div class="sub-cirlce_2_4" [ngStyle]="{'background-color': conditional[12] ? color1: color2}"
+                          (click)="scoreFn(0,12)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">12</div>
+                        </div>
+                        <div class="sub-cirlce_2_5" [ngStyle]="{'background-color': conditional[13] ? color1: color2}"
+                          (click)="scoreFn(0,13)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">13</div>
+                        </div>
+                        <div class="sub-cirlce_2_6" [ngStyle]="{'background-color': conditional[14] ? color1: color2}"
+                          (click)="scoreFn(0,14)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">14</div>
+                        </div>
+                        <div class="sub-cirlce_2_7" [ngStyle]="{'background-color': conditional[15] ? color1: color2}"
+                          (click)="scoreFn(0,15)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">15</div>
+                        </div>
+                        <div class="sub-cirlce_2_8" [ngStyle]="{'background-color': conditional[16] ? color1: color2}"
+                          (click)="scoreFn(0,16)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">16</div>
+                        </div>
+                        <div class="center-circ2" [ngStyle]="{'background-color': conditional[16] ? color1: color2}"
+                          (click)="scoreFn(1,2)">
+                          <div class="initial_txt">PERSONALIZED TRAINING - 1</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of personalized training c1 -->
+
+                <div class="third_svg" *ngIf="isfull_val">
+                  <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-dasharray="10,10" d="M 154,380 C 52,120 253,254 283,29" stroke="#4A4A4A"
+                      stroke-width="2" fill="transparent" />
+                  </svg>
+                </div>
+
+
+                <div class="row" *ngIf="isfull_val">
+                  <div class="col-md-12">
+                    <div class="detailed_ass_wrapper">
+                      <div class="main-circle1">
+                        <div class="sub-cirlce_1_1" [ngStyle]="{'background-color': conditional[17] ? color1: color2}"
+                          (click)="scoreFn(0,17)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">17</div>
+                        </div>
+                        <div class="sub-cirlce_1_2" [ngStyle]="{'background-color': conditional[18] ? color1: color2}"
+                          (click)="scoreFn(0,18)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">18</div>
+                        </div>
+                        <div class="sub-cirlce_1_3" [ngStyle]="{'background-color': conditional[19] ? color1: color2}"
+                          (click)="scoreFn(0,19)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">19</div>
+                        </div>
+                        <div class="sub-cirlce_1_4" [ngStyle]="{'background-color': conditional[20] ? color1: color2}"
+                          (click)="scoreFn(0,20)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">20</div>
+                        </div>
+                        <div class="sub-cirlce_1_5" [ngStyle]="{'background-color': conditional[21] ? color1: color2}"
+                          (click)="scoreFn(0,21)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">21</div>
+                        </div>
+                        <div class="sub-cirlce_1_6" [ngStyle]="{'background-color': conditional[22] ? color1: color2}"
+                          (click)="scoreFn(0,22)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">22</div>
+                        </div>
+                        <div class="sub-cirlce_1_7" [ngStyle]="{'background-color': conditional[23] ? color1: color2}"
+                          (click)="scoreFn(0,23)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}">23</div>
+                        </div>
+                        <div class="sub-cirlce_1_8" [ngStyle]="{'background-color': conditional[24] ? color1: color2}"
+                          (click)="scoreFn(0,24)">
+                          <div class="sub_circ_txt" [ngStyle]="{'color': colortheme_txt1}">ROUND</div>
+                          <div class="sub_circ_num" [ngStyle]="{'color': colortheme_txt1}"> 24</div>
+                        </div>
+                        <div class="center-circ" [ngStyle]="{'background-color': conditional[24] ? color1: color2}"
+                          (click)="scoreFn(1,3)">
+                          <div class="initial_txt">PERSONALIZED TRAINING - 2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of personalized training c2 -->
+
+                <div class="fourth_svg">
+                  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-dasharray="10,10" d="M268,266 C279,114 148,235 151,55" stroke="#4A4A4A"
+                      stroke-width="2" fill="transparent" />
+                  </svg>
+                </div>
+
+                <div class="row pad-bot-150">
+                  <div class="col-md-12">
+                    <div *ngIf="isfull_val" class="final_circle"
+                      [ngStyle]="{'background-color': conditional[25] ? color1: color2}" (click)="scoreFn(1,4)">
+                      <div class="initial_txt">POST <br />ASSESSMENT</div>
+                    </div>
+                    <div *ngIf="!isfull_val" class="final_circle"
+                      [ngStyle]="{'background-color': conditional[9] ? color1: color2}" (click)="scoreFn(1,4)">
+                      <div class="initial_txt">POST <br />ASSESSMENT</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- <div class="col-md-5"> -->
+            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
+
+              <div *ngIf="!istrophybtn">
+                <div class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="head_txt" [ngStyle]="{'color': colortheme_txt}">Overall Trophies
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pad-bot-30 new_wr" [ngStyle]="{'color': colortheme_txt1}">
+                    Yet to begin
+                  </div>
+                </div>
+                <!-- trophy wrapper ends -->
+
+                <div class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="head_txt" [ngStyle]="{'color': colortheme_txt}">Training Assessment
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pad-bot-30 new_wr" [ngStyle]="{'color': colortheme_txt1}">
+                    Yet to begin
+                  </div>
+                </div>
+
+                <!-- detailed assessment ends -->
+                <div class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="head_txt" [ngStyle]="{'color': colortheme_txt}">Leader Board
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pad-bot-30 new_wr" [ngStyle]="{'color': colortheme_txt1}">
+                    Yet to begin
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <app-trophies *ngIf="istrophybtn"></app-trophies>
+              <app-leaderboard *ngIf="istrophybtn"></app-leaderboard>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-reports2 *ngIf="false"></app-reports2>
+    </div>
+  </div>
+
+  <ng-template #certificate let-modal>
+    <!--certificate popup-->
+    <div class="show">
+      <div class="infoheader1" style="border-color:orange !important;">
+        <button type="button" class="infoclose" style="color: black; outline: 0 !important;"
+          (click)="modal.close('Click')">X</button>
+      </div>
+      <div class="infobody" style="border-color:orange !important;">
+        <div *ngIf="img_src" class="row">
+          <div class="col-10" style="align-self: flex-end;">
+            <h4 style="color: black;text-align: center;font-weight: bold;">CERTIFICATE</h4>
+          </div>
+          <div class="col-2" style="text-align: start;cursor: pointer;" (click)="downloadUrl()">
+            <mat-icon style="color:black;font-size: 31px;">get_app</mat-icon>
+          </div>
+        </div>
+        <div *ngIf="!img_src" class="row">
+          <div class="col-12" style="align-self: flex-end;">
+            <h4 style="color: black;text-align: center;font-weight: bold;">CERTIFICATE</h4>
+          </div>
+        </div>
+        <img *ngIf="img_src" src={{this.crt_url}} alt="Snow" style="width:100%;">
+        <h6 *ngIf="!img_src" style="margin-top:5px;text-align:center;
+          color:rgb(97, 96, 96)">something went wrong ,please generate again!</h6>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+
+<div *ngIf="!isRoadMap && !istrophy  && !isleaderboard">
+  <div class="container">
+    <div class="row" style="margin: 9px;justify-content: space-around;font-size:25px;">
+
+        <strong style="color:#FF7551 !important;">{{Assesment_names_val}}</strong>
+    
+    </div>
+
+
+    <div class="row  justify-content-center align-btn-row" *ngIf="isBtnVis" style="margin-bottom:30px;">
+      <button *ngIf="!skillkitRegular_btn" [ngStyle]="{'border-top-right-radius': sub_chk==0  ? '50px' : '0px',
+        'border-bottom-right-radius': sub_chk==0  ? '50px' : '0px','display': sub_chk==0  ? 'none' : 'block'}"
+        class="bt1" mat-raised-button (click)="changeChart(1)">
+        {{radmapWords[131]}}</button>
+      <button *ngIf="skillkitRegular_btn" class="bt1" mat-raised-button (click)="changeChart(1)">
+        {{radmapWords[131]}}</button>
+      <button *ngIf="skillkitRegular_btn" class="bt3" mat-raised-button
+        (click)="Showskillkitchart()">{{radmapWords[130]}}</button>
+      <button *ngIf="sub_chk!=0" class="bt2" mat-raised-button (click)="SubSkill()">
+        SubSkill</button>
+    </div>
+
+
+    <div class="row">
+      <div class=" text-center "
+        [ngClass]="{'col-12':(!isSkilkit&&!SubSkill_chk || !isSkilkit&&SubSkill_chk), 'col-sm-6':isSkilkit&&!SubSkill_chk }">
+        <div class="mr-1  px-2 py-2  dark-theme-bg-light d-flex flex-column align-items-stretch h-100"
+          [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+          <!-- Chart Header -->
+          <div class="d-flex justify-content-between px-3 py-3 light-text-color roadmap-report-header">
+            <p [ngStyle]="{'color': colortheme_txt1}">Your Scores</p>
+
+          </div>
+
+          <!-- Chart body -->
+          <div>
+            <!-- Assessment chart -->
+            <div class="row justify-content-center" *ngIf="isSkilkit&&!SubSkill_chk">
+              <div class=" col-12 align-top ">
+                <canvas width="60" height="50" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                  [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                  [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt1}">*Scores in the graph have been
+                  rounded to the nearest integer</h6>
+              </div>
+            </div>
+
+            <!-- Skillkit chart -->
+            <div class="row justify-content-center" *ngIf="!isSkilkit&&!SubSkill_chk">
+              <div class="col-12  col-md-6" style="text-align: -webkit-center;align-self: center;">
+                <canvas width="60" height="50" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                  [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                  [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt1}">*Scores in the graph have been
+                  rounded to the nearest integer</h6>
+              </div>
+            </div>
+
+            <!-- SubSkill chart -->
+            <div class="row justify-content-center" *ngIf="!isSkilkit&&SubSkill_chk">
+              <div class="col-12 col-md-12 col-lg-6">
+                <div class="progressbar-chart">
+                  <h4 *ngIf="sub_val_vis" class="timetablehead">{{radmapWords[7]}}</h4>
+                  <h4 *ngIf="!sub_val_vis" class="timetablehead" style="margin: 30px;font-weight: normal;
+                      ">Yet to begin!
+                  </h4>
+                  <div *ngIf="sub_val_vis">
+                    <div *ngFor="let el of subskillname_Arr; let i = index">
+                      <h5 class="colortext" [ngStyle]="{'color': colortheme_txt}">{{el}}</h5>
+                      <p>
+                        <ngb-progressbar class="memorycolor" type="warning" [value]=subskillval_Arr[i] [striped]="true"
+                          [animated]="true">
+                          <em>{{subskillval_Arr[i]}}</em>
+                        </ngb-progressbar>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- Chart body close-->
+        </div>
+      </div>
+
+      <div class="col-sm-6 text-center " [ngClass]="{'d-none':(!isSkilkit&&!SubSkill_chk || !isSkilkit&&SubSkill_chk)}">
+        <div class="mr-1 px-2 py-2  dark-theme-bg-light d-flex flex-column align-items-stretch h-100"
+          [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+
+          <!-- chart header -->
+          <div
+            class="d-flex justify-content-between px-3 py-3 light-text-color roadmap-report-header align-items-center">
+            <p [ngStyle]="{'color': colortheme_txt1}">Your BSPI</p>
+            <!-- <div ngbDropdown class="d-inline-block">
+              <button class="btn mt-0 btn-secondary btn-sm" id="dropdownBasic1" ngbDropdownToggle>Days</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Today</button>
+              </div>
+            </div> -->
+            <!-- <p> <span class="legent-box"></span> Your top skill</p> -->
+          </div>
+
+          <!-- body header -->
+          <div class="col-12 d-flex align-items-center flex-column place-center"
+            style="text-align: -webkit-center;align-self: center;" *ngIf="isSkilkit&&!SubSkill_chk">
+            <h4 [ngStyle]="{'color': colortheme_txt}"> BSPI : {{needleValue }}</h4>
+            <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]=cycle_score_bspt_Arr[argn_val]
+              [centralLabel]="centralLabel" [options]="options2" [name]="name">
+            </rg-gauge-chart>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-roadmap'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-roadmap'"></ngx-ui-loader>

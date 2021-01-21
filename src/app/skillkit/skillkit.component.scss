@@ -1,0 +1,502 @@
+
+$primary-color: var(--primary-color);
+$secondary-color: var(--base-color);
+$ter-color:var(--accent-color);
+
+$comprimary-color: #ffbc24 ;
+$comsecondary-color: #000;
+
+
+$text-color:#fff;
+$secondarytext-color:#000;
+.roadstyle{ 
+// background-color: $primary-color;
+box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.event_txt_cls{
+background-image:linear-gradient(to right,transparent , $ter-color);
+padding: 3px; padding-top:11px;
+    padding-bottom:11px; font-family: fantasy;font-size: small;
+}
+.event_icon_cls{
+transform: rotate(90deg);font-weight: bold;font-size:40px;
+background-color:transparent;
+}
+.progressbarcol{
+padding: 10px;
+margin:10px;
+h4{
+text-align: center;
+
+}
+border-style: solid;
+border-color:$comsecondary-color;
+border-radius: 10px;
+color:$text-color;
+background-color:$secondarytext-color ;
+-webkit-box-shadow: 0 0 5px 2px $primary-color;
+-moz-box-shadow: 0 0 5px 2px $primary-color;
+box-shadow: 0 0 5px 2px $primary-color;
+}
+.memorycolor {
+::ng-deep .progress-bar{
+background-color: #e81919 !important;
+}     
+
+
+
+}
+.visualprocessingcolor{
+::ng-deep .progress-bar{
+background-color: #ffa300 !important;
+}    
+
+} 
+.focusattentioncolor{
+::ng-deep .progress-bar{
+background-color: #8bcc46 !important;
+}    
+
+}
+.problemsolvingcolor{
+::ng-deep .progress-bar{
+background-color: #f16202 !important;
+}    
+
+}
+.linguisticscolor{
+::ng-deep .progress-bar{
+background-color: #0ab7f6 !important;
+}    
+
+}
+.puzzle-card {
+//   padding:10px;
+margin:10px;
+color: $secondarytext-color;
+text-align: center;
+background: transparent;
+border-color: $text-color;
+border-style: solid;
+border-radius: 15px;
+min-height: 340px;
+min-width: 180px;
+-webkit-box-shadow: 0 0 5px 2px $primary-color;
+-moz-box-shadow: 0 0 5px 2px $primary-color;
+box-shadow: 0 0 5px 2px $primary-color;
+}
+
+.puzzlefinishpointer{
+margin-top:20px;
+}
+.puzzle{
+margin:10px;
+}
+.puzzleimage{
+border-style: solid;
+border-radius: 10px;
+border-color: $ter-color;
+padding:15px;
+background: $comsecondary-color;
+}
+.playBtn{
+color: $ter-color;
+background: $ter-color;
+width: 120px;
+margin: 20px;
+font-size: 12px;
+font-weight: bold;
+border-color: $ter-color;
+border-style: solid;
+// box-shadow: 5px 5px 28px #ffffff8c;
+box-shadow: 0 0 5px 2px rgb(216, 215, 215);
+}
+.puzzleheading{
+background: $comsecondary-color;
+width: 100%;
+color:white;// $primary-color;
+border-top-left-radius: 10px;
+padding: 10px;
+border-top-right-radius: 10px;
+font-size: 16px;
+font-weight: bold;
+}
+.puzzlefooter
+{
+background: $comsecondary-color;
+width: 100%;
+color: $comprimary-color;
+border-bottom-left-radius: 10px;
+margin-top:5px;
+height: 145px;
+border-bottom-right-radius: 10px;
+}
+.puzzlecontainer{
+padding-top:30px;
+}
+
+.Memorypuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #e81919 !important;
+
+}
+
+.visualprocessingpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #ffa300 !important;
+
+}
+
+.focusattentionpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #8bcc46 !important;
+
+}
+
+.problemsolvingpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #f16202 !important;
+
+}
+
+.linguisticspuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #0ab7f6 !important;
+
+}
+.Memorypuzzle_new {
+background-color:#e81919 !important;
+
+}
+
+.visualprocessingpuzzle_new {
+background-color: #ffa300 !important;
+
+}
+
+.focusattentionpuzzle_new {
+background-color: #8bcc46 !important;
+
+}
+
+.problemsolvingpuzzle_new {
+background-color: #f16202 !important;
+
+}
+
+.linguisticspuzzle_new {
+background-color: #0ab7f6 !important;
+
+}
+
+.cup{
+color:#ffffff71;
+font-size: 55px;
+padding:1px;
+}
+.staricon
+{
+margin: 5px;
+margin-top: 0px;   
+}
+.radioicon{
+color: $ter-color;
+font-size: 25px;
+margin: 5px;
+
+}
+.goldstar{
+color:#ffbc24;
+font-size: 25px;
+
+}
+.goldcup{
+color:#ffbc24;
+
+}
+.silvercup{
+color: #C0C0C0;
+}
+.bronzecup{
+color:#cd7f32;
+}
+
+.star{
+color:#fff;
+font-size: 25px;
+}
+
+.alignskill{
+align-self: center;
+}
+.skilltxt
+{
+font-size: 18px;
+}
+
+
+
+
+.strikethrough {
+position: relative;
+}
+.strikethrough:before {
+position: absolute;
+content: "";
+left: 0;
+top: 45%;
+right: 0;
+border-top: 5px solid;
+border-color: red;
+
+-webkit-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);
+-ms-transform:rotate(-45deg);
+-o-transform:rotate(-45deg);
+transform:rotate(-45deg);
+}
+
+
+.playBtn:hover {
+transform: scale(1.03);
+cursor: pointer;
+}
+
+
+::ng-deep .tooltip-inner {
+background-color: $ter-color !important;
+font-size: 125%;
+opacity :1.0 !important;
+min-width: 23vw ;
+max-width: 40vw ;
+//   z-index: 2;
+}
+::ng-deep .arrow::before {
+border-top-color: $ter-color !important;
+opacity :1.0 !important;
+}
+
+
+
+
+:lang(ta) { 
+.puzzleheading
+{
+font-size: 1.2vw;
+}
+.playBtn{
+font-size: 10px;
+}
+.puzzleimage{
+padding-bottom: 20px;
+}
+
+}
+
+
+.skillkit_strikethrough {
+position: relative;
+}
+
+.skillkit_strikethrough:before {
+position: absolute;
+content: "";
+left: 0;
+top: 45%;
+right: 0;
+border-top: 5px solid;
+border-color: red;
+
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+}
+
+
+.new_show
+{
+
+border-radius: 20px;
+// -webkit-box-shadow: 0 0 5px 2px white;
+// -moz-box-shadow: 0 0 5px 2px white;
+// box-shadow: 0 0 5px 2px white;
+}
+.box{
+position: relative;
+display: inline-block; /* Make the width of box same as image */
+}
+.box .text{
+color:black;
+position: absolute;
+z-index: 999;
+margin: 0 auto;
+left: 0;
+right: 180px;
+top: 8%; /* Adjust this value to move the positioned div up and down */
+text-align: start;
+width: 60%; /* Set the width of the positioned div */
+}
+.new_infoheader
+{
+margin-top: 10px;
+color:black;
+background-color: white ;
+text-align: right;
+border:solid;
+border-color:black;
+border-bottom-style: none ;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+
+}
+.sbcbtn{
+background-image: linear-gradient(to bottom right, #4f670c, #aad43a);
+font-size:13px;
+padding:3px;
+margin-right:8px;
+color:white;
+border-color: #80ae06;
+border-radius: 3px;
+margin-bottom:15px;
+margin-top:15px;
+border:none;
+}
+button.new_infoclose
+{
+background-color: transparent;
+color: black;
+border-color: transparent;
+font-weight: bold;
+margin-right: 10px;
+margin-top: 10px;
+outline: none !important;
+}
+.new_infobody
+{
+margin-bottom: 10px;
+color:white;
+background-color: white ;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+padding:10px;
+text-align-last: end;
+border:solid;
+border-color:black;
+border-top-style: none ;
+
+}
+
+
+button.infoclose
+{
+background-color: transparent;
+color: white;
+border-color: transparent;
+font-weight: bold;
+margin-right: 10px;
+margin-top: 10px;
+outline: none !important;
+}
+
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
+outline: none!important;
+}  
+// button:active {
+//     outline: none;
+//     border: none;
+//     }
+
+//     button:focus {outline:0;}
+.show
+{
+
+border-radius: 20px;
+// -webkit-box-shadow: 0 0 5px 2px white;
+// -moz-box-shadow: 0 0 5px 2px white;
+// box-shadow: 0 0 5px 2px white;
+}
+.infoheader
+{
+margin-top: 10px;
+color:white;
+background-color: black ;
+border-color: white;
+text-align: right;
+border: solid ;
+border-bottom: none ;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+
+}
+
+.infobody
+{
+margin-bottom: 10px;
+color:white;
+background-color: black ;
+border-color: white ;
+border: solid ;
+border-top: none ;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+padding:10px;
+
+}
+
+.infotxt {
+padding:10px;
+padding-bottom: 0px;
+color:#fafafaf2;
+}
+
+.material-iconsa {
+font-size: 20px;
+// horizontal-align: -webkit-baseline-middle;
+//    vertical-align:-webkit-baseline-middle;
+text-align: justify;
+padding-left: 5px;
+padding-right: 15px;
+color:$primary-color;
+}
+.info
+{
+cursor: pointer;
+}
+
+.greatsmsg
+{
+text-align: right;
+}
+
+
+.full{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    width:100% !important;
+    height:100% !important;
+}
+
+.newstyle{
+    cursor: pointer;
+    color:#0ab7f6 !important;
+   
+}
+
+
+

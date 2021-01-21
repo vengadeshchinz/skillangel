@@ -1,0 +1,594 @@
+<div ngxUiLoaderBlurred>
+    <div *ngIf="istimerchange; then call();"></div>
+    <!-- No puzzles container starts-->
+    <div class="row justify-content-center" *ngIf="!isPuzzlePlay">
+        <div class="nopuzzle">
+            <h1 style="font-size: 20px; text-align: center;" [ngStyle]="{'color': colortheme_txt}">
+                {{this.stopPlayingMsg}} </h1>
+        </div>
+    </div>
+    <!-- No puzzles container ends-->
+
+    <ng-template #newinfo let-modal>
+        <!--Event Popup-->
+        <div class="new_show">
+            <div class="new_infoheader"
+                [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <button type="button" class=" new_infoclose" [ngStyle]="{'color': colortheme_txt}"
+                    (click)="modal.close('Click');callmsgfn()">X</button>
+            </div>
+            <div class="new_infobody"
+                [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <div class="row justify-content-center" style="color:#db1c15;font-size:28px;font-weight: bold;
+               ">
+
+                    {{event_heading[event_val]}}</div>
+
+                <div class="row justify-content-center" style="color:rgb(87, 85, 85);
+                font-size:16px;font-weight: bold;padding-left: 2vw;padding-right: 1vw;
+              margin-top:1vw;text-align-last:center;" [ngStyle]="{'color': colortheme_txt}">
+                    {{event_msg[event_val]}}
+                </div>
+                <div class="row justify-content-center text animated pulse infinite" style="margin-top:20px;">
+                    <button style="background-color: #db1c15; color: white; border-radius:20px; margin:10px;"
+                        (click)="modal.close('Click');eventClick()">
+                        Click Here To Go
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #puzzlecontent let-modal>
+        <!--Instruction Popup-->
+        <div class="modal-body" [ngStyle]="{'border-color':colortheme[0],'background-color': colortheme[1]}">
+            <h4 class="modal-title" id="modal-basic-title" [ngStyle]="{'color': colortheme[0]}">
+                {{puzzleWords[101]}}!! 😊<br>
+            </h4>
+            <div>
+                <p style="font-size:15px !important;" [ngStyle]="{'color': colortheme[0]}">
+                    <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                    &nbsp;{{puzzleWords[153]}}!
+                    &nbsp;&nbsp;
+                    <span style='font-size:20px; color: green'>&#10004;</span><br>
+                    <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                    &nbsp;You can solve puzzles in five skills over the course of this week.
+                    Once you have attempted every puzzle set once, you can solve each set four more times.
+                    But you can only spend 40 minutes a day on these puzzles, so use your time wisely.
+                    &nbsp;&nbsp;
+                    <span style='font-size:20px; color: green'>&#10004;</span><br>
+                    <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                    &nbsp;If you need to strengthen some skills, you’ll receive a Skill Kit with extra puzzles.
+                    Solve the Skill Kit first and then move on to your regular puzzles.
+                    &nbsp;&nbsp;
+                    <span style='font-size:20px; color: green'>&#10004;</span><br>
+                    <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                    &nbsp;You can earn Crownies for using the program regularly.
+                    More days you play, more Crownies you can earn.
+                    You can also earn trophies by solving puzzles correctly.
+                    Solve more puzzles quickly and correctly to earn more trophies.
+                    &nbsp;&nbsp;
+                    <span style='font-size:20px; color: green'>&#10004;</span><br>
+                    <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                    &nbsp;If you are able to solve all the puzzles correctly and quickly, you may become a Topper!
+                    All toppers will get e-Certificates that recognise their proficiency.
+                    Are you ready for some fun? Let’s get started! 🤓
+                    &nbsp;&nbsp;
+                    <br>
+                </p>
+            </div>
+
+            <button type="button" class="modalbtn " [ngStyle]="{'background-color': colortheme[0],
+        'color':colortheme[1]}" (click)="modal.close('Click');puzzlecontentclose()">{{puzzleWords[119]}}</button>
+        </div>
+    </ng-template>
+
+    <ng-template #puzzlesinfo let-modal>
+        <!--Puzzles information Popup-->
+        <div class="show">
+            <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <button type="button" class="infoclose" style=" outline: 0 !important;"
+                    [ngStyle]="{'color': colortheme_txt}" (click)="modal.close('Click')">X</button>
+            </div>
+            <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <h5 [ngStyle]="{'color': colortheme_txt}">{{puzzleWords[160]}} 🌟</h5>
+                <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+
+                    ✔️ {{puzzleWords[161]}}
+                </p>
+                <h5 [ngStyle]="{'color': colortheme_txt}">{{puzzleWords[162]}} 🌟</h5>
+
+                <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+                    ✔️{{puzzleWords[163]}}
+
+                </p>
+                <h5 [ngStyle]="{'color': colortheme_txt}">{{puzzleWords[164]}} 🏆</h5>
+                <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+                    ✔️ {{puzzleWords[165]}}
+                </p>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #puzzlesmsg let-modal>
+        <!--puzzles clp session status Popup-->
+        <div class="show">
+            <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <button type="button" class=" infoclose" [ngStyle]="{'color': colortheme_txt}"
+                    (click)="modal.close('Click')">X</button>
+            </div>
+            <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <h5 [ngStyle]="{'color': colortheme_txt}"> 🙂 {{puzzleWords[166]}} 👍</h5>
+                <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+                    💠 {{popmsgArr[this.openmodel-1]}}
+                </p>
+                <p class="infotxt" *ngIf="popstar" [ngStyle]="{'color': colortheme_txt}">
+                    💠 {{greetingmsgArr[this.openmodel-1]}} {{this.datevar}}
+                </p>
+                <p class="infotxt" *ngIf="!popstar" [ngStyle]="{'color': colortheme_txt}">
+                    {{greetingmsgArr[this.openmodel-1]}} {{this.datevar}}
+                </p>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #crownies_pop let-modal>
+        <!--crownies information Popup-->
+        <div class="show">
+            <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <button type="button" class="infoclose" style=" outline: 0 !important;"
+                    [ngStyle]="{'color': colortheme_txt}" (click)="modal.close('Click')">X</button>
+            </div>
+            <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <h5 [ngStyle]="{'color': colortheme_txt}">Crownies 🧚</h5>
+                <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+
+                    ✔️ Crownies are not added during Initial Assessment and Post Assessment
+                </p>
+
+            </div>
+        </div>
+    </ng-template>
+
+    <div *ngIf=" isPuzzlePlay">
+
+        <div  class="banner"  [ngStyle]="{'background-color': colortheme_bg_base_sec}" style="margin-bottom: 2vw;">
+            <div class="banner_txt" [ngStyle]="{'color': colortheme_txt}">{{assname}}</div>
+          </div>
+        <!--Event container starts-->
+        <div *ngIf="event_label" class="row justify-content-end " (click)="eventClick()">
+            <mat-icon class="event_icon_cls" [ngStyle]="{'color': colortheme_txt}">layers icon</mat-icon>
+            <p class="event_txt_cls" [ngStyle]="{'color': colortheme_txt}">Click Here For
+                {{event_heading_srt[event_val]}}</p>
+        </div>
+        <!--Event container ends-->
+
+
+        <div class="row " style="justify-content: space-evenly;">
+            <!--puzzles container starts-->
+            <div class="col-11 col-lg-5" style="margin-bottom: 2vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                <div class="row asssty" [ngStyle]="{'color': colortheme_txt1}">{{assname}}
+                    <i class="fa fa-info-circle material-iconsa_sty info" style="text-align:center; margin-top:0px;"
+                        aria-hidden="true" (click)="PuzzlesFn()"></i>
+                </div>
+                <div class="row gamecard" [ngStyle]="{'border-color': colortheme_txt1}">
+                    <div class="col-4 imgback Memorypuzzle_new">
+                        <img alt="text" class="puzzleimagesty " src={{this.imgsrcArr[0]}}
+                            [ngClass]="{'puzzleimgsty':potrait_val,'puzzleimgsty_mob':!potrait_val}"
+                            [ngStyle]="{'background-color': colortheme_bg,'border-color': colortheme_txt}" />
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+
+                        <div class="row" style="margin: 5px;margin-bottom: 0px;" [ngStyle]="{'color': colortheme_txt1}"
+                            [ngClass]="{'skilltxt':potrait_val, 'skilltxt_mob':!potrait_val}">{{puzzleWords[13]}}</div>
+                        <div>
+                            <mat-icon id="memstart1"
+                                [ngStyle]="{'color':startweenval[0][0] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][0],'goldstar animated flip delay-1s ':startweenval[0][0],
+                'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+                            <mat-icon id="memstart2"
+                                [ngStyle]="{'color':startweenval[0][1] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][1],'goldstar animated flip delay-1s ':startweenval[0][1],
+                'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+                            <mat-icon id="memstart3"
+                                [ngStyle]="{'color':startweenval[0][2] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][2],'goldstar animated flip delay-1s ':startweenval[0][2],
+                'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+                            <mat-icon id="memstart4"
+                                [ngStyle]="{'color':startweenval[0][3] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][3],'goldstar animated flip delay-1s ':startweenval[0][3],
+                'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+                            <mat-icon id="memstart5"
+                                [ngStyle]="{'color':startweenval[0][4] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][4],'goldstar animated flip delay-1s ':startweenval[0][4],
+                'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+                        </div>
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div *ngIf="isTrophyShow" class="row " style=" justify-content: flex-end;padding-right: 5px;">
+                            <button class="attempsty" [disabled]="true"
+                                [ngStyle]="{'color': colortheme_txt1}">{{attemp_arr[0]}}</button>
+                        </div>
+                        <div class="row webcent">
+                            <button class="col-8 logsty cur curover"
+                                [ngClass]="{'lognewsty':potrait_val, 'lognewsty_mob':!potrait_val}" id="mem"
+                                (click)="gameplay(0)" [disabled]="playval[0]">{{playtxtval[0]}}</button>
+                            <button class="col-3 logsysty cur" id="mem" (click)="gameplay(0)" [disabled]="playval[0]">
+                                <mat-icon class="logstynew"
+                                    [ngClass]="{'logstynew':potrait_val, 'logstynew_mob':!potrait_val}">arrow_forward
+                                </mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row gamecard" [ngStyle]="{'border-color': colortheme_txt1}">
+                    <div class="col-4 imgback visualprocessingpuzzle_new">
+                        <img alt="text" class="puzzleimagesty " src={{this.imgsrcArr[1]}}
+                            [ngClass]="{'puzzleimgsty':potrait_val,'puzzleimgsty_mob':!potrait_val}"
+                            [ngStyle]="{'background-color': colortheme_bg,'border-color': colortheme_txt}" />
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div class="row" style="margin: 5px;margin-bottom: 0px;" [ngStyle]="{'color': colortheme_txt1}"
+                            [ngClass]="{'skilltxt':potrait_val, 'skilltxt_mob':!potrait_val}">{{puzzleWords[14]}}</div>
+                        <div>
+                            <mat-icon id="vpstart1" [ngStyle]="{'color':startweenval[1][0] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][0],'goldstar animated flip delay-1s ':startweenval[1][0],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="vpstart2" [ngStyle]="{'color':startweenval[1][1] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][1],'goldstar animated flip delay-1s ':startweenval[1][1],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="vpstart3" [ngStyle]="{'color':startweenval[1][2] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][2],'goldstar animated flip delay-1s ':startweenval[1][2],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="vpstart4" [ngStyle]="{'color':startweenval[1][3] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][3],'goldstar animated flip delay-1s ':startweenval[1][3],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="vpstart5" [ngStyle]="{'color':startweenval[1][4] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][4],'goldstar animated flip delay-1s ':startweenval[1][4],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div *ngIf="isTrophyShow" class="row " style=" justify-content: flex-end;padding-right: 5px;">
+                            <button class="attempsty" [disabled]="true"
+                                [ngStyle]="{'color': colortheme_txt1}">{{attemp_arr[1]}}</button>
+                        </div>
+                        <div class="row webcent">
+                            <button class="col-8 logsty cur curover"
+                                [ngClass]="{'lognewsty':potrait_val, 'lognewsty_mob':!potrait_val}" id="vp"
+                                (click)="gameplay(1)" [disabled]="playval[1]">{{playtxtval[1]}}</button>
+                            <button class="col-3 logsysty cur" id="vp" (click)="gameplay(1)" [disabled]="playval[1]">
+                                <mat-icon class="logstynew"
+                                    [ngClass]="{'logstynew':potrait_val, 'logstynew_mob':!potrait_val}">arrow_forward
+                                </mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row gamecard" [ngStyle]="{'border-color': colortheme_txt1}">
+                    <div class="col-4 imgback focusattentionpuzzle_new">
+                        <img alt="text" class="puzzleimagesty " src={{this.imgsrcArr[2]}}
+                            [ngClass]="{'puzzleimgsty':potrait_val,'puzzleimgsty_mob':!potrait_val}"
+                            [ngStyle]="{'background-color': colortheme_bg,'border-color': colortheme_txt}" />
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div class="row" style="margin: 5px;margin-bottom: 0px;" [ngStyle]="{'color': colortheme_txt1}"
+                            [ngClass]="{'skilltxt':potrait_val, 'skilltxt_mob':!potrait_val}">{{puzzleWords[15]}}</div>
+                        <div>
+                            <mat-icon id="fastart1" [ngStyle]="{'color':startweenval[2][0] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][0],'goldstar animated flip delay-1s ':startweenval[2][0],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="fastart2" [ngStyle]="{'color':startweenval[2][1] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][1],'goldstar animated flip delay-1s ':startweenval[2][1],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="fastart3" [ngStyle]="{'color':startweenval[2][2] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][2],'goldstar animated flip delay-1s ':startweenval[2][2],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="fastart4" [ngStyle]="{'color':startweenval[2][3] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][3],'goldstar animated flip delay-1s ':startweenval[2][3],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="fastart5" [ngStyle]="{'color':startweenval[2][4] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][4],'goldstar animated flip delay-1s ':startweenval[2][4],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div *ngIf="isTrophyShow" class="row " style=" justify-content: flex-end;padding-right: 5px;">
+                            <button class="attempsty" [disabled]="true"
+                                [ngStyle]="{'color': colortheme_txt1}">{{attemp_arr[2]}}</button>
+                        </div>
+                        <div class="row webcent">
+                            <button class="col-8 logsty cur curover"
+                                [ngClass]="{'lognewsty':potrait_val, 'lognewsty_mob':!potrait_val}" id="fa"
+                                (click)="gameplay(2)" [disabled]="playval[2]">{{playtxtval[2]}}</button>
+                            <button class="col-3 logsysty cur" id="fa" (click)="gameplay(2)" [disabled]="playval[2]">
+                                <mat-icon class="logstynew"
+                                    [ngClass]="{'logstynew':potrait_val, 'logstynew_mob':!potrait_val}">arrow_forward
+                                </mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row gamecard" [ngStyle]="{'border-color': colortheme_txt1}">
+                    <div class="col-4 imgback problemsolvingpuzzle_new">
+                        <img alt="text" class="puzzleimagesty " src={{this.imgsrcArr[3]}}
+                            [ngClass]="{'puzzleimgsty':potrait_val,'puzzleimgsty_mob':!potrait_val}"
+                            [ngStyle]="{'background-color': colortheme_bg,'border-color': colortheme_txt}" />
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div class="row" style="margin: 5px;margin-bottom: 0px;"
+                            [ngClass]="{'skilltxt':potrait_val, 'skilltxt_mob':!potrait_val}"
+                            [ngStyle]="{'color': colortheme_txt1}">{{puzzleWords[16]}}</div>
+                        <div>
+                            <mat-icon id="psstart1" [ngStyle]="{'color':startweenval[3][0] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][0],'goldstar animated flip delay-1s ':startweenval[3][0],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="psstart2" [ngStyle]="{'color':startweenval[3][1] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][1],'goldstar animated flip delay-1s ':startweenval[3][1],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="psstart3" [ngStyle]="{'color':startweenval[3][2] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][2],'goldstar animated flip delay-1s ':startweenval[3][2],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="psstart4" [ngStyle]="{'color':startweenval[3][3] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][3],'goldstar animated flip delay-1s ':startweenval[3][3],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="psstart5" [ngStyle]="{'color':startweenval[3][4] ? '#ffbc24' :colortheme_txt}"
+                                [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][4],'goldstar animated flip delay-1s ':startweenval[3][4],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div *ngIf="isTrophyShow" class="row " style=" justify-content: flex-end;padding-right: 5px;">
+                            <button class="attempsty" [disabled]="true"
+                                [ngStyle]="{'color': colortheme_txt1}">{{attemp_arr[3]}}</button>
+                        </div>
+                        <div class="row webcent">
+                            <button class="col-8 logsty cur curover"
+                                [ngClass]="{'lognewsty':potrait_val, 'lognewsty_mob':!potrait_val}" id="ps"
+                                (click)="gameplay(3)" [disabled]="playval[3]">{{playtxtval[3]}}</button>
+                            <button class="col-3 logsysty cur" id="ps" (click)="gameplay(3)" [disabled]="playval[3]">
+                                <mat-icon class="logstynew"
+                                    [ngClass]="{'logstynew':potrait_val, 'logstynew_mob':!potrait_val}">arrow_forward
+                                </mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row gamecard" [ngStyle]="{'border-color': colortheme_txt1}">
+                    <div class="col-4 imgback linguisticspuzzle_new">
+                        <img alt="text" class="puzzleimagesty " src={{this.imgsrcArr[4]}}
+                            [ngClass]="{'puzzleimgsty':potrait_val,'puzzleimgsty_mob':!potrait_val}"
+                            [ngStyle]="{'background-color': colortheme_bg,'border-color': colortheme_txt}" />
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div class="row" style="margin: 5px;margin-bottom: 0px;" [ngStyle]="{'color': colortheme_txt1}"
+                            [ngClass]="{'skilltxt':potrait_val, 'skilltxt_mob':!potrait_val}">{{puzzleWords[17]}}</div>
+                        <div>
+                            <mat-icon id="linstart1"
+                                [ngStyle]="{'color':startweenval[4][0] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][0],'goldstar animated flip delay-1s ':startweenval[4][0],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="linstart2"
+                                [ngStyle]="{'color':startweenval[4][1] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][1],'goldstar animated flip delay-1s ':startweenval[4][1],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="linstart3"
+                                [ngStyle]="{'color':startweenval[4][2] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][2],'goldstar animated flip delay-1s ':startweenval[4][2],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="linstart4"
+                                [ngStyle]="{'color':startweenval[4][3] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][3],'goldstar animated flip delay-1s ':startweenval[4][3],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                            <mat-icon id="linstart5"
+                                [ngStyle]="{'color':startweenval[4][4] ? '#ffbc24' :colortheme_txt}" [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][4],'goldstar animated flip delay-1s ':startweenval[4][4],
+                                    'stricon':potrait_val,'stricon_mob':!potrait_val}">
+                                star</mat-icon>
+
+                        </div>
+                    </div>
+                    <div class="col-4" style="align-self: center;">
+                        <div *ngIf="isTrophyShow" class="row " style=" justify-content: flex-end;padding-right: 5px;">
+                            <button class="attempsty" [disabled]="true"
+                                [ngStyle]="{'color': colortheme_txt1}">{{attemp_arr[4]}}</button>
+                        </div>
+                        <div class="row webcent">
+                            <button class="col-8 logsty cur curover"
+                                [ngClass]="{'lognewsty':potrait_val, 'lognewsty_mob':!potrait_val}" id="lin"
+                                (click)="gameplay(4)" [disabled]="playval[4]">{{playtxtval[4]}}</button>
+                            <button class="col-3 logsysty cur" id="lin" (click)="gameplay(4)" [disabled]="playval[4]">
+                                <mat-icon class="logstynew"
+                                    [ngClass]="{'logstynew':potrait_val, 'logstynew_mob':!potrait_val}">arrow_forward
+                                </mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--puzzles container ends-->
+            <div class="col-11 col-lg-5" style="margin-bottom: 2vw;">
+
+                <div class="row" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+
+                    <div *ngIf="potrait_val" class="col-12">
+                        <div class="row" style="text-align-last: left;">
+                            <div class="col-12 col-sm-6" style="align-self: center;">
+                                <h4 class="scrtxtsty" [ngStyle]="{'color': colortheme_txt1}">Your Score</h4>
+                            </div>
+                            
+                        </div>
+                        <canvas width="490" height="350" baseChart [datasets]="barChartData3" [labels]="barChartLabels"
+                            [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                            [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                    </div>
+                    <div *ngIf="!potrait_val" class="col-12">
+                        <div class="row" style="text-align-last: left;">
+                            <div class="col-12 col-sm-6" style="align-self: center;">
+                                <h4 class="scrtxtsty" [ngStyle]="{'color': colortheme_txt1}">Your Score</h4>
+                            </div>
+                            <!-- <div class="col-12 col-sm-6 scrtxtsty" *ngIf="iscrown"
+                                style="align-self:center;text-align-last: right;"
+                                [ngStyle]="{'color': colortheme_txt1}">
+                                <i class="fa fa-info-circle material-iconsa_sty info"
+                                    style="text-align:center; margin-top:0px;padding-right: 0px;" aria-hidden="true"
+                                    (click)="infofn()"></i>
+                                Crownies: <strong class="scrtxtsty" [ngStyle]="{'color': colortheme_txt1}">{{crn_val}}
+                                    🧚 </strong>
+                            </div> -->
+                        </div>
+                        <canvas width="250" height="300" baseChart [datasets]="barChartData3" [labels]="barChartLabels"
+                            [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                            [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                    </div>
+                </div>
+                <div class="row " style="margin-top: 2vw;justify-content: space-around;">
+                    <div class="col-6 col-xl-3" *ngIf="iscrown" >
+                        <strong class="txtsty" [ngStyle]="{'color': colortheme_txt1}">Crownies
+                            <i class="fa fa-info-circle material-iconsa_sty info" style="text-align:center; margin-top:0px;"
+                        aria-hidden="true" (click)="infofn()"></i> </strong>
+                        <div class="row" style="margin-top: 1vw;">
+                            <div class="col-12" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row justify-content-center">
+                                    <img alt="text"  src='../assets/images/crow.png'
+                                    [ngClass]="{'crowimgsty':potrait_val,'crowimgsty_mob':!potrait_val}"
+                                     />
+                                </div>
+                                <div class="row crowpointsty" [ngStyle]="{'color': colortheme_txt}">{{crn_val}}</div>
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}"
+                                style="margin-bottom: .9vw;">Crownies</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-11 col-xl-8" *ngIf="isTrophyShow" >
+                        <strong class="txtsty" [ngStyle]="{'color': colortheme_txt1}">Trophies </strong>
+                        <div class="row" style="margin-top: 1vw;justify-content: space-between;">
+                            <div class="col-5 col-md-2" style="margin:0px !important;padding:0px !important;margin-bottom: 1vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}" style="margin-top: 1vw;">You Won</div>
+                                <div class="row justify-content-center">
+                                    <img alt="text" src={{troimgArr[0]}}
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    />
+                                </div>
+                                <div class="row vistxtsty" [ngStyle]="{'color': colortheme_txt}"
+                                style="margin-top: 5px;">{{puzzleWords[13]}}</div>
+                                <div class="row justify-content-center" >
+                                    <img alt="text"  src='../assets/images/10.png'
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    style="margin-top: 10px;margin-bottom: 10px;" />
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-2" style="margin:0px !important;padding:0px !important;margin-bottom: 1vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}" style="margin-top: 1vw;">You Won</div>
+                                <div class="row justify-content-center">
+                                    <img alt="text" src={{troimgArr[1]}}
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    />
+                                </div>
+                                <div class="row vistxtsty" [ngStyle]="{'color': colortheme_txt}"
+                                style="margin-top: 5px;">{{puzzleWords[14]}}</div>
+                                <div class="row justify-content-center" >
+                                    <img alt="text"  src='../assets/images/11.png'
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    style="margin-top: 10px;margin-bottom: 10px;" />
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-2" style="margin:0px !important;padding:0px !important;margin-bottom: 1vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}" style="margin-top: 1vw;">You Won</div>
+                                <div class="row justify-content-center">
+                                    <img alt="text" src={{troimgArr[2]}}
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    />
+                                </div>
+                                <div class="row vistxtsty" [ngStyle]="{'color': colortheme_txt}"
+                                style="margin-top: 5px;">{{puzzleWords[15]}}</div>
+                                <div class="row justify-content-center" >
+                                    <img alt="text"  src='../assets/images/12.png'
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    style="margin-top: 10px;margin-bottom: 10px;" />
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-2" style="margin:0px !important;padding:0px !important;margin-bottom: 1vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}" style="margin-top: 1vw;">You Won</div>
+                                <div class="row justify-content-center">
+                                    <img alt="text" src={{troimgArr[3]}}
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    />
+                                </div>
+                                <div class="row vistxtsty" [ngStyle]="{'color': colortheme_txt}"
+                                style="margin-top: 5px;">{{puzzleWords[16]}}</div>
+                                <div class="row justify-content-center" >
+                                    <img alt="text"  src='../assets/images/13.png'
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    style="margin-top: 10px;margin-bottom: 10px;" />
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-2" style="margin:0px !important;padding:0px !important;margin-bottom: 1vw;" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+                                <div class="row crowtxtsty" [ngStyle]="{'color': colortheme_txt1}" style="margin-top: 1vw;">You Won</div>
+                                <div class="row justify-content-center">
+                                    <img alt="text" src={{troimgArr[4]}}
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    />
+                                </div>
+                                <div class="row vistxtsty" [ngStyle]="{'color': colortheme_txt}"
+                                style="margin-top: 5px;">{{puzzleWords[17]}}</div>
+                                <div class="row justify-content-center" >
+                                    <img alt="text"  src='../assets/images/14.png'
+                                    [ngClass]="{'iconimgsty':potrait_val,'iconimgsty_mob':!potrait_val}"
+                                    style="margin-top: 10px;margin-bottom: 10px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-01'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-01'"></ngx-ui-loader>

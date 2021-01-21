@@ -1,0 +1,331 @@
+$primary-color: var(--primary-color);
+$secondary-color: var(--accent-color);
+$warn-color: var(--warn-color);
+
+.trophy_wrapper {
+    
+    width: 100%;
+    height: 304px;
+    margin-bottom: 30px;
+}
+
+.head_txt {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.95);
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.gold-trophy-wrapper {
+    background: #181C20;
+    // padding: 4px 15px;
+    // margin-left: 10px;
+    // margin-right: -10px;
+    padding: 5px;
+    height: 230px;
+    margin-top: 20px;
+    text-align: -webkit-center;
+}
+.gold-circle {
+    height: 90px;
+    width: 90px;
+    background-image: url('../../assets/images/leader-gold.png');
+    margin-top: 10px;
+}
+.tro-txt {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    left: 38%;
+    position: relative;
+    top: 12%;
+}
+.bspi-txt {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.21px;
+    color: rgba(255, 255, 255, 0.95);
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+}
+
+.gold-trophy {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    background-image: url('../../assets/images/lead-gold-cup.png');
+    top: -7%;
+    // left: 24%;
+}
+.trophy-txt {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.21px;
+    color: rgba(255, 255, 255, 0.95);
+    opacity: 0.7;
+    padding-bottom: 5px;
+}
+.silver-trophy-wrapper {
+    background: #181C20;
+    // padding: 4px 15px;
+    padding: 5px;
+    height: 230px;
+    margin-top: 20px;
+    text-align: -webkit-center;
+}
+.silver-circle {
+    height: 90px;
+    width: 90px;
+    background-image: url('../../assets/images/leader-silver.png');
+    margin-top: 10px;
+}
+
+.silver-trophy {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    background-image: url('../../assets/images/lead-silver-cup.png');
+    top: -7%;
+    // left: 24%;
+}
+
+.bronze-trophy-wrapper {
+    background: #181C20;
+    // padding: 4px 15px;
+    // margin-left: -10px;
+    // margin-right: 10px;
+    padding: 5px;
+    height: 230px;
+    margin-top: 20px;
+    text-align: -webkit-center;
+}
+.bronze-circle {
+    height: 90px;
+    width: 90px;
+    background-image: url('../../assets/images/leader-bronze.png');
+    margin-top: 10px;
+}
+
+.bronze-trophy {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    background-image: url('../../assets/images/lead-bronze-cup.png');
+    top: -7%;
+    // left: 24%;
+}
+
+.nopuzzle {
+    margin: auto;
+    width: 50%;
+    border: 3px solid $secondary-color;
+    padding: 10px;
+    margin-bottom: 30vw;
+    margin-top: 15vw;
+
+}
+
+.base {
+    background-color: $primary-color;
+    border: solid;
+    border-color: $secondary-color;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 10px auto 5px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-preview {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    background: white;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 6px solid $primary-color;
+    -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+}
+
+.avatar-upload .avatar-preview>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.avatar-upload1 {
+    position: relative;
+    max-width: 205px;
+    margin: 10px auto 5px;
+}
+
+.avatar-upload1 .avatar-edit1 input {
+    display: none;
+}
+
+.avatar-upload1 .avatar-preview1 {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background: white;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 6px solid $primary-color;
+    -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+}
+
+.avatar-upload1 .avatar-preview1>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.avatar-upload2 {
+    position: relative;
+    max-width: 205px;
+    margin: 10px auto 5px;
+}
+
+.avatar-upload2 .avatar-edit2 input {
+    display: none;
+}
+
+.avatar-upload2 .avatar-preview2 {
+    width: 5vw;
+    height: 5vw;
+    position: relative;
+    background: white;
+    border-radius: 100%;
+    overflow: hidden;
+    border: .2vw solid;
+
+    -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+}
+
+.avatar-upload2 .avatar-preview2>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.colnew {
+    padding-top: 1vw;
+}
+
+.colval {
+    border-width: .5vw !important;
+    border-color: $secondary-color !important;
+}
+
+.colval1 {
+    border-width: .5vw !important;
+    border-color: $secondary-color !important;
+    width: 8vw !important;
+    height: 8vw !important;
+    text-align-last: center;
+}
+
+.fa {
+    font-size: 2.4vw;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.colval3 {
+    border-width: .5vw !important;
+    border-color: $secondary-color !important;
+}
+
+.grdcls {
+    color: #ffc107 !important;
+}
+
+
+.linguisticscolor {
+    .progress {
+        height: 24px !important;
+        background-color: #31383F !important;
+        border-radius: .25rem;
+            }
+    ::ng-deep .progress-bar {
+        background: #496238 !important;
+    }
+    
+}
+
+.remocol {
+    ::ng-deep .col-2 {
+        max-width: none;
+    }
+}
+
+.coloricon {
+    font-size: 5vw;
+    margin-bottom: 1vw;
+}
+
+.full {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.txtcol1 {
+    color: $secondary-color;
+}
+.icon_alg{
+    color: $secondary-color;
+    cursor: pointer;
+    p{
+        margin: 0px;
+        margin-left: 2px;
+    }
+  }
+ 

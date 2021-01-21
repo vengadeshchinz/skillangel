@@ -1,0 +1,648 @@
+$primary-color: var(--primary-color);
+$secondary-color: var(--accent-color);
+
+//   $primary-color: #ffbc24 ;
+//   $secondary-color: #000;
+
+//   $primary-color: #3dcc5b;
+//   $primary-color:#0ab7f6;
+
+$text-color:#fff;
+$secondarytext-color:#000;
+/*******col 1****/
+
+// $primary-color:#92278f;
+
+// $secondary-color: #fff;
+// $text-color:#000;
+// $secondarytext-color:#fff;
+/*******col 1****/
+
+/*******comp****/
+// $primary-color: #38435a ;
+// $secondary-color: #8c9ab7;
+//   $secondary-color: #fff;
+
+// $secondarytext-color:#fff;
+// $text-color:#000;
+
+/*******comp****/
+
+
+.toplisttext1,
+.toplisttext {
+text-align: center;
+}
+
+.valueborder {
+border-color: #424242;
+border-radius: 20px;
+border-style: solid;
+padding: 6px;
+margin: 5px;
+max-width: 45%;
+
+}
+
+
+
+::ng-deep text {
+fill: $secondary-color !important;
+}
+
+.chartrow {
+
+border-color: $primary-color;
+border-radius: 30px;
+border-style: solid;
+margin: 1px;
+padding-top: 3vh;
+}
+
+
+
+@media screen and (max-width: 2000px) {
+.toplisttext1 {
+font-size: 1.15vw;
+}
+
+.toplisttext {
+font-size: 1.2vw;
+}
+
+.calendar {
+padding-top: 20px;
+
+font-size: 1.8vw;
+}
+
+.headrow {
+font-size: 1.2vw;
+}
+
+.assesshead {
+font-size: 1.5vw;
+}
+
+.bodyrow {
+font-size: 1vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 45%;
+}
+
+}
+
+@media screen and (max-width: 1700px) {
+.toplisttext1 {
+font-size: 1.1vw;
+}
+
+.toplisttext {
+font-size: 1.1vw;
+}
+
+.calendar {
+padding-top: 20px;
+
+font-size: 1.8vw;
+}
+
+.headrow {
+font-size: 1.3vw;
+}
+
+.bodyrow {
+font-size: 1vw;
+}
+
+.assesshead {
+font-size: 1.5vw;
+}
+
+.colortext,
+.keytext {
+font-size: 1.2vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 45%;
+}
+}
+
+@media screen and (max-width: 1520px) {
+.toplisttext1 {
+font-size: 1.2vw;
+}
+
+.toplisttext {
+font-size: 1.5vw;
+}
+
+.calendar {
+padding-top: 20px;
+
+font-size: 2vw;
+}
+
+.headrow {
+font-size: 1.5vw;
+}
+
+.bodyrow {
+font-size: 1.2vw;
+}
+
+.assesshead {
+font-size: 1.7vw;
+}
+
+.colortext,
+.keytext {
+font-size: 1.5vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 45%;
+}
+}
+
+
+@media screen and (max-width: 1200px) {
+
+.toplisttext1,
+.toplisttext {
+font-size: 2vw;
+}
+
+.calendar {
+padding-top: 20px;
+font-size: 2.5vw;
+}
+
+.headrow {
+font-size: 2vw;
+}
+
+.bodyrow {
+font-size: 1.5vw;
+}
+
+.assesshead {
+font-size: 2vw;
+}
+
+.colortext,
+.keytext {
+font-size: 1.7vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 45%;
+}
+
+}
+
+
+@media screen and (max-width: 992px) {
+
+.toplisttext1,
+.toplisttext {
+font-size: 2.5vw;
+}
+
+.calendar {
+padding-top: 20px;
+
+font-size: 3vw;
+}
+
+.headrow {
+font-size: 2.5vw;
+}
+
+.bodyrow {
+font-size: 2vw;
+}
+
+.assesshead {
+font-size: 2.5vw;
+}
+
+.colortext,
+.keytext {
+font-size: 2.2vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 45%;
+}
+
+mat-selection-list {
+margin-top: 40px;
+}
+}
+
+@media screen and (max-width: 768px) {
+
+.toplisttext1,
+.toplisttext {
+font-size: 3.5vw;
+}
+
+.calendar {
+font-size: 3.7vw;
+}
+
+.headrow {
+font-size: 3vw;
+}
+
+.bodyrow {
+font-size: 3vw;
+}
+
+.assesshead {
+font-size: 3vw;
+}
+
+.colortext,
+.keytext {
+font-size: 2.5vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 100%;
+}
+
+mat-selection-list {
+margin-top: 40px;
+}
+}
+
+@media screen and (max-width: 576px) {
+.toplisttext1 {
+font-size: 3.5vw;
+}
+
+.toplisttext {
+font-size: 5vw;
+}
+
+.calendar {
+font-size: 5vw;
+}
+
+.headrow {
+font-size: 3.5vw;
+}
+
+.bodyrow {
+font-size: 3.3vw;
+}
+
+.assesshead {
+font-size: 4.5vw;
+}
+
+.colortext,
+.keytext {
+font-size: 4vw;
+}
+
+.valuetext {
+font-size: 20px;
+}
+
+.valueborder {
+max-width: 100%;
+}
+
+mat-selection-list {
+margin-top: 40px;
+}
+}
+
+mat-selection-list {
+    // margin-top: 120px;
+    max-height: 65vh;
+    overflow-y: hidden;
+    padding-top: 0px;
+    overflow: auto;
+    box-shadow: 0 0 5px 2px rgb(216, 215, 215);
+    margin-top: 0px;
+    }
+    
+.toplist {
+padding-top: 20px;
+padding-bottom: 15px;
+margin: 3px;
+border-radius: 10px;
+border-style: solid;
+margin-top: 60px;
+}
+
+.calendar {
+margin-bottom: -20px;
+text-align: center;
+
+}
+
+.headrow {
+align-content: center;
+text-align: center;
+// align-content: left;
+// vertical-align: middle;
+}
+
+.bodyrow {
+align-content: center;
+text-align: center;
+// color:white !important;
+// font-size: 1.1rem;
+}
+
+.assesshead {
+text-align: center;
+}
+
+.top {
+margin-bottom: 5vh;
+}
+
+.bottom {
+margin-top: 5vh;
+}
+
+
+.divider {
+border-top: $primary-color 1px;
+// border-top-style: dashed;
+}
+
+
+
+.memorycolor {
+::ng-deep .progress-bar {
+background-color: #e81919 !important;
+}
+}
+
+.visualprocessingcolor {
+::ng-deep .progress-bar {
+background-color: #ffa300 !important;
+}
+
+}
+
+.focusattentioncolor {
+::ng-deep .progress-bar {
+background-color: #8bcc46 !important;
+}
+
+}
+
+.problemsolvingcolor {
+::ng-deep .progress-bar {
+background-color: #f16202 !important;
+}
+
+}
+
+.linguisticscolor {
+::ng-deep .progress-bar {
+background-color: #0ab7f6 !important;
+}
+}
+
+
+::ng-deep svg {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.material-icons {
+font-size:30px;
+// padding: 1px;
+}
+
+.keytext {
+//s color:$primary-color;
+text-align: center;
+}
+
+.valuetext {
+
+// color:$primary-color;
+text-align: center;
+}
+
+.plannerhead {
+justify-content: center;
+}
+
+
+
+
+.timetablehead {
+padding-bottom: 50px;
+}
+
+.lastrow {
+padding-top: 20px;
+}
+
+.firstcol {
+padding-left: 2vw;
+padding-right: 2vw;
+// border-right: 1px $primary-color dashed;
+}
+
+.headerlist {
+
+h4,
+h5 {
+//   color: $primary-color;
+
+}
+
+background-color: $secondary-color;
+}
+
+mat-list-item {
+border-bottom: 1px solid $secondary-color;
+padding-top: 10px;
+padding-bottom: 50px;
+padding-right: 20px;
+background-color: black;
+
+}
+
+.sellist {
+margin-left: 2vw;
+overflow-y: hidden;
+}
+
+//  .app-modal-window .modal-dialog {
+//     width: 500px;
+//   }
+
+
+.modal-header {
+background-color: wheat;
+color: black;
+padding-left: 35px;
+border: wheat;
+}
+
+.modal-body {
+padding-left: 40px;
+padding-right: 50px;
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: white;
+font-size: 19px;
+border-radius: 10%;
+border: solid black 2px;
+// text-align: justify;
+}
+
+.modalbtn {
+background-color: black;
+color: white;
+margin-right: 40px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 7px;
+padding-bottom: 7px;
+margin-bottom: 10px;
+border-radius: 20%;
+// display: inline-block;
+// float: right;
+width: 90px;
+}
+
+button:focus {
+outline: 0;
+}
+
+button:active {
+outline: none;
+border: none;
+}
+
+
+.modal-title {
+padding-bottom: 20px;
+height: 100px;
+text-align: center;
+}
+
+
+::ng-deep .modal-content {
+border: 1px solid transparent !important;
+background-color: transparent !important;
+}
+
+::ng-deep .modal-header {
+
+background-color: black !important;
+color: white !important;
+border-top-left-radius: 50px !important;
+border-top-right-radius: 50px !important;
+border: red !important;
+border-style: solid !important;
+}
+
+
+::ng-deep .modal-footer {
+background-color: black !important;
+color: white !important;
+border-bottom-left-radius: 50px !important;
+border-bottom-right-radius: 50px !important;
+border: red !important;
+border-style: solid !important;
+}
+::ng-deep .modal-body {
+background-color: white !important;
+color: black !important;
+font-size: 19px;
+border: red !important;
+border-style: solid !important;
+}
+
+//  ::ng-deep .mat-selection-list {
+//     overflow-y: scroll;
+//     max-height: 75vh;
+// }
+
+
+.topstyle{
+align-self: center;
+background-color:$secondary-color;
+padding:1.5vw;
+text-align: center;
+}
+
+.colsty{
+background-color:$secondary-color;
+}
+.txtcol{
+color:$secondary-color;
+font-size: 13.5px;
+}
+
+.rowsty{
+border-left: solid;
+border-width: 2vw;
+border-bottom-left-radius:5px ;
+border-top-left-radius:5px ;
+box-shadow: 0 0 5px 2px rgb(216, 215, 215);
+background-color: black;
+color:white
+}
+.txtcol1{
+color:$secondary-color;
+}
+.txtcol2{
+color:white;
+}
+::ng-deep .mat-icon-button{
+color:$secondary-color !important;
+}
+
+.full{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    width:100% !important;
+    height:100% !important;
+}
+

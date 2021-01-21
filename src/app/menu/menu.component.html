@@ -1,0 +1,604 @@
+<ng-template #content1 let-modal>
+  <!-- Dob password setting popup-->
+  <div class="modal-body modalbodydob"
+    [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+    <p style="text-align: left; font-weight: bold;margin-bottom: 0px;" [ngStyle]="{'color': colortheme_txt}">
+      {{menuWords[76]}} 😊</p>
+    <p style="text-align: left; font-weight: bold;color:red;font-size: 15px;">({{menuWords[77]}} "dd/mm/yyyy")</p>
+    <div>
+      <form class="form-inline">
+        <div class="input-group-append">
+          <input class="form-control" placeholder="dd/mm/yyyy" name="dobdata1" [(ngModel)]="dobdata1" ngbDatepicker
+            [minDate]="{year: 1900, month: 1,day:1}" #d="ngbDatepicker" style="font-weight: bold;">
+          <button class="btn btn-outline-secondary calenderbtn" (click)="d.toggle()" type="button">📅
+          </button>
+        </div>
+      </form>
+    </div>
+    <h6 *ngIf="errorcontent" [ngStyle]="{'color': colorVal }"
+      style="padding-top:3vw;padding-left:20px;font-size: 15px;">
+      {{errorcontenttxt}}</h6>
+    <div class="row" style="padding: 20px; outline: none; margin-left: 60px;">
+      <button type="button" style="outline: none;" class="modalbtn1" [disabled]="isbtndisable"
+        (click)="ondob_passwordFn();">{{menuWords[78]}}</button>
+
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #dashinfo let-modal>
+  <!-- Dashboard information popup-->
+  <div class="show">
+    <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+      <button type="button" class=" infoclose" style=" outline: none;" [ngStyle]="{'color': colortheme_txt}"
+        (click)="modal.close('Click')">X</button>
+    </div>
+    <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+      <h5 [ngStyle]="{'color': colortheme_txt}">{{menuWords[132]}} 💡 </h5>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+
+        ✔️ {{menuWords[133]}}
+      </p>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+        ✔️ {{menuWords[134]}}
+
+      </p>
+      <h5 [ngStyle]="{'color': colortheme_txt}">{{menuWords[135]}}
+        <br>{{menuWords[136]}} 👸
+      </h5>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+        ✔️ {{menuWords[137]}}
+      </p>
+      <h5 [ngStyle]="{'color': colortheme_txt}">What is skillkit? 🙂</h5>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+        ✔️ If your score in any of the skill is below the median value of the specific skill,
+        then you will be provided with skillkit games.
+      </p>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">✔️ Median values of five skills</p>
+      <div class="row justify-content-center">
+        <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mycol">
+          <div class="row skilltxt">{{menuWords[13]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row skilltxt">{{menuWords[14]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row skilltxt">{{menuWords[15]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row skilltxt">{{menuWords[16]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row skilltxt">{{menuWords[17]}}</div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mycol">
+          <div class="row valtxt" [ngStyle]="{'color': colortheme_txt}"> {{this.medvalArr[0]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row valtxt" [ngStyle]="{'color': colortheme_txt}">{{this.medvalArr[1]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row valtxt" [ngStyle]="{'color': colortheme_txt}">{{this.medvalArr[2]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row valtxt" [ngStyle]="{'color': colortheme_txt}">{{this.medvalArr[3]}}</div>
+        </div>
+        <div class="col-2 col-xs-2 col-sm-2 col-md2 col-lg-2 col-xl-2 mycol">
+          <div class="row valtxt" [ngStyle]="{'color': colortheme_txt}">{{this.medvalArr[4]}}</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #feedback let-modal>
+  <!-- Feedback popup-->
+  <div class="modal-header feedbackhead">
+    <h5 class="modal-title feedtitle" id="modal-basic-title"> &nbsp; {{menuWords[81]}} 😊</h5>
+  </div>
+
+  <div class="modal-body feedbackbody">
+    <div class="row quesrow justify-content-center">
+      <div class="row justify-content-center">
+        <p> {{menuWords[82]}}<span style="color: red; font-size:30px; font-weight:bold;">
+            * </span>
+        </p>
+      </div>
+      <div class="row justify-content-center">
+
+        <button id="Joyful & Engaging" (click)="assexp($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[0][0],'selected':slectedval[0][0]}">
+          {{menuWords[83]}}🤩</button>
+        <button id="Happy & Involved" (click)="assexp($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[0][1],'selected':slectedval[0][1]}">
+          {{menuWords[84]}}😄</button>
+        <button id="Neutral" (click)="assexp($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[0][2],'selected':slectedval[0][2]}">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{menuWords[85]}}🙂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button id="Dull" (click)="assexp($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[0][3],'selected':slectedval[0][3]}">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{menuWords[86]}}😔 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      </div>
+
+    </div>
+
+    <div class="row quesrow justify-content-center">
+      <p> {{menuWords[87]}}.<span style="color: red;font-size:30px; font-weight:bold;"> * </span></p>
+      <div class="row justify-content-center">
+
+        <button id="Yes" (click)="hopbtn($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!hopbtnarr[0],'selected':hopbtnarr[0]}">
+          {{menuWords[71]}}</button>
+        <button id="No" (click)="hopbtn($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!hopbtnarr[1],'selected':hopbtnarr[1]}">
+          {{menuWords[72]}}👎</button>
+      </div>
+
+    </div>
+
+    <div class="row quesrow justify-content-center">
+      <div class="row justify-content-center">
+        <p> {{menuWords[88]}} <span style="color: red;   font-size:30px; font-weight:bold;">
+            * </span>
+        </p>
+      </div>
+      <div class="row justify-content-center">
+
+        <button id="Challenging Puzzles" (click)="pro($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[1][0],'selected':slectedval[1][0]}">
+          {{menuWords[89]}}🏋️</button>
+        <button id="Animation" (click)="pro($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[1][1],'selected':slectedval[1][1]}">
+          {{menuWords[90]}}🎬</button>
+        <button id="Scoring" (click)="pro($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[1][2],'selected':slectedval[1][2]}">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{menuWords[91]}}💯&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button id="Rewards" (click)="pro($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[1][3],'selected':slectedval[1][3]}">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{menuWords[92]}}💰 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      </div>
+    </div>
+
+    <div class="row quesrow  justify-content-center">
+      <div class="row justify-content-center" style="width: 100%;">
+        <div class="col-12">
+
+          <p style="text-align: center;"> {{menuWords[93]}}<span style="color: red; font-size:30px; font-weight:bold;">
+              * </span>
+          </p>
+        </div>
+
+      </div>
+      <div class="row justify-content-center">
+
+        <button id="Daily" (click)="solve($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[2][0],'selected':slectedval[2][0]}">
+          {{menuWords[94]}}</button>
+        <button id="Weekly" (click)="solve($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[2][1],'selected':slectedval[2][1]}">
+          {{menuWords[95]}}</button>
+        <button id="Seldom" (click)="solve($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!slectedval[2][2],'selected':slectedval[2][2]}">
+          {{menuWords[96]}} </button>
+      </div>
+    </div>
+
+    <div class="row quesrow  justify-content-center">
+      <div class="col-12" style="text-align: center;">
+
+        <p> {{menuWords[97]}}<span style="color: red; font-size:30px; font-weight:bold;"> * </span></p>
+      </div>
+      <div class="col-12" style="text-align: center;">
+
+        <button id="Yes" (click)="sharebtn($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!sharebtnarr[0],'selected':sharebtnarr[0]}">
+          {{menuWords[71]}}👍</button>
+        <button id="No" (click)="sharebtn($event)"
+          [ngClass]="{'selectorcls':true, 'notselected':!sharebtnarr[1],'selected':sharebtnarr[1]}">
+          {{menuWords[72]}}👎</button>
+      </div>
+
+    </div>
+
+
+    <div class="row quesrow1 justify-content-center">
+
+      <p> {{menuWords[98]}} </p>
+    </div>
+    <div class="row quesrow2 justify-content-center">
+      <textarea class="span6" maxlength="300" type="text" rows="5" cols="65" placeholder=" Max 300 Characters"
+        [ngModel]="" (ngModelChange)="valueChanged($event)" required></textarea>
+    </div>
+
+
+
+  </div>
+  <div class="modal-footer feedbackfoot">
+    <div class="row justify-content-center">
+      <div class="col-12" style="text-align: center;">
+
+        <p *ngIf="feederrorbol" style="text-align:left;font-size: 12px; font-weight:bold; color: red;"> {{feederrortxt}}
+        </p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <button type="button" class="btn btn-outline-light modalbtn1"
+            (click)="onclickfeedback()">{{menuWords[99]}}😀</button>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-outline-light modalbtn1"
+            (click)="onskipfeedback();modal.close('Click')">{{menuWords[100]}}
+            😔</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <p>&nbsp;&nbsp;</p>
+  </div>
+</ng-template>
+<ng-template #logout let-modal>
+  <!-- logout popup-->
+  <div class="show change-password-model">
+      <div class="infoheader"  [ngStyle]="{'background-color': colortheme_bg_base_sec, 'border-color':colortheme_bg_base_sec}">
+         <div  style="text-align: right !important"> 
+          <button type="button" class=" infoclose"  (click)="modal.close('Click')" [ngStyle]="{'color': colortheme_txt}">X</button>
+         </div>
+         <div style="padding:10%">
+          <h6 class="title_vis" >CONFIRM LOGOUT</h6>
+
+          <div style="text-align: center;margin-bottom: 40px;">
+            <label class="input-label" [ngStyle]="{'color': colortheme_txt}">{{menuWords[75]}}</label>
+          </div>
+          <div class="modal-footer " style="justify-content:center;padding-top: 20px;" >
+            <button type="button" class="btn btn-outline-light modalbtn1 yesbtn"
+              (click)="callLogout()" style="outline: none;" >YES</button>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <button type="button" style="outline: none; " class="btn  btn-outline-light modalbtn1 nobtn"
+              style="outline: none; background: #F25858 !important;" (click)="modal.close('Click')"
+              >NO</button>
+            <p>&nbsp;&nbsp;</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</ng-template>
+
+
+<ng-template #noint let-modal>
+  <!-- internet connection popup-->
+
+  <div class="modal-body logoutbody">
+    <h3 style="color: rgb(255, 136, 0);font-weight: bold;"> OOPS <span style="color: black;">:)</span></h3>
+    <p style="text-align: center;"> No Internet Connect...
+    </p>
+  </div>
+</ng-template>
+
+
+
+<div [class]="themechange" style="height: 100%;" ngxUiLoaderBlurred>
+  <ng-sidebar-container (onBackdropClicked)="_onBackdropClicked()" [ngStyle]="{'background-color':colortheme_bg}">
+    <!-- side menu list starts-->
+    <ng-sidebar [(opened)]="_opened" [mode]="_MODES[1]" [keyClose]=false [position]="_POSITIONS[2]" [dock]=true
+      [dockedSize]="'50px'" [autoCollapseHeight]=false [autoCollapseWidth]=false [closeOnClickOutside]=true
+      [closeOnClickBackdrop]=false [showBackdrop]=false [animate]=true [trapFocus]=true [autoFocus]=true
+      [ariaLabel]="'My sidebar'" (onOpenStart)="_onOpenStart()" (onOpened)="_onOpened()"
+      (onCloseStart)="_onCloseStart()" (onClosed)="_onClosed()" (onTransitionEnd)="_onTransitionEnd()"
+      [ngStyle]="{'::ng-deep aside.background-color':colortheme_bg}">
+
+      <mat-nav-list class="navigation-list"  [ngClass]="{'navcor':!whitetheme,'navcor_vis':whitetheme}">
+        <a *ngIf="open_side" class="navigation-item" mat-list-item [ngClass]="{'::ng-deep .a1':colortheme_bg}">
+          <img *ngIf="!potrait_val" alt="text" src="../../assets/images/skillangels.png" class="logo" />
+
+          <strong *ngIf="!potrait_val" class="landscape_menusty1 mentsty" (click)="_toggleOpened();"
+            [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">storage</mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Menu</i>
+          </strong>
+
+          <strong *ngIf="!potrait_val" class="landscape_menusty1 sndsty1" [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon *ngIf="!music_val" class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              (click)="musiccall(1)" [ngStyle]="{'color': colortheme_txt}">volume_off</mat-icon>
+            <mat-icon *ngIf="music_val" class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              (click)="musiccall(0)" [ngStyle]="{'color': colortheme_txt}">volume_up</mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Sound</i>
+          </strong>
+
+          <strong *ngIf="!potrait_val" class="linesty">s</strong>
+          <strong *ngIf="!potrait_val" (click)="callfeedback()" class="landscape_menusty1"
+            [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">power_settings_new
+            </mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Logout</i>
+          </strong>
+        </a>
+        <mat-divider class="navigation-divider new_nd"></mat-divider>
+        <a class="navigation-item" mat-list-item (click)="gotoPuzzles();musicon()" *ngIf="chkpuzzle">
+          <div *ngIf="!potrait_val">
+            <div class="row" justify-com style="margin-left:3px">
+              <mat-icon class="material-icons coloricon" [ngStyle]="{'color': colortheme_txt}">videogame_asset
+              </mat-icon>
+              <strong *ngIf="open_side"
+                style="color:white;padding-left:15px;padding-right:15px;font-size:13px;align-self:center;"
+                [ngStyle]="{'color': colortheme_txt1}">{{menuWords[66]}}</strong>
+            </div>
+          </div>
+        </a>
+        <mat-divider class="navigation-divider new_nd" *ngIf="chkpuzzle"></mat-divider>
+        <a class="navigation-item" mat-list-item (click)="gotoExtras();musicon()" *ngIf="chkskillkit">
+          <div *ngIf="!potrait_val">
+            <div class="row" justify-com style="margin-left:3px">
+              <mat-icon class="material-icons coloricon" [ngStyle]="{'color': colortheme_txt}">extension</mat-icon>
+              <strong *ngIf="open_side"
+                style="color:white;padding-left:15px;padding-right:15px;font-size:13px;align-self:center;"
+                [ngStyle]="{'color': colortheme_txt1}">{{menuWords[117]}}</strong>
+            </div>
+          </div>
+        </a>
+        <mat-divider class="navigation-divider new_nd"></mat-divider>
+        <a class="navigation-item" mat-list-item (click)="gotoRoadmap();musicon()">
+          <div *ngIf="!potrait_val">
+            <div class="row" justify-com style="margin-left:3px">
+              <mat-icon class="material-icons coloricon" [ngStyle]="{'color': colortheme_txt}">track_changes</mat-icon>
+              <strong *ngIf="open_side"
+                style="color:white;padding-left:15px;padding-right:15px;font-size:13px;align-self:center;"
+                [ngStyle]="{'color': colortheme_txt1}">Roadmap</strong>
+            </div>
+          </div>
+        </a>
+        <mat-divider class="navigation-divider new_nd"></mat-divider>
+        <a class="navigation-item" mat-list-item (click)="gotoProfile();musicon()">
+          <div *ngIf="!potrait_val">
+            <div class="row" justify-com style="margin-left:3px">
+              <mat-icon class="material-icons coloricon" [ngStyle]="{'color': colortheme_txt}">person</mat-icon>
+              <strong *ngIf="open_side"
+                style="color:white;padding-left:15px;padding-right:15px;font-size:13px;align-self:center;"
+                [ngStyle]="{'color': colortheme_txt1}"> {{menuWords[68]}}</strong>
+            </div>
+          </div>
+        </a>
+        <mat-divider class="navigation-divider new_nd"></mat-divider>
+
+        <a *ngIf="!open_side" class="navigation-item" mat-list-item>
+          <img *ngIf="!potrait_val" alt="text" src="../../assets/images/skillangels.png" class="logo" />
+
+          <strong *ngIf="!potrait_val" class="landscape_menusty1 mentsty" (click)="_toggleOpened();"
+            [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">storage</mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Menu</i>
+          </strong>
+          <strong *ngIf="!potrait_val" class="landscape_menusty1 sndsty1" [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon *ngIf="!music_val" class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              (click)="musiccall(1)" [ngStyle]="{'color': colortheme_txt}">volume_off</mat-icon>
+            <mat-icon *ngIf="music_val" class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              (click)="musiccall(0)" [ngStyle]="{'color': colortheme_txt}">volume_up</mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Sound</i>
+          </strong>
+
+          <strong *ngIf="!potrait_val" class="linesty">s</strong>
+          <strong *ngIf="!potrait_val" (click)="callfeedback()" class="landscape_menusty1"
+            [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">power_settings_new
+            </mat-icon><br>
+            <i class="menutxt1" [ngStyle]="{'color': colortheme_txt1}">Logout</i>
+          </strong>
+        </a>
+
+
+
+        <a *ngIf="potrait_val" class="navigation-item" mat-list-item [ngClass]="{'a1':true}">
+          <img alt="text" src="../../assets/images/skillangels.png" class="logo" />
+          <strong class="mentsty" style="color: transparent;">h</strong>
+          <strong (click)="gotoPuzzles();musicon()" *ngIf="chkpuzzle" class="landscape_menusty mentsty cur"
+            [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">videogame_asset
+            </mat-icon><br>
+            <i class="menutxt" [ngStyle]="{'color': colortheme_txt1}">{{menuWords[66]}}</i>
+          </strong>
+          <strong (click)="gotoExtras();musicon()" *ngIf="chkskillkit" class="landscape_menusty lesspad cur"
+            [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">extension</mat-icon><br>
+            <i class="menutxt" [ngStyle]="{'color': colortheme_txt1}">Skillkit</i>
+          </strong>
+
+          <strong (click)="gotoRoadmap();musicon()" class="landscape_menusty cur"
+            [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">track_changes</mat-icon>
+            <br>
+            <i class="menutxt" [ngStyle]="{'color': colortheme_txt1}">Roadmap</i>
+          </strong>
+
+          <strong (click)="gotoProfile();musicon()" class="landscape_menusty cur" [ngStyle]="{'color': colortheme_txt1}"
+            (click)="gotoProfile();musicon()">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">person</mat-icon><br>
+            <i class="menutxt" [ngStyle]="{'color': colortheme_txt1}">{{menuWords[68]}}</i>
+          </strong>
+
+          <strong *ngIf="!music_val" (click)="musiccall(1)" class="landscape_menusty sndsty lesspad cur"
+            [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              [ngStyle]="{'color': colortheme_txt}">volume_off</mat-icon>
+            <br>
+            <i class="menutxt">Sound</i>
+
+          </strong>
+          <strong *ngIf="music_val" (click)="musiccall(0)" class="landscape_menusty sndsty lesspad cur"
+            [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="volume_scss" style=" font-size: 20px;cursor: pointer;"
+              [ngStyle]="{'color': colortheme_txt}">volume_up</mat-icon><br>
+            <i class="menutxt">Sound</i>
+          </strong>
+
+          <strong class="linesty">s</strong>
+          <strong class="landscape_menusty cur" (click)="callfeedback()" [ngStyle]="{'color': colortheme_txt1}">
+            <mat-icon class="material-icons coloriconsty" [ngStyle]="{'color': colortheme_txt}">power_settings_new
+            </mat-icon><br>
+            <i class="menutxt">Logout</i>
+          </strong>
+        </a>
+      </mat-nav-list>
+    </ng-sidebar>
+    <!-- side menu list ends-->
+    <!-- side menu page content container starts-->
+    <div ng-sidebar-content #top>
+
+      <section class="sidenew-contents" [ngStyle]="{'background-color':colortheme_bg_base}" style="padding-top: 15px;">
+        <div *ngIf="isDashRouteTimer">
+          <span style="float: right;margin-right: 20px;" #time id="time"
+            [ngStyle]="{'color': colortheme_txt}">{{timerStartVal}}:00</span>
+        </div>
+
+        <div class="container-fluid" *ngIf="dashboard">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center; padding-top: 20px;">{{menuWords[116]}}
+            <i class="fa fa-info-circle material-iconsa info" style="text-align:center; margin-top:0px;"
+              aria-hidden="true" (click)="infoFn()"></i>
+          </h2> -->
+          <app-dashboard></app-dashboard>
+        </div>
+
+        <div class="container-fluid" *ngIf="puzzles">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center;font-weight: bold;padding-top: 20px;">{{menuWords[66]}}</h2> -->
+          <app-puzzles></app-puzzles>
+        </div>
+
+        <div class="container-fluid" *ngIf="skillkit">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center;padding-top: 20px;">{{menuWords[117]}}</h2> -->
+          <app-skillkit></app-skillkit>
+        </div>
+
+        <!-- <div class="container-fluid" *ngIf="reports">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <h2 class="txtcol1" style="text-align:center; font-weight: bold;padding-top: 10px;">{{menuWords[67]}}</h2>
+          <app-reports></app-reports>
+        </div> -->
+        <div class="container-fluid" *ngIf="reports1"></div>
+        <div class="container-fluid" *ngIf="roadmap">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center; font-weight: bold;padding-top: 20px;">Roadmap</h2> -->
+          <app-roadmap></app-roadmap>
+        </div>
+        <div class="container-fluid" *ngIf="trophies">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center;padding-top: 20px;font-weight: bold;">{{menuWords[118]}}</h2> -->
+          <app-trophies></app-trophies>
+        </div>
+        <div class="container-fluid" *ngIf="leader">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center; font-weight: bold; padding-top: 20px;">Leaderboard</h2> -->
+          <app-leaderboard></app-leaderboard>
+        </div>
+        <div class="container-fluid" *ngIf="profile">
+          <div class="row timer" *ngIf="isDashRouteTimer">
+            <div class="circle">
+              <div class="innercircle">
+                <hr class="vline" />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="txtcol1" style="text-align:center; font-weight: bold; padding-top: 20px;">{{menuWords[68]}}</h2> -->
+          <app-profile></app-profile>
+        </div>
+
+      </section>
+
+      <!-- <footer class="sidenew-header" [ngStyle]="{'background-color':colortheme_bg_base_sec}">
+        <div *ngIf="potrait_val" class="row" style="padding:5px;align-self: end;align-items: flex-end;">
+          <div class="col-2" style="text-align-last: right;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              Terms of use
+            </h3>
+          </div>
+          <div class="col-1" style="margin: 0px;padding:0px;text-align-last: center;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              .
+            </h3>
+          </div>
+          <div class="col-2" style="text-align-last: left;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              Privacy policy
+            </h3>
+          </div>
+          <div class="col-6" style="text-align: -webkit-right;color:transparent">
+            h
+          </div>
+        </div>
+        <div *ngIf="!potrait_val" class="row" style="padding:5px;align-self: end;align-items: flex-end;">
+          <div class="col-4" style="text-align-last: right;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              Terms of use
+            </h3>
+          </div>
+          <div class="col-1" style="margin: 0px;padding:0px;text-align-last: center;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              .
+            </h3>
+          </div>
+          <div class="col-4" style="text-align-last: left;">
+            <h3 class="footextsty" [ngStyle]="{'color': colortheme_txt1}">
+              Privacy policy
+            </h3>
+          </div>
+          <div class="col-6" style="text-align: -webkit-right;color:transparent">
+            h
+          </div>
+        </div>
+      </footer> -->
+    </div>
+    <!-- side menu page content container ends-->
+
+
+  </ng-sidebar-container>
+
+</div>
+<ngx-ui-loader [loaderId]="'loader-master'"></ngx-ui-loader>

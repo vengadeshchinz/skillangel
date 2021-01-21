@@ -1,0 +1,258 @@
+<ng-template #content let-modal>
+    <!-- instruction popup starts-->
+    <div class="modal-body">
+        <h4 class="modal-title" *ngIf="firstlogin" id="modal-basic-title">{{dashWords[101]}}!!<br>
+            <p style="font-size: 18px;margin-top: 7px;margin-bottom: 12px;">{{dashWords[115]}}…! 😊</p>
+        </h4>
+        <div *ngIf="firstlogin all">
+            <p style="font-size:15px !important;">
+
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[153]}}!
+                &nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br>
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[154]}}!
+                &nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br>
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[155]}}&nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br>
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[156]}}!
+                &nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br>
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[157]}}
+                &nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br>
+                <span style='font-size:25px;color: #ff7733'>&#10027;</span>
+                &nbsp;{{dashWords[158]}}
+                &nbsp;&nbsp;
+                <span style='font-size:20px; color: green'>&#10004;</span><br><br>
+                {{ dashWords[159]}} 🤓<br>
+            </p>
+        </div>
+
+        <p *ngIf="secondlogin all"> {{dashWords[80]}} {{username| uppercase}}!! <br><br> {{dashWords[110]}}!! 🤓<br><br>
+            {{dashWords[111]}}!! 🙁
+        </p>
+
+        <div *ngIf="thirdlogin all">
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6">
+                    <p> {{dashWords[112]}}!! 😊<br> <br>
+                        {{dashWords[114]}}!</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button type="button" class="modalbtn" (click)="modal.close('Click');dashpopclose()">{{dashWords[119]}}</button>
+    </div>
+    <!-- instruction popup end-->
+</ng-template>
+
+
+<div ngxUiLoaderBlurred>
+
+    <!-- dashboard page rank,bspi,crownies and cyrrent clp phase starts-->
+    <div class="row basesty" style="justify-content: space-evenly;margin-top: 2vw;">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row" style="box-shadow: 0 0 5px 2px rgb(216, 215, 215);padding: 1vw;margin:.5vw;"
+                [ngStyle]="{'background-color': colortheme_bg}">
+                <div class="col-4 topstyle">
+                    <mat-icon class="material-icons headrow1" [ngStyle]="{'color': colortheme_txt}"
+                        style="text-align: center;">golf_course
+                    </mat-icon>
+                </div>
+                <div class="col-8" style="align-self: center;">
+                    <div class="txtcol1" style="font-weight: bold;font-size: 22px;">Rank: {{rank}}</div>
+                    <div style="font-weight: bold;color:rgb(110, 110, 110);font-size: 11px;">{{dashWords[214]}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row" style="box-shadow: 0 0 5px 2px rgb(216, 215, 215);padding: 1vw;margin:.5vw;"
+                [ngStyle]="{'background-color': colortheme_bg}">
+                <div class="col-4 topstyle">
+                    <mat-icon class="material-icons headrow1" [ngStyle]="{'color': colortheme_txt}"
+                        style="text-align: center;"> wb_incandescent
+                    </mat-icon>
+                </div>
+                <div class="col-8" style="align-self: center;">
+                    <div class="txtcol1" style="font-weight: bold;font-size: 22px;">BSPI: {{prebspi }} </div>
+                    <div style="font-weight: bold;color:rgb(110, 110, 110);font-size: 11px;">{{dashWords[124]}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row" style="box-shadow: 0 0 5px 2px rgb(216, 215, 215);padding: 1vw;margin:.5vw;"
+                [ngStyle]="{'background-color': colortheme_bg}">
+                <div class="col-4 topstyle">
+                    <mat-icon class="material-icons headrow1" [ngStyle]="{'color': colortheme_txt}"
+                        style="text-align: center;">flag </mat-icon>
+
+                </div>
+                <div class="col-8" style="align-self: center;">
+                    <div class="txtcol1" style="font-weight: bold;font-size: 18px;">{{curr_assess_dash}}</div>
+                    <div style="font-weight: bold;color:rgb(110, 110, 110);font-size: 12px;">{{dashWords[128]}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="row" style="box-shadow: 0 0 5px 2px rgb(216, 215, 215);padding: 1vw;margin:.5vw;"
+                [ngStyle]="{'background-color': colortheme_bg}">
+                <div class="col-4 topstyle">
+                    <mat-icon class="material-icons headrow1" [ngStyle]="{'color': colortheme_txt}"
+                        style="text-align: center;">whatshot
+                    </mat-icon>
+
+                </div>
+                <div class="col-8" style="align-self: center;">
+                    <div class="txtcol1" style="font-weight: bold;font-size: 22px;" #updatecrowny id="updatecrowny">
+                        {{crownyToShow}}
+                    </div>
+                    <div style="font-weight: bold;color:rgb(110, 110, 110);font-size: 12px;">{{dashWords[4]}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dashboard page rank,bspi,crownies and cyrrent clp phase ends-->
+    <div class="row basesty"
+        style="justify-content: space-evenly;margin:1vw;margin-top: 2vw;margin-bottom:0px;padding-bottom: 3vw;">
+        <!-- dashboard page date picker container starts-->
+        <div class="col-12 col-md-12 col-lg-7">
+            <div class="row justify-content-center">
+                <h5 class="txtcol1"><strong>{{dashWords[9]}}</strong></h5>
+            </div>
+            <div class="row justify-content-center">
+                <h6 style="align-self: center;padding-right:1vw;">
+                    <strong class="txtcol1">Select Date</strong></h6>
+                <mat-form-field floatLabel="never" class="dpicker">
+                    <input [ngStyle]="{'color': colortheme_txt}" matInput [matDatepicker]="picker"
+                        placeholder={{dashWords[10]}} value={{onlyDate}} (dateChange)="onSelect('change', $event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker [startAt]="onlyDate" #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="row justify-content-center" style="margin-top: 2vw;">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 "
+                    style="margin-bottom: 1vw;border-left: solid;border-right: solid;border-width: 1px;border-color:rgb(184, 182, 182)">
+                    <div class="row justify-content-center txtcol" style="text-align: center; ">
+                        <strong>{{dashWords[18]}}</strong>
+                    </div>
+                    <div class="row justify-content-center" [ngStyle]="{'color': colortheme_txt}">{{quesAttempted}}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 "
+                    style="margin-bottom: 1vw;border-left: solid;border-right: solid;border-width: 1px;border-color:rgb(184, 182, 182)">
+                    <div class="row justify-content-center txtcol"><strong>{{dashWords[19]}}</strong></div>
+                    <div class="row justify-content-center" [ngStyle]="{'color': colortheme_txt}">{{quesSolved}}</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 "
+                    style="margin-bottom: 1vw;border-left: solid;border-right: solid;border-width: 1px;border-color:rgb(184, 182, 182)">
+                    <div class="row justify-content-center txtcol"><strong>{{dashWords[20]}}</strong></div>
+                    <div class="row justify-content-center" [ngStyle]="{'color': colortheme_txt}">{{minTrained}}</div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 "
+                    style="margin-bottom: 1vw;border-left: solid;border-right: solid;border-width: 1px;border-color:rgb(184, 182, 182)">
+                    <div class="row justify-content-center txtcol"><strong>{{dashWords[4]}}</strong></div>
+                    <div class="row justify-content-center" [ngStyle]="{'color': colortheme_txt}">{{todayCrowny}}</div>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top: .5vw;">
+
+                <div class="col-12 col-md-6" style="text-align: -webkit-center;">
+
+                    <h5 class="txtcol1" style="text-align: center;font-weight: bold;">BSPI : {{mybspi }}</h5>
+                    <app-dashboard1></app-dashboard1>
+
+
+                </div>
+                <div class="col-12 col-md-5">
+                    <h5 class="txtcol1" style="text-align: center;font-weight: bold;">Skill Scores</h5>
+                    <div class="row justify-content-center" style="margin-bottom: .6vw;">
+                        <div class="col-11 rowsty" style="border-color:#e81919;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <div class="row "><strong [ngStyle]="{'color': colortheme_txt}"
+                                    style="text-align: left;font-size: 12px;padding:.3vw">{{dashWords[13]}}:
+                                    {{memscore}}
+                                </strong></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="margin-bottom: .6vw;">
+                        <div class="col-11 rowsty" style="border-color:#ffa300;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <div class="row "><strong [ngStyle]="{'color': colortheme_txt}"
+                                    style="text-align: left;font-size: 12px;padding:.3vw">{{dashWords[14]}}: {{vpscore}}
+                                </strong></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="margin-bottom: .6vw;">
+                        <div class="col-11 rowsty" style="border-color:#8bcc46;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <div class="row "><strong [ngStyle]="{'color': colortheme_txt}"
+                                    style="text-align: left;font-size: 12px;padding:.3vw">{{dashWords[15]}}: {{fascore}}
+                                </strong></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="margin-bottom: .6vw;">
+                        <div class="col-11 rowsty" style="border-color:#f16202;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <div class="row "><strong [ngStyle]="{'color': colortheme_txt}"
+                                    style="text-align: left;font-size: 12px;padding:.3vw">{{dashWords[16]}}: {{psscore}}
+                                </strong></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center" style="margin-bottom: .6vw;">
+                        <div class="col-11 rowsty" style="border-color:#0ab7f6;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <div class="row "><strong [ngStyle]="{'color': colortheme_txt}"
+                                    style="text-align: left;font-size: 12px;padding:.3vw">{{dashWords[17]}}:
+                                    {{lingscore}}
+                                </strong></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- dashboard page date picker container ends-->
+        <!-- dashboard page current days data container starts-->
+        <div class="col-12 col-md-12 col-lg-4">
+            <div class="row justify-content-center">
+                <h5 class="txtcol1"><strong>{{dashWords[127]}}</strong></h5>
+            </div>
+            <div class="row justify-content-center">
+                <mat-selection-list class="sellist">
+                    <mat-list-item class="headerlist ">
+                        <h5 class="headrow col-6 col-md-6 col-lg-6 col-xl-6 "
+                            [ngStyle]=" {'font-size':this.style_listheading}">{{dashWords[126]}}</h5>
+                        <h5 class="headrow col-3 col-md-3 col-lg-3 col-xl-3"
+                            [ngStyle]=" {'font-size':this.style_listheading}">{{headElements[2]}}</h5>
+                        <h5 class="headrow col-3 col-md-3 col-lg-3 col-xl-3"
+                            [ngStyle]=" {'font-size':this.style_listheading}">{{headElements[3]}}</h5>
+                    </mat-list-item>
+
+                    <mat-list-item *ngFor="let el of elements" [ngStyle]="{'background-color':colortheme_bg}">
+                        <h4 class="bodyrow  col-6 col-md-6 col-lg-6 col-xl-6" [ngStyle]="{
+                        'color': colortheme_txt}">{{el.assesstype}}</h4>
+                        <h5 class="bodyrow col-3 col-md-3 col-lg-3 col-xl-3" [ngStyle]="{'color': colortheme_txt}">
+                            {{el.bspi }}</h5>
+                        <h5 class="bodyrow  col-3 col-md-3 col-lg-3 col-xl-3" [ngStyle]="{'color': colortheme_txt}">
+                            {{el.star}}</h5>
+                    </mat-list-item>
+
+                </mat-selection-list>
+            </div>
+        </div>
+        <!-- dashboard page current days data container ends-->
+    </div>
+
+</div>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-db'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-db'"></ngx-ui-loader>

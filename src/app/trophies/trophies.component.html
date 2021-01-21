@@ -1,0 +1,185 @@
+<div ngxUiLoaderBlurred>
+  <!--overall trophies container starts-->
+ 
+  <div class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head_txt" [ngStyle]="{'color': colortheme_txt1}">Overall Trophies
+          <i style="font-size: 20px !important;" class="fa fa-info-circle material-iconsa info" aria-hidden="true"
+            (click)="TrophiesFn()"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row pad-bot-30" style="justify-content: space-evenly;">
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="gold-trophy-wrapper">
+          <div class="gold-circle">
+            <div class="circle-txt">{{overallcntArr[0]}}</div>
+          </div>
+          <div class="gold-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">{{trophyWords[25]}} trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="silver-trophy-wrapper">
+          <div class="silver-circle">
+            <div class="circle-txt">{{overallcntArr[1]}}</div>
+          </div>
+          <div class="silver-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">{{trophyWords[26]}} trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="bronze-trophy-wrapper">
+          <div class="bronze-circle">
+            <div class="circle-txt">{{overallcntArr[2]}}</div>
+          </div>
+          <div class="bronze-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">{{trophyWords[27]}} trophies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- trophy wrapper ends -->
+
+  <div class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head_txt" [ngStyle]="{'color': colortheme_txt1}">Detailed Assessment
+        </div>
+      </div>
+    </div>
+    <div class="row pad-bot-30" style="justify-content: space-evenly;">
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="gold-trophy-wrapper">
+          <div class="gold-circle">
+            <div class="circle-txt">{{trophycntval[0][0]}}</div>
+          </div>
+          <div class="gold-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall gold trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="silver-trophy-wrapper">
+          <div class="silver-circle">
+            <div class="circle-txt">{{trophycntval[0][1]}}</div>
+          </div>
+          <div class="silver-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall silver trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="bronze-trophy-wrapper">
+          <div class="bronze-circle">
+            <div class="circle-txt">{{trophycntval[0][2]}}</div>
+          </div>
+          <div class="bronze-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall bronze trophies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- detailed assessment ends -->
+
+  <div *ngIf="this.isfullschudle==1" class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head_txt" [ngStyle]="{'color': colortheme_txt1}">Personalized Training - C1</div>
+      </div>
+    </div>
+    <div class="row pad-bot-30" style="justify-content: space-evenly;">
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="gold-trophy-wrapper">
+          <div class="gold-circle">
+            <div class="circle-txt">{{trophycntval[1][0]}}</div>
+          </div>
+          <div class="gold-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall gold trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="silver-trophy-wrapper">
+          <div class="silver-circle">
+            <div class="circle-txt">{{trophycntval[1][1]}}</div>
+          </div>
+          <div class="silver-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall silver trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="bronze-trophy-wrapper">
+          <div class="bronze-circle">
+            <div class="circle-txt">{{trophycntval[1][2]}}</div>
+          </div>
+          <div class="bronze-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall bronze trophies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personalized Training - C1 ends -->
+
+  <div *ngIf="this.isfullschudle==1" class="trophy_wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head_txt" [ngStyle]="{'color': colortheme_txt1}">Personalized Training - C2</div>
+      </div>
+    </div>
+    <div class="row pad-bot-30" style="justify-content: space-evenly;">
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="gold-trophy-wrapper">
+          <div class="gold-circle">
+            <div class="circle-txt">{{trophycntval[2][0]}}</div>
+          </div>
+          <div class="gold-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall gold trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="silver-trophy-wrapper">
+          <div class="silver-circle">
+            <div class="circle-txt">{{trophycntval[2][1]}}</div>
+          </div>
+          <div class="silver-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall silver trophies</div>
+        </div>
+      </div>
+      <div class="col-7 col-md-5 col-lg-4">
+        <div class="bronze-trophy-wrapper">
+          <div class="bronze-circle">
+            <div class="circle-txt">{{trophycntval[2][2]}}</div>
+          </div>
+          <div class="bronze-trophy"></div>
+          <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Overall bronze trophies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personalized Training - C2 ends -->
+
+
+</div>
+<ng-template #Trophies let-modal>
+  <!--trophies information popup-->
+  <div class="show">
+    <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+      <button type="button" class=" infoclose" style=" outline: none;" [ngStyle]="{'color': colortheme_txt}"
+        (click)="modal.close('Click')">X</button>
+    </div>
+    <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+      <h5 [ngStyle]="{'color': colortheme_txt}">{{trophyWords[211]}} 🏆 </h5>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+        ✔️ {{trophyWords[212]}}
+      </p>
+      <h5 [ngStyle]="{'color': colortheme_txt}">How do I earn trophies? </h5>
+      <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+        ✔️ {{trophyWords[213]}}
+      </p>
+    </div>
+  </div>
+</ng-template>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-trophies'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-trophies'"></ngx-ui-loader>

@@ -1,0 +1,562 @@
+<div class="profile-header d-flex flex-column" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+  <div class="container  d-flex flex-column flex-lg-row">
+    <!-- profile image start -->
+    <div class="row justify-content-center profile-image">
+      <form [formGroup]="registrationForm">
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+          </div>
+
+          <div class="avatar-preview">
+            <div *ngIf="!changeIMG" id="imagePreview" [style.backgroundImage]="image">
+            </div>
+            <div *ngIf="changeIMG" id="imagePreview" [style.backgroundImage]="'url('+ imageUrl1 +')'">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- profile image end -->
+    <div class="d-flex flex-column align-self-end w-100 profile-details">
+      <div class="d-flex  flex-column flex-lg-row align-items-end justify-content-between">
+        <div class="pl-5  mb-2">
+          <!-- Profile Name -->
+          <div *ngIf="!edit_name_vis" class=" justify-content-center">
+            <h4 class="profiletext dark-bg-text" [ngStyle]="{'color': colortheme_txt1}">{{uname_1}}
+              <mat-icon *ngIf="false" class="material-icons profileicon2"
+                (click)="addname()">edit</mat-icon>
+            </h4>
+          </div>
+          <div *ngIf="edit_name_vis" class="d-flex justify-content-center align-items-center profile-edit">
+            <input class="input-field5" matInput maxlength="150" type="text" placeholder="user name" name="edit_name"
+              [(ngModel)]="edit_name">
+            <mat-icon class="material-icons profileicon" (click)="newclick()"> highlight_off</mat-icon>
+            <strong class="edit_save" (click)="save_nameFn()">save</strong>
+          </div>
+        </div>
+        <div class="header-action mb-3">
+          <a class="dark-bg-text mr-3" (click)="openDialog()" [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons profileicon" [ngStyle]="{'color': colortheme_txt1}"> create </mat-icon> Gallery
+          </a>
+          <a class="dark-bg-text" (click)="popup_fn()" [ngStyle]="{'color': colortheme_txt}">
+            <mat-icon class="material-icons profileicon" [ngStyle]="{'color': colortheme_txt1}"> lock </mat-icon> Change Password
+          </a>
+        </div>
+      </div>
+      <div class="d-flex pl-5 profile-info" >
+        <p class="dark-bg-text" [ngStyle]="{'color': colortheme_txt1}"> <strong *ngIf="schol_vis" [ngStyle]="{'color': colortheme_txt1}"> <svg width="18" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.8">
+          <path d="M3.6665 17.875C3.6665 16.6093 4.69225 15.5836 5.95794 15.5836H18.3329" stroke="#FF8450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.95843 1.83356H18.3334V20.1671H5.95843C4.69274 20.1671 3.66699 19.1414 3.66699 17.8757V4.12568C3.66699 2.85999 4.69274 1.83424 5.95843 1.83424V1.83356Z" stroke="#FF8450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g></svg>  {{school}} ,</strong> {{grade}}</p>
+        <p class="dark-bg-text" [ngStyle]="{'color': colortheme_txt1}">
+          <mat-icon style="color:#FF8450">stay_current_portrait</mat-icon> {{mobile_no}}
+        </p>
+        <p class="dark-bg-text" [ngStyle]="{'color': colortheme_txt1}">
+          <mat-icon style="color:#FF8450">cake</mat-icon> {{pro_dob_val}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- profile body -->
+
+<div class="container mt-120 profile-body-main">
+  <div class="row">
+    <div class="col-lg" >
+      <div class="mr-1  px-2 py-2  dark-theme-bg-light d-flex flex-column align-items-stretch h-100"
+      [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+        <div class="d-flex justify-content-between px-3 py-3 light-text-color profile-body-header">
+          <p [ngStyle]="{'color': colortheme_txt}">Theme</p>
+        </div>
+
+        <!-- <div class="d-flex flex-wrap  px-2 py-2">
+          <div *ngFor="let item of theme.gradient_color;let i = index;" class="mx-1">
+            <button class="dot centered fadeIn" mat-icon-button (click)="ChangeTheme(i)" *ngIf="i<8 ? true :false"
+              style="font-weight: bold;" [ngStyle]="{'background-image':item}">
+            </button>
+          </div>
+        </div> -->
+
+        <div class="row d-flex theme-action " style="justify-content: center !important;">
+          <button class="themesty" (click)="basetheme(1)" [ngStyle]="{'color': colortheme_txt}" ><strong style="color:black !important">
+            Light Theme</strong></button>
+          <button class="themesty" (click)="basetheme(0)" [ngStyle]="{'color': colortheme_txt}">Dark Theme</button>
+        </div>
+
+        <!-- <div *ngIf="!edit_schol_vis">
+          <div *ngIf="!schol_vis" class="row justify-content-center" style=" margin-top: 1px;">
+            <h4 class="profiletext" (click)="addschool()"
+              style="font-size: 16px;font-weight: bold;cursor: pointer;" [ngStyle]="{'color': colortheme_txt}">
+              <mat-icon class="material-icons profileicon">add_circle</mat-icon>
+              add school details
+            </h4>
+          </div>
+          <div *ngIf="schol_vis" class="row justify-content-center" style=" margin-top: 1px;">
+            <h4 class="profiletext" style="font-size: 14px;;font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">
+              &nbsp; <mat-icon class="material-icons profileicon">work</mat-icon>
+              &nbsp;&nbsp; {{school}}
+              <mat-icon class="material-icons profileicon2" (click)="addschool()">edit</mat-icon>
+            </h4>
+          </div>
+        </div>
+        <div *ngIf="edit_schol_vis" class="row justify-content-center address-edit" style=" margin-top: 1px;">
+          <input class="input-field5" matInput maxlength="150" type="text" placeholder="school name" name="edit_school"
+            [(ngModel)]="edit_school">
+          <mat-icon class="material-icons profileicon" (click)="newclick1()">highlight_off</mat-icon>
+          <strong class="edit_save" (click)="save_schFn()">save</strong>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="col-lg" >
+      <div class="mr-1  px-2 py-2  dark-theme-bg-light d-flex flex-column align-items-stretch h-100"
+      [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+        <div class="d-flex justify-content-between px-3 py-3 light-text-color profile-body-header">
+          <p [ngStyle]="{'color': colortheme_txt}">{{selpuzzleaudioword}}</p>
+        </div>
+
+        <div class="d-flex flex-wrap  px-2 py-2  w-100" >
+          <div class="theme-background w-100">
+            <div class="col-12">
+
+              <div class="d-flex player justify-content-between" [ngStyle]="{'background': colortheme_bg_base}">
+                <mat-basic-audio-player [audioUrl]="soundurl1" (click)="audioStop()" #audio1 [title]=1
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 1 </h6>
+                <button type="button" id=1 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+              <div class="d-flex player">
+                <mat-basic-audio-player [audioUrl]="soundurl2" (click)="audioStop1()" #audio2 [title]=2
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 2 </h6>
+
+                <button type="button" id=2 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+              <div class="d-flex  player">
+                <mat-basic-audio-player [audioUrl]="soundurl3" (click)="audioStop2()" #audio3 [title]=3
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 3 </h6>
+                <button type="button" id=3 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+              <div class="d-flex  player">
+                <mat-basic-audio-player [audioUrl]="soundurl4" (click)="audioStop3()" #audio4 [title]=4
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 4 </h6>
+                <button type="button" id=4 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+              <div class="d-flex  player" >
+                <mat-basic-audio-player [audioUrl]="soundurl5" (click)="audioStop4()" #audio5 [title]=5
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 5 </h6>
+                <button type="button" id=5 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+              <div class="d-flex  player">
+                <mat-basic-audio-player [audioUrl]="soundurl6" (click)="audioStop5()" #audio6 [title]=6
+                  [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                </mat-basic-audio-player>
+                <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 6 </h6>
+                <button type="button" id=6 (click)="selectaudio($event)"
+                  class="btn languageBtn animated pulse infinite btn_sty" [ngStyle]="{'color': colortheme_txt}">SET</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-lg" >
+      <div class="mr-1  px-2 py-2  dark-theme-bg-light d-flex flex-column align-items-stretch h-100" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+        <div class="d-flex justify-content-between px-3 py-3 light-text-color profile-body-header">
+          <p [ngStyle]="{'color': colortheme_txt}">Referral Code</p>
+        </div>
+        <div>
+
+          <!-- coupon code container starts-->
+          <div class="row justify-content-center">
+            <h4 class="langtxt1 copy-clip-board" style="margin-top:1vw;">
+              <div class="d-flex">
+                <div class="copy-icon" matTooltip="copy to clipboard" matTooltipPosition="above">
+                  <i class="far fa-copy coloricon" (click)="copyMessage(this.only_coupon)" ></i>
+                  <!-- <mat-icon (click)="copyMessage(this.only_coupon)" class="coloricon" matTooltip="copy to clipboard"
+                matTooltipPosition="right">library_books</mat-icon> -->
+                </div>
+                <div class="coupon-text new_deg_col">
+                  <strong style="font-size: 17px;color:black;padding:4px">
+                    {{this.only_coupon}}</strong>
+                </div>
+              </div>
+            </h4>
+          </div>
+          <div  class="row justify-content-center " style="margin:.5vw;margin-top: 10px;">
+            <button class="themesty" (click)="sharincall()" [ngStyle]="{'color': colortheme_txt}">Share
+            </button>
+          </div>
+          <div class="row justify-content-center " style="margin:2vw;">
+            <div *ngIf="share_val" class="charddig" style="background-color:#ffffff36;border-radius: 2px;"
+              [ngStyle]="{'background-color': colortheme_shad_val}">
+              <a [href]="twitter_href" target="_blank">
+                <img class="socialimg" src="../../assets/images/t_svg.svg" alt="" matTooltip="Twitter"
+                  matTooltipPosition="above">
+              </a>
+              <a [href]="watsapp_href" data-text="Take a look at this awesome website:" target="_blank">
+                <img class="socialimg" src="../../assets/images/w_svg.svg" alt="" matTooltip="Watsapp"
+                  matTooltipPosition="above">
+              </a>
+              <a [href]="f_fb_href" target="_blank">
+                <img class="socialimg" src="../../assets/images/fb_svg.svg" alt="" matTooltip="Facebook"
+                  matTooltipPosition="above">
+              </a>
+              <a [href]="mail_href" target="_blank">
+                <img class="socialimg" src="../../assets/images/g_svg.svg" alt="" matTooltip="E-mail"
+                  matTooltipPosition="above">
+              </a>
+              <a [href]="linkedin_href" property='og:title' content='coupon_code:123456' target="_blank">
+                <img class="socialimg" src="../../assets/images/i_svg.svg" alt="" matTooltip="LinkedIn"
+                  matTooltipPosition="above">
+              </a>
+              <linkedin-share></linkedin-share>
+            </div>
+          </div>
+          <!-- coupon code container ends-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div ngxUiLoaderBlurred>
+    <ng-template #reset_pass let-modal>
+        <!-- Reset password popup-->
+        <div class="show change-password-model">
+            <div class="infoheader"  [ngStyle]="{'background-color': colortheme_bg_base_sec, 'border-color':colortheme_bg_base_sec}">
+                <button type="button" class=" infoclose"  (click)="modal.close('Click')" [ngStyle]="{'color': colortheme_txt}">X</button>
+            </div>
+            <div class="infobody1" [ngStyle]="{'text-align':this.potrait_val, 'background-color': colortheme_bg_base_sec, 'border-color':colortheme_bg_base_sec}">
+                <h6 class="title" [ngStyle]="{'color': colortheme_txt}">Change Password</h6>
+
+                <label class="input-label" [ngStyle]="{'color': colortheme_txt}">New Password</label>
+
+                <div class="input-container ">
+                    <!-- <span>
+                        <mat-icon class="material-icons" style="text-align: left;">lock</mat-icon>
+                    </span> -->
+                    <input class="input-field2" matInput maxlength="25" [type]='this.eye_type'
+                        placeholder="New password" name="newpass_val" [(ngModel)]="newpass_val" [ngStyle]="{'border-color': colortheme_bg_base_sec}">
+                    <span class="span1" [ngStyle]="{'border-color': colortheme_bg_base_sec}">
+                        <i class="fa fa-eye eye" aria-hidden="true" *ngIf="show"></i>
+                        <i class="fa fa-eye-slash eye" aria-hidden="true" *ngIf="!show"></i>
+                    </span>
+                </div>
+                <label class="input-label" [ngStyle]="{'color': colortheme_txt}">Confirm Password</label>
+                <div class="input-container ">
+                    <!-- <span>
+                        <mat-icon class="material-icons" style="text-align: left;">enhanced_encryption</mat-icon>
+                    </span> -->
+                  <input class="input-field2" matInput maxlength="25" [type]='this.eye_type1'
+                        placeholder="Confirm password" name="newpass_con_val" [(ngModel)]="newpass_con_val" [ngStyle]="{'border-color': colortheme_bg_base_sec}">
+                    <span class="span1" (click)="onClick1()" [ngStyle]="{'border-color': colortheme_bg_base_sec}">
+                        <i class="fa fa-eye eye1" aria-hidden="true" *ngIf="show1"></i>
+                        <i class="fa fa-eye-slash eye1" aria-hidden="true" *ngIf="!show1"></i>
+                    </span>
+                </div>
+                <div style="text-align-last: center;margin-top: 5vw;margin-bottom: 2vw;">
+                    <strong class="chnge_pass1 btn-align"  mat-raised-button
+                        (click)="mypass()">submit</strong></div>
+                <div>
+                    <h6 style="text-align:center;font-size:10px;font-weight: bold;margin-right:2px" [ngStyle]="{'color': colortheme_txt}">
+                        {{newpass_error}}</h6>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div>
+
+        <div class="row  justify-content-center basedeg"
+            style="padding:.4vw;margin:4vw;margin-top:2vw;margin-bottom:0px;">
+            <!-- profile details container starts-->
+            <div class="col-12 col-lg-4 deg1">
+
+                <!-- <div class="row justify-content-center" style=" margin-top: 5vw;">
+                    <form [formGroup]="registrationForm">
+                        <div class="avatar-upload">
+                            <div class="avatar-edit">
+                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput
+                                    (change)="uploadFile($event)" />
+                            </div>
+
+                            <div class="avatar-preview">
+                                <div *ngIf="!changeIMG" id="imagePreview" [style.backgroundImage]="image">
+                                </div>
+                                <div *ngIf="changeIMG" id="imagePreview"
+                                    [style.backgroundImage]="'url('+ imageUrl1 +')'">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> -->
+
+                <!-- <div *ngIf="!edit_name_vis" class="row justify-content-center" style=" margin-top: 20px;">
+                    <h4 class="profiletext" style="font-size: 20px;color:black;font-weight: bold;text-align: center;">
+                        &nbsp; <mat-icon class="material-icons profileicon">person</mat-icon>
+                        &nbsp;&nbsp;{{uname_1}}&nbsp;&nbsp;
+                        <mat-icon class="material-icons profileicon2" (click)="addname()">edit</mat-icon>
+                    </h4>
+                </div> -->
+                <!-- <div *ngIf="edit_name_vis" class="row justify-content-center" style=" margin-top: 20px;">
+                    <input class="input-field5"
+                        style="color:black;outline: none;background-color: rgba(255, 255, 255, 0.212);" matInput
+                        maxlength="150" type="text" placeholder="user name" name="edit_name" [(ngModel)]="edit_name">
+                    <sup>
+                        <mat-icon class="material-icons profileicon" style="color:#767676;
+                            cursor: pointer;" (click)="newclick()"> highlight_off</mat-icon>
+                    </sup>
+                    <strong class="edit_save" (click)="save_nameFn()">save</strong>
+                </div> -->
+                <!-- <div *ngIf="!edit_schol_vis">
+                    <div *ngIf="!schol_vis" class="row justify-content-center" style=" margin-top: 1px;">
+                        <h4 class="profiletext" (click)="addschool()"
+                            style="font-size: 16px;color:black;font-weight: bold;cursor: pointer;">
+                            <mat-icon class="material-icons profileicon">add_circle</mat-icon>
+                            add school details
+                        </h4>
+                    </div>
+                    <div *ngIf="schol_vis" class="row justify-content-center" style=" margin-top: 1px;">
+                        <h4 class="profiletext" style="font-size: 16px;color:black;font-weight: bold;">
+                            &nbsp; <mat-icon class="material-icons profileicon">work</mat-icon>
+                            &nbsp;&nbsp; {{school}}
+                            <mat-icon class="material-icons profileicon2" (click)="addschool()">edit</mat-icon>
+                        </h4>
+                    </div>
+                </div>
+                <div *ngIf="edit_schol_vis" class="row justify-content-center" style=" margin-top: 1px;">
+                    <input class="input-field5"
+                        style="color:black;outline: none;background-color: rgba(255, 255, 255, 0.212);" matInput
+                        maxlength="150" type="text" placeholder="school name" name="edit_school"
+                        [(ngModel)]="edit_school">
+                    <sup>
+                        <mat-icon class="material-icons profileicon" style="color:#767676;
+                            cursor: pointer;" (click)="newclick1()">highlight_off</mat-icon>
+                    </sup>
+                    <strong class="edit_save" (click)="save_schFn()">save</strong>
+                </div>
+
+                <div class="row justify-content-center" style=" margin-top: 1px;">
+                    <h4 class="profiletext" style="font-size: 13px;color:black">
+                        {{grade}}
+                    </h4>
+                </div>
+
+                <div class="row justify-content-center" style="margin-top: 30px;">
+                    <div class="col-4 col-md-4 col-lg-4" style="padding:5px;margin:2px;
+               padding-left:25px;padding-right:25px;
+               border-left:solid;border-right:solid;border-width:1px;
+               border-color:white;
+               background-color: rgba(255, 255, 255, 0.123);">
+                        <div class="row justify-content-center">
+                            <mat-icon class="material-icons profileicon">stay_current_portrait</mat-icon>
+                        </div>
+                        <div class="row justify-content-center" style="font-size: 12px;">{{mobile_no}}</div>
+                    </div>
+                    <div *ngIf="false" class="col-4 col-md-3 col-lg-3" style="padding:5px;
+               padding-left:25px;padding-right:25px;margin:2px;
+               background-color: rgba(255, 255, 255, 0.123);
+               border-left:solid;border-right:solid;border-width:1px;
+               border-color:white">
+                        <div class="row justify-content-center">
+                            <mat-icon class="material-icons profileicon">location_city</mat-icon>
+                        </div>
+                        <div class="row justify-content-center" style="font-size: 11px;">kumbakonam</div>
+                    </div>
+                    <div class="col-4 col-md-4 col-lg-4" style="padding:5px;margin:2px;
+             border-left:solid;border-right:solid;border-width:1px;
+               border-color:white;
+                        background-color: rgba(255, 255, 255, 0.123);">
+                        <div class="row justify-content-center">
+                            <mat-icon class="material-icons profileicon">cake</mat-icon>
+                        </div>
+                        <div class="row justify-content-center" style="font-size: 12px;">{{pro_dob_val}}</div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center" style=" margin-top: 1vw;">
+                    <div class="col-11  col-xl-5" (click)="openDialog()" style="cursor: pointer;font-size:16px;padding:.7vw;margin:10px;vertical-align: sub;border-radius: 5px;
+                background-color:#f7f9f969;text-align: -webkit-center;border: solid;border-color:white">
+                        <strong>{{profileWords[55]}}</strong> </div>
+                    <div class="col-11  col-xl-5 " style="margin:10px;cursor: pointer;font-size:14.5px;padding:.7vw;vertical-align: sub;border-radius: 5px;
+                background-color:#f7f9f969;text-align: -webkit-center;border: solid;border-color:white"
+                        (click)="popup_fn()">
+                        <strong>Change Password</strong></div>
+                </div> -->
+
+            </div>
+            <!-- profile details container ends-->
+
+            <div class="col-12 col-lg-8 deg2" [ngStyle]="{'background-color':colortheme_bg}">
+                
+                <!-- theme container starts-->
+                <!-- <div class="row justify-content-center langtxt1" style="text-transform: uppercase;margin-top: 2vw;">
+                    <h4 class="langtxt" style="font-weight: bold;font-size: 17px;">SELECT COLOR THEME</h4>
+                </div>
+                <div class="row justify-content-center" style="margin:1vw;margin-top: 1vw;
+                padding-bottom:1vw;">
+                    <div *ngFor="let item of theme.gradient_color;let i = index;">
+                        <button class="dot centered fadeIn" mat-icon-button (click)="ChangeTheme(i)"
+                            *ngIf="i<8 ? true :false" style="font-weight: bold;" [ngStyle]="{'background-image':item}">
+                        </button>
+                    </div>
+                </div>
+                <div class="row justify-content-center" style="margin:.5vw;margin-top: 10px;
+                padding-bottom:2vw;border-bottom: solid;border-color:#efefef;">
+                    <button class="themesty" (click)="basetheme(1)" [ngStyle]="{'color': colortheme_txt}">Light
+                        Theme</button>
+                    <button class="themesty" (click)="basetheme(0)" [ngStyle]="{'color': colortheme_txt}">Dark
+                        Theme</button>
+                </div> -->
+                <!-- theme container ends-->
+                <!-- coupon code container starts-->
+                <!-- <div class="row justify-content-center">
+                    <h4 class="langtxt1" style="margin-top:1vw;
+                    font-size: 17px;"><strong>COUPON CODE</strong>
+                    </h4>
+                </div> -->
+                <!-- <div class="row justify-content-center">
+                    <h4 class="langtxt1" style="margin-top:1vw;">
+                        <strong class="new_deg_col" style="font-size: 17px;color:black;padding:4px">
+                            {{this.only_coupon}}</strong>
+                        <mat-icon (click)="copyMessage(this.only_coupon)" class="coloricon"
+                            matTooltip="copy to clipboard" matTooltipPosition="right">library_books</mat-icon>
+                    </h4>
+                </div> -->
+                <!-- <div class="row justify-content-center " style="margin:.5vw;margin-top: 10px;">
+                    <button class="themesty" (click)="sharincall()" [ngStyle]="{'color': colortheme_txt}">Share
+                    </button>
+                </div> -->
+                <!-- <div class="row justify-content-center " style="margin:2vw;">
+                    <div *ngIf="share_val" class="charddig" style="background-color:#ffffff36;border-radius: 2px;"
+                        [ngStyle]="{'background-color': colortheme_shad_val}">
+                        <a [href]="twitter_href" target="_blank">
+                            <img class="socialimg" src="../../assets/images/t_svg.svg" alt="" matTooltip="Twitter"
+                                matTooltipPosition="above">
+                        </a>
+                        <a [href]="watsapp_href" data-text="Take a look at this awesome website:" target="_blank">
+                            <img class="socialimg" src="../../assets/images/w_svg.svg" alt="" matTooltip="Watsapp"
+                                matTooltipPosition="above">
+                        </a>
+                        <a [href]="fb_href" target="_blank">
+                            <img class="socialimg" src="../../assets/images/fb_svg.svg" alt="" matTooltip="Facebook"
+                                matTooltipPosition="above">
+                        </a>
+                        <a [href]="mail_href" target="_blank">
+                            <img class="socialimg" src="../../assets/images/g_svg.svg" alt="" matTooltip="E-mail"
+                                matTooltipPosition="above">
+                        </a>
+                        <a [href]="linkedin_href" property='og:title' content='coupon_code:123456' target="_blank">
+                            <img class="socialimg" src="../../assets/images/i_svg.svg" alt="" matTooltip="LinkedIn"
+                                matTooltipPosition="above">
+                        </a>
+                        <linkedin-share></linkedin-share>
+                    </div>
+                </div> -->
+                <!-- coupon code container ends-->
+                <!-- audio container starts-->
+                <!-- <div class="row justify-content-center langtxt1" style="border-top: solid;padding-top:2vw;border-color:#efefef;
+                font-weight: bold;text-transform: uppercase;
+            margin-top:2vw;margin-left:0vw;font-size: 17px;">
+                    {{selpuzzleaudioword}}
+                </div> -->
+                <!-- <div class="row background">
+                    <div class="col-12 col-sm-6">
+                        <div class="row justify-content-center" style="align-items: flex-end;padding:1vw;"
+                            [ngStyle]="{'background-color':colortheme_bg}">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 1 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl1" (click)="audioStop()" #audio1 [title]=1
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=1 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                        <div [ngStyle]="{'background-color':colortheme_bg}" class="row justify-content-center" style="align-items: flex-end;padding:1vw;
+                        border-right: solid;border-color: #b9b9b9;">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 2 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl2" (click)="audioStop1()" #audio2 [title]=2
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=2 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                        <div [ngStyle]="{'background-color':colortheme_bg}" class="row justify-content-center"
+                            style="align-items: flex-end;padding:1vw;">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 3 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl3" (click)="audioStop2()" #audio3 [title]=3
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=3 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div [ngStyle]="{'background-color':colortheme_bg}" class="row justify-content-center"
+                            style="align-items: flex-end;padding:1vw;">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 4 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl4" (click)="audioStop3()" #audio4 [title]=4
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=4 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                        <div [ngStyle]="{'background-color':colortheme_bg}" class="row justify-content-center"
+                            style="align-items: flex-end;padding:1vw;">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 5 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl5" (click)="audioStop4()" #audio5 [title]=5
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=5 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                        <div [ngStyle]="{'background-color':colortheme_bg}" class="row justify-content-center"
+                            style="align-items: flex-end;padding:1vw;">
+                            <h6 class="profiletext1" [ngStyle]="{'color': colortheme_txt}">{{profileWords[48]}} 6 </h6>
+                            <mat-basic-audio-player [audioUrl]="soundurl6" (click)="audioStop5()" #audio6 [title]=6
+                                [autoPlay]="false" muted="muted" [displayVolumeControls]="false">
+                            </mat-basic-audio-player>
+                            <button type="button" id=6 (click)="selectaudio($event)"
+                                class="btn languageBtn animated pulse infinite btn_sty" style="font-weight: bold;  border-style: solid;padding:.2vw;padding-right:.7vw;
+                                    padding-left:.7vw;">SET</button>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- audio container ends-->
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-profile'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-profile'"></ngx-ui-loader>

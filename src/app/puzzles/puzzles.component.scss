@@ -1,0 +1,783 @@
+$primary-color: var(--primary-color);
+$secondary-color: var(--base-color);
+$ter-color:var(--accent-color);
+
+$comprimary-color: #ffbc24;
+$comsecondary-color: #000;
+
+
+$text-color:#fff;
+$secondarytext-color:#000;
+.roadstyle{ 
+// background-color: $primary-color;
+box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.event_txt_cls{
+background-image:linear-gradient(to right,transparent , $ter-color);
+padding: 3px; padding-top:11px;
+padding-bottom:11px; font-family: fantasy;font-size: small;
+}
+.event_icon_cls{
+transform: rotate(90deg);font-weight: bold;font-size:40px;
+background-color:transparent;
+}
+.progressbarcol {
+border-color:$ter-color;
+padding: 10px;
+margin: 10px;
+
+h4 {
+text-align: center;
+
+}
+
+border-style: solid;
+// border-color:$comsecondary-color;
+border-radius: 10px;
+color:$text-color;
+background-color:$secondarytext-color;
+-webkit-box-shadow: 0 0 5px 2px $primary-color;
+-moz-box-shadow: 0 0 5px 2px $primary-color;
+box-shadow: 0 0 5px 2px $primary-color;
+}
+
+.memorycolor {
+::ng-deep .progress-bar {
+background-color: #e81919 !important;
+}
+
+
+
+}
+.material-iconsa {
+font-size: 20px;
+// horizontal-align: -webkit-baseline-middle;
+//    vertical-align:-webkit-baseline-middle;
+text-align: justify;
+padding-left: 5px;
+padding-right: 15px;
+color:$ter-color;
+}
+.info
+{
+cursor: pointer;
+}
+.visualprocessingcolor {
+::ng-deep .progress-bar {
+background-color: #ffa300 !important;
+}
+
+}
+
+.focusattentioncolor {
+::ng-deep .progress-bar {
+background-color: #8bcc46 !important;
+}
+
+}
+
+.problemsolvingcolor {
+::ng-deep .progress-bar {
+background-color: #f16202 !important;
+}
+
+}
+
+.linguisticscolor {
+::ng-deep .progress-bar {
+background-color: #0ab7f6 !important;
+}
+
+}
+
+.puzzle-card {
+//   padding:10px;
+margin: 10px;
+color: $secondarytext-color;
+text-align: center;
+background: transparent;
+border-color: $text-color;
+border-style: solid;
+border-radius: 15px;
+min-height: 340px;
+min-width: 180px;
+-webkit-box-shadow: 0 0 5px 2px $primary-color;
+-moz-box-shadow: 0 0 5px 2px $primary-color;
+box-shadow: 0 0 5px 2px $primary-color;
+}
+
+.puzzlefinishpointer {
+margin-top: 20px;
+}
+
+.puzzle {
+margin: 10px;
+}
+
+.puzzleimage {
+border-style: solid;
+border-radius: 10px;
+border-color: $ter-color;
+padding: 15px;
+background: $comsecondary-color;
+}
+
+.playBtn {
+color: $ter-color;
+background: $ter-color;
+width: 120px;
+margin: 20px;
+font-weight: bold ;
+border-color: $ter-color;
+border-style: solid;
+// box-shadow: 5px 5px 28px #ffffff8c;
+box-shadow: 0 0 5px 2px rgb(216, 215, 215);
+}
+
+.puzzleheading {
+background: $comsecondary-color;
+width: 100%;
+color: white; // $primary-color;
+border-top-left-radius: 10px;
+padding: 10px;
+border-top-right-radius: 10px;
+font-weight: bold;
+}
+
+.puzzlefooter {
+background: $comsecondary-color;
+width: 100%;
+color: $comprimary-color;
+border-bottom-left-radius: 10px;
+margin-top: 5px;
+height: 145px;
+border-bottom-right-radius: 10px;
+}
+
+.puzzlecontainer {
+padding-top: 20px;
+}
+.puzzlecontainer1 {
+padding-top: 40px;
+}
+.timetablehead{
+color:$ter-color;
+}
+.Memorypuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #e81919 !important;
+
+}
+
+.visualprocessingpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #ffa300 !important;
+
+}
+
+.focusattentionpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #8bcc46 !important;
+
+}
+
+.problemsolvingpuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #f16202 !important;
+
+}
+
+.linguisticspuzzle {
+border: solid;
+border-color:  $ter-color !important;
+background-color: #0ab7f6 !important;
+
+}
+.Memorypuzzle_new {
+background-color:#F25858 !important;
+
+}
+
+.visualprocessingpuzzle_new {
+background-color: #FFBE4B !important;
+
+}
+
+.focusattentionpuzzle_new {
+background-color: #97C865 !important;
+
+}
+
+.problemsolvingpuzzle_new {
+background-color: #F1904E !important;
+
+}
+
+.linguisticspuzzle_new {
+background-color: #7ED0EE !important;
+
+}
+.cup {
+color:rgb(110, 110, 110);
+font-size: 43px;
+padding: 2px;
+}
+
+.staricon {
+margin: 5px;
+margin-top: 0px;
+}
+
+.radioicon {
+color: $ter-color;
+font-size: 25px;
+margin: 5px;
+
+}
+
+.goldstar {
+color: #ffbc24;
+font-size: 25px;
+
+}
+
+.goldcup {
+color: #ffbc24;
+
+}
+
+.silvercup {
+color: rgb(211, 207, 207);
+}
+
+.bronzecup {
+color: #cd7f32;
+}
+.align_trophy{
+text-align: center;
+
+}
+.star {
+// color: #fff;
+font-size: 25px;
+}
+
+.alignskill {
+align-self: center;
+}
+
+.skilltxt {
+font-size: 18px;
+}
+
+
+
+
+.strikethrough {
+position: relative;
+}
+
+.strikethrough:before {
+position: absolute;
+content: "";
+left: 0;
+top: 45%;
+right: 0;
+border-top: 5px solid;
+border-color: red;
+
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+}
+
+
+.playBtn:hover {
+transform: scale(1.03);
+cursor: pointer;
+}
+
+
+::ng-deep .tooltip-inner {
+background-color: $ter-color !important;
+font-size: 125%;
+opacity: 1.0 !important;
+min-width: 23vw;
+max-width: 40vw;
+//   z-index: 2;
+}
+
+::ng-deep .arrow::before {
+border-top-color: $ter-color !important;
+opacity: 1.0 !important;
+}
+
+
+
+
+:lang(ta) {
+.puzzleheading {
+font-size: 15px;
+}
+
+.playBtn {
+font-size: 10px;
+}
+
+.puzzleimage {
+padding-bottom: 20px;
+}
+
+}
+
+
+
+.nopuzzle{
+// margin: auto;
+width: 50%;
+border: 3px solid $ter-color;
+padding: 10px;
+margin-bottom:30vw;
+margin-top:15vw;
+
+}
+
+.outskilltropyrow
+{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+button.infoclose
+{
+background-color: transparent;
+color: white;
+border-color: transparent;
+font-weight: bold;
+margin-right: 10px;
+margin-top: 10px;
+outline: none !important;
+}
+
+.btn,.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
+outline: none!important;
+}  
+*:focus{
+outline: none !important;
+}
+.new_show
+{
+
+border-radius: 20px;
+// -webkit-box-shadow: 0 0 5px 2px white;
+// -moz-box-shadow: 0 0 5px 2px white;
+// box-shadow: 0 0 5px 2px white;
+}
+.box{
+position: relative;
+display: inline-block; /* Make the width of box same as image */
+}
+.box .text{
+color:black;
+position: absolute;
+z-index: 999;
+margin: 0 auto;
+left: 0;
+right: 180px;
+top: 8%; /* Adjust this value to move the positioned div up and down */
+text-align: start;
+width: 60%; /* Set the width of the positioned div */
+}
+.new_infoheader
+{
+margin-top: 10px;
+color:black;
+background-color: white ;
+text-align: right;
+border:solid;
+border-color:black;
+border-bottom-style: none ;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+
+}
+.sbcbtn{
+background-image: linear-gradient(to bottom right, #4f670c, #aad43a);
+font-size:13px;
+padding:3px;
+margin-right:8px;
+color:white;
+border-color: #80ae06;
+border-radius: 3px;
+margin-bottom:15px;
+margin-top:15px;
+border:none;
+}
+button.new_infoclose
+{
+background-color: transparent;
+color: black;
+border-color: transparent;
+font-weight: bold;
+margin-right: 10px;
+margin-top: 10px;
+outline: none !important;
+}
+.new_infobody
+{
+margin-bottom: 10px;
+color:white;
+background-color: white ;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+padding:10px;
+text-align-last: end;
+border:solid;
+border-color:black;
+border-top-style: none ;
+
+}
+.show
+{
+
+border-radius: 0px;
+// -webkit-box-shadow: 0 0 5px 2px white;
+// -moz-box-shadow: 0 0 5px 2px white;
+// box-shadow: 0 0 5px 2px white;
+}
+.infoheader
+{
+margin-top: 10px;
+color:white;
+background-color: black ;
+border-color: white ;
+text-align: right;
+border: solid ;
+border-bottom: none ;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+
+}
+
+.infobody
+{
+margin-bottom: 10px;
+color:white;
+background-color: black;
+border-color: white;
+border: solid ;
+border-top: none ;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+padding:10px;
+
+}
+
+.infotxt {
+padding:10px;
+padding-bottom: 0px;
+color:#fafafaf2;
+}
+.greatsmsg
+{
+text-align: right;
+}
+
+
+.modal-header {
+background-color: wheat;
+color: black;
+padding-left: 35px;
+border: wheat;
+}
+
+.modal-body {
+padding-left: 40px;
+padding-right: 50px;
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: white;
+font-size: 19px;
+border-radius: 10%;
+border: solid black 2px;
+// text-align: justify;
+}
+
+.modalbtn {
+background-color: black;
+color: white;
+margin-right: 40px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 7px;
+padding-bottom: 7px;
+margin-bottom: 10px;
+border-radius: 20%;
+display: inline-block;
+float: right;
+width: 90px;
+}
+.cron{
+// border-radius: 10px;
+// border-color:  $ter-color ;
+background-color: transparent;
+// border: solid;
+}
+
+.full{
+position:fixed;
+left:0;
+top:0;
+right:0;
+bottom:0;
+width:100% !important;
+height:100% !important;
+}
+
+//////////////////////////////////@at-root
+/////////////////////////////////////////////
+.asssty{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 133% */
+    
+    
+    color: rgba(255, 255, 255, 0.95);
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    }
+    
+    .gamecard{
+    margin: 5px;
+    border-radius: 10px;
+    border:solid;
+    border-width:1px;
+    }
+    
+    .puzzleimagesty {
+    border-style: solid;
+    
+    border-color: $ter-color;
+    padding: 0px;
+    background: $comsecondary-color;
+    margin:10px;
+    }
+    .puzzleimgsty{
+        border-radius: 21px;
+        max-width: 8vw; min-width: 8vw; width:8vw; height:8vw;   
+    }
+    .puzzleimgsty_mob{
+        border-radius: 12px;
+        max-width: 14vw; min-width: 14vw; width:14vw; height:14vw;   
+    }
+    .imgback{
+    
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 25px;
+    }
+    .staricon {
+    // margin: 5px;
+    // margin-top: 10px;
+    font-size: 1.3vw;
+    height:0px!important;
+    width: 0px!important;
+    }
+    .stricon{
+        padding:.8vw;
+        padding-left:0vw;
+    }
+    .stricon_mob{
+        padding:0.5vw;
+        padding-left:0vw;
+    }
+    .stricon_ipad{
+        padding: 0.3vw;
+        padding-left: 0vw;
+    }
+    .webcent{
+    margin-left: 20%;
+    // align-content: center;
+    }
+    .logsty{
+    padding: 4.75148px 3px;
+    background: #FF7551;
+    border-radius: 4.87574px 0px 0px 4.87574px;
+    border-color:transparent !important;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    /* identical to box height, or 183% */
+    
+    text-align: center;
+    
+    color: #FFFFFF;
+    }
+    .logsysty{
+    padding:4.75148px 3px;
+    background: #FF8450;
+    border-radius: 0px 4.87574px 4.87574px 0px;
+    border-color:transparent !important;
+    font-family: SF Pro Text;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px !important;
+    line-height: 29px;
+    /* identical to box height, or 150% */
+    
+    text-align: center;
+    
+    color: #FFFFFF;
+    }
+    .lognewsty{
+        font-size: 10px;
+    }
+    .lognewsty_mob{
+        font-size: 7px;
+    }
+    .logstynew{
+    font-size: 18px !important;
+    }
+    .logstynew_mob{
+        font-size: 8px !important;
+        text-align-last: justify;
+        margin-top: 2.5vw;
+    }
+    .skilltxt{
+        font-size:16px;
+    }
+    .skilltxt_mob{
+        font-size: 11px;
+    }
+    .material-iconsa_sty {
+        font-size: 15px;
+        // horizontal-align: -webkit-baseline-middle;
+        //    vertical-align:-webkit-baseline-middle;
+        text-align: justify;
+        padding-left: 5px;
+        padding-right: 15px;
+        color:#FF7551;
+        align-self: center;
+        }
+    .cur{
+        cursor: pointer;
+    }
+    .curover:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+        }
+    .attempsty
+{
+   font-size: 10px;
+   border:solid;
+   border-width: 1px;
+   border-color: #FF7551;
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: default;
+}
+
+.scrtxtsty{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 24px;
+}
+.txtsty{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 24px;
+}
+.crowpointsty{
+    font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+justify-content:center;
+}
+.crowtxtsty{
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 22px;
+
+text-align: center;
+justify-content:center;
+}
+.crowimgsty{
+    margin-top: 15px;
+    border-radius: 21px;
+    max-width: 4vw; min-width: 8vw; width:8vw; height:4vw;  
+}
+.crowimgsty_mob{
+    margin-top: 15px;
+    border-radius: 21px;
+    max-width: 30px; min-width: 60px; width:60px; height:30px;  
+}
+
+.iconimgsty{
+    margin-top: 15px;
+    // border-radius: 21px;
+    max-width: 2vw; min-width: 2vw; width:2vw; height:2vw;  
+}
+.iconimgsty_mob{
+    margin-top: 15px;
+    // border-radius: 21px;
+    max-width: 20px; min-width: 20px; width:20px; height:20px;  
+}
+.vistxtsty{
+    padding-top: 10px;
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 8.5px;
+line-height: 9px;
+
+text-align: center;
+justify-content:center;
+}
+
+.banner {
+    // width: 100%;
+    height: 130px;
+    left: 0px;
+    top: 0px;
+    background: #27293A;
+    background-image:url('../../assets/images/banner_bg.png');
+    border-radius: 0px;
+}
+.banner_txt {
+    position: relative;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 40px;
+    letter-spacing: 0.54px;
+    color: rgba(255, 255, 255, 0.95);
+    padding-left: 33px;
+    top: 70px;
+
+}

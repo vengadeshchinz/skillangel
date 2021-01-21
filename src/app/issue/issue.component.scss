@@ -1,0 +1,110 @@
+.mat-chip {
+    border-radius: 5px;
+    display: block;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #218838 !important;
+    color: white !important;
+}
+
+._container {
+    min-height: 90vh;
+    width: 100vw;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.failed {
+    background-color: #FA163F !important;
+}
+
+// form {
+
+// }
+
+
+.icon_alg {
+    cursor: pointer;
+
+    p {
+        margin: 0px;
+        margin-left: 2px;
+    }
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-family: serif;
+    font-size: 38px;
+    font-family: 'Times New Roman';
+}
+
+.content {
+    margin: 100px;
+}
+
+.margin25 {
+    margin: 25px;
+}
+
+.upload {
+    cursor: pointer;
+}
+
+.form_align {
+    border: groove;
+    padding: 20px;
+}
+button, input {
+    overflow: hidden;
+}
+.full{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    width:100% !important;
+    height:100% !important;
+}
+// input[type="file" i] {
+//     // appearance: initial;
+//     background-color: red !important;
+//     cursor: pointer !important;
+//     // align-items: baseline;
+//     // color: inherit;
+//     // text-overflow: ellipsis;
+//     // white-space: pre;
+//     // text-align: start !important;
+//     // padding: initial;
+//     // border: initial;
+//     // overflow: hidden;
+// }
+
+input {
+    // -webkit-writing-mode: horizontal-tb !important;
+    // text-rendering: auto;
+    // color: -internal-light-dark(black, white);
+    // letter-spacing: normal;
+    // word-spacing: normal;
+    // text-transform: none;
+    // text-indent: 0px;
+    // text-shadow: none;
+    // display: inline-block;
+    // text-align: start;
+    // appearance: textfield;
+    // background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    // -webkit-rtl-ordering: logical;
+    cursor: pointer !important;
+    // margin: 0em;
+    // font: 400 13.3333px Arial;
+    // padding: 1px 2px;
+    // border-width: 2px;
+    // border-style: inset;
+    // border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    // border-image: initial;
+}

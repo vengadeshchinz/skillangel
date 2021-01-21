@@ -1,0 +1,114 @@
+
+@import "./assets/scss/functions.scss";
+@import "~@angular/material/theming";
+
+@include mat-core();
+/* ======== Angular material custom themes ======== */
+
+//////////////////////c
+$my-cyan-primary: mat-palette($mat-cyan,100);
+$my-cyan-accent: mat-palette($mat-cyan, 300);
+$my-cyan-warn: mat-palette($mat-orange, 400);
+$my-cyan-theme: mat-light-theme($my-cyan-primary, $my-cyan-accent, $my-cyan-warn);
+//////////////////////////c
+$my-indigo-primary: mat-palette($mat-indigo,100);
+$my-indigo-accent: mat-palette($mat-indigo, 300);
+$my-indigo-warn: mat-palette($mat-amber, 500);
+$my-indigo-theme: mat-light-theme($my-indigo-primary, $my-indigo-accent, $my-indigo-warn);
+////////////////////////3/////////////////c
+$my-purple-primary: mat-palette($mat-purple,100);
+$my-purple-accent: mat-palette($mat-purple, 300);
+$my-purple-warn: mat-palette($mat-amber,400);
+$my-purple-theme: mat-light-theme($my-purple-primary, $my-purple-accent, $my-purple-warn);
+////////////////////////4/////////////////c
+$my-blue-primary: mat-palette($mat-blue, 100);
+$my-blue-accent:  mat-palette($mat-blue,300);
+$my-blue-warn:    mat-palette($mat-red,400);
+$my-blue-theme: mat-light-theme($my-blue-primary, $my-blue-accent, $my-blue-warn);
+////////////////////////5/////////////////c
+$my-orange-primary: mat-palette($mat-orange,100);
+$my-orange-accent: mat-palette($mat-orange, 300);
+$my-orange-warn: mat-palette($mat-red,500);
+$my-orange-theme: mat-light-theme($my-orange-primary, $my-orange-accent, $my-orange-warn);
+////////////////////////6/////////////////c
+$my-red-primary: mat-palette($mat-red,100);
+$my-red-accent: mat-palette($mat-red, 300);
+$my-red-warn: mat-palette($mat-yellow,600);
+$my-red-theme: mat-light-theme($my-red-primary, $my-red-accent, $my-red-warn);
+////////////////////////7/////////////////
+$my-deep-purple-primary: mat-palette($mat-deep-purple,100);
+$my-deep-purple-accent: mat-palette($mat-deep-purple, 300);
+$my-deep-purple-warn: mat-palette($mat-blue,500);
+$my-deep-purple-theme: mat-light-theme($my-deep-purple-primary, $my-deep-purple-accent, $my-deep-purple-warn);
+////////////////////////8/////////////////c
+$my-green-primary: mat-palette($mat-light-green,100);
+$my-green-accent: mat-palette($mat-light-green, 300);
+$my-green-warn: mat-palette($mat-deep-orange,300);
+$my-green-theme: mat-light-theme($my-green-primary, $my-green-accent, $my-green-warn);
+////////////////////////9/////////////////c
+$my-brown-primary: mat-palette($mat-brown,100);
+$my-brown-accent: mat-palette($mat-brown, 300);
+$my-brown-warn: mat-palette($mat-green,500);
+$my-brown-theme: mat-light-theme($my-brown-primary, $my-brown-accent, $my-brown-warn);
+////////////////////////10/////////////////c
+$my-blue-grey-primary: mat-palette($mat-blue-grey,100);
+$my-blue-grey-accent: mat-palette($mat-blue-grey, 300);
+$my-blue-grey-warn: mat-palette($mat-pink,300);
+$my-blue-grey-theme: mat-light-theme($my-blue-grey-primary, $my-blue-grey-accent, $my-blue-grey-warn);
+.theme_cyan {  
+    @include angular-material-theme($my-cyan-theme);
+    @include generate-theme-vars($my-cyan-theme);
+    height: 100%;
+}
+.theme_indigo {
+    @include angular-material-theme($my-indigo-theme);
+    @include generate-theme-vars($my-indigo-theme);
+    height: 100%;
+}
+.theme_purple {   
+    @include angular-material-theme($my-purple-theme);
+    @include generate-theme-vars($my-purple-theme);
+    height: 100%;   
+}
+
+.theme_blue {   
+    @include angular-material-theme($my-blue-theme);
+    @include generate-theme-vars($my-blue-theme);
+    height: 100%;   
+}
+
+.theme_orange {   
+    @include angular-material-theme($my-orange-theme);
+    @include generate-theme-vars($my-orange-theme);
+    height: 100%;   
+}
+
+.theme_red {   
+    @include angular-material-theme($my-red-theme);
+    @include generate-theme-vars($my-red-theme);
+    height: 100%;   
+}
+.theme_deep_purple {   
+    @include angular-material-theme($my-deep-purple-theme);
+    @include generate-theme-vars($my-deep-purple-theme);
+    height: 100%;   
+}
+
+.theme_green {   
+    @include angular-material-theme($my-green-theme);
+    @include generate-theme-vars($my-green-theme);
+    height: 100%;   
+}
+
+.theme_brown {   
+    @include angular-material-theme($my-brown-theme);
+    @include generate-theme-vars($my-brown-theme);
+    height: 100%;   
+}
+.theme_blue_grey {   
+    @include angular-material-theme($my-blue-grey-theme);
+    @include generate-theme-vars($my-blue-grey-theme);
+    height: 100%;   
+}
+
+

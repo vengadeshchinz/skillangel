@@ -1,0 +1,89 @@
+// // Custom Theming for Angular Material
+// // For more information: https://material.angular.io/guide/theming
+// @import '~@angular/material/theming';
+// @import '~animate.css/animate.min';
+// // Plus imports for other components in your app.
+@import "theme";
+
+// // Include the common styles for Angular Material. We include this here so that you only
+// // have to load a single css file for Angular Material in your app.
+// // Be sure that you only ever include this mixin once!
+// @include mat-core();
+
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://material.io/design/color/
+// $Skillangels-schools-primary: mat-palette($mat-indigo);
+// $Skillangels-schools-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $Skillangels-schools-warn: mat-palette($mat-red);
+
+// // Create the theme object (a Sass map containing all of the palettes).
+// $Skillangels-schools-theme: mat-light-theme($Skillangels-schools-primary, $Skillangels-schools-accent, $Skillangels-schools-warn);
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include angular-material-theme($Skillangels-schools-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+html,
+head,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  // overflow-y: hidden;
+  overflow-x: hidden !important;
+  // overflow-y: hidden !important;
+
+}
+
+.header {
+  justify-content: space-between;
+}
+
+
+.cdk-overlay-pane.my-dialog {
+  position: relative !important;
+}
+
+.close.mat-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px;
+  line-height: 14px;
+  min-width: auto;
+  border-radius: 30px;
+  background-color: red;
+  margin: 2px;
+}
+
+.material-icons.md-14 {
+  font-size: 14px;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+.material-icons {
+  vertical-align: middle;
+}

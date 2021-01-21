@@ -1,0 +1,100 @@
+<div class=" ngxUiLoaderBlurred">
+    <div class="row" style="margin: 9px;">
+        <mat-icon class='icon_alg' (click)="backFn()">keyboard_backspace</mat-icon>
+        <p (click)="backFn()" class='icon_alg'>Back</p>
+    </div>
+
+
+    <div class="row justify-content-center " >
+        <form class='form_align'[formGroup]="userform" (ngSubmit)="updateissue(name.value,userissues.value,email.value,contact_no.value)">
+            <h6>Name</h6>
+            <div class="col">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" required placeholder="Name" [formControl]="name" />
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-error *ngIf="name.hasError('required')">
+                        Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <h6>Email</h6>
+            <div class="col">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" required placeholder="Email" [formControl]="email" />
+                    <mat-icon matSuffix> contact_mail</mat-icon>
+                    <mat-error *ngIf="email.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <h6>Mobile Number</h6>
+            <div class="col">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput type="number" required placeholder="Mobile Number" [formControl]="contact_no" />
+                    <mat-icon matSuffix> phone</mat-icon>
+                    <mat-error *ngIf="email.hasError('required')">
+                        Mobile Number is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <h6>What can we help you with today?</h6>
+            <div class="col">
+                <mat-form-field appearance="outline" class="example-full-width ">
+                    <mat-label>What can we help you with today?</mat-label>
+                    <mat-select name="What can we help you with today?" [formControl]="issueid"
+                        (selectionChange)="getissueval(issueid.value)" required>
+                        <mat-option *ngFor="let issues of issuelist" [value]="issues.isid">{{ issues.issuename }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="issueid.hasError('required')">
+                        Issue type is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <h6>Issue</h6>
+            <div class="col">
+                <mat-form-field appearance="outline" class="example-full-width ">
+                    <mat-label>Issue</mat-label>
+                    <textarea matInput required class="form-control" [formControl]="userissues" cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+                    <mat-error *ngIf="userissues.hasError('required')">
+                        Issue is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col" style="margin-bottom: 20px;">
+                
+            <div class="input-group">
+                <label for="inputGroupFile"></label>
+                <input (change)="fileChange($event)" type="file"  id="inputGroupFile" aria-describedby="inputGroupFileAddon01">
+                <div class="input-group-prepend">
+                    <span class="input-group-text upload" id="btnUpload" (click)="upload()">Upload</span>
+                </div>
+                <!-- <div class="custom-file"> -->
+                    <!-- <form > -->
+                      
+                    <!-- </form>   -->
+                <!-- </div> -->
+            </div>
+            </div>
+          
+        
+            <mat-chip class="example-full-width " class="mat-chip" [class.failed]="!success" *ngIf="passContent"
+                selected>
+                {{ this.passContent }}</mat-chip>              
+
+            <button type="submit" mat-raised-button color="accent">
+                Submit
+            </button>
+
+        </form>
+    </div>
+
+</div>
+<!-- <ngx-ui-loader [loaderId]="'loader-issue'"></ngx-ui-loader> -->
+
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-issue'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-issue'"></ngx-ui-loader>

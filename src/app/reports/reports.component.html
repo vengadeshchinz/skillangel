@@ -1,0 +1,725 @@
+<div (window:resize)="onResize1($event)" ngxUiLoaderBlurred id="capture">
+    <!--generate certificate container starts //*ngIf="after_post"-->
+    <div *ngIf="false" class="row justify-content-end ">
+        <mat-icon class="event_icon_cls" [ngStyle]="{'color': colortheme_txt}" style="cursor: pointer;"
+            (click)="certificatefn()">layers icon</mat-icon>
+        <p class="event_txt_cls" [ngStyle]="{'color': colortheme_txt}" (click)="certificatefn()">
+            Generate Certificate</p>
+    </div>
+    <!--generate certificate container ends-->
+    <!--clp phases buttons container starts-->
+    <div class="row  justify-content-center align-btn-row" *ngIf="isShowcompare">
+        <div *ngFor="let assesments of assesment_types; let i = index">
+            <button class="button1" mat-raised-button (click)="Showchart(i)">{{assesments}} </button>
+            <button class="button2" mat-raised-button (click)="comparechart(i)">
+                <mat-icon class="merge-icon">compare_arrows</mat-icon>
+            </button>
+        </div>
+    </div>
+    <!--clp phases buttons container ends-->
+    <!--selected clp phases score and bspi for both puzzles & skillkit container starts-->
+    <div>
+        <div class="row  justify-content-center align-btn-row">
+            <button *ngIf="!skillkitRegular_btn" [ngStyle]="{'border-top-right-radius': sub_chk==0  ? '50px' : '0px',
+            'border-bottom-right-radius': sub_chk==0  ? '50px' : '0px'}" class="bt1" mat-raised-button
+                (click)="Showchart(sub_chk)">
+                {{reportWords[131]}}</button>
+            <button *ngIf="skillkitRegular_btn" class="bt1" mat-raised-button (click)="Showchart1(2)">
+                {{reportWords[131]}}</button>
+            <button *ngIf="skillkitRegular_btn" class="bt3" mat-raised-button
+                (click)="Showskillkitchart()">{{reportWords[130]}}</button>
+            <button *ngIf="sub_chk!=0" class="bt2" mat-raised-button (click)="SubSkill(sub_chk)">
+                SubSkill</button>
+        </div>
+    </div>
+    <div *ngIf="!SubSkill_chk">
+        <div style="margin:30px" *ngIf="!skillkitRegular">
+            <div class="row" style="justify-content: center;">
+                <div class=" col-12  col-md-6 align-top">
+                    <canvas width="60" height="60" baseChart [datasets]="barChartData3" [labels]="barChartLabels"
+                        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                        [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                    <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt}">*Scores in the graph have been
+                        rounded to the nearest integer</h6>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="skillkitRegular">
+            <div class="row justify-content-center">
+                <h4 style="font-weight: bold;" class="content-align" *ngIf="checkcompare"
+                    [ngStyle]="{'color': colortheme_txt}">{{barchart1name}}</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin:10px" *ngIf="isoverallstar">
+            <mat-card [ngStyle]="{'background-color': colortheme_txt}">
+                <div class="row justify-content-center">
+                    <h6 style="color: white; text-align: center; font-weight: bold;"
+                        [ngStyle]="{'color': colortheme_bg}"> {{reportWords[64]}}</h6>
+                </div>
+                <div class="row justify-content-center" style=" width:200px">
+
+                    <div class="col-6" style="text-align: center;">
+                        <mat-icon style="font-size: 50px;text-align: center;color: gold;"
+                            class="animated pulse infinite">
+                            star</mat-icon>
+                    </div>
+                    <div class="col-6">
+                        <h1 style="color: white; text-align: center; font-weight: bold;"
+                            [ngStyle]="{'color': colortheme_bg}"> {{strCnt_all}}</h1>
+
+                    </div>
+                </div>
+            </mat-card>
+
+        </div>
+
+        <div *ngIf="skillkitRegular">
+
+            <div class="row  justify-content-center align-row">
+                <div class=" col-12  col-md-6 align-top">
+                    <h4 *ngIf="checkcompare" style="font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">
+                        {{reportWords[7]}}</h4>
+                    <h4 *ngIf="!checkcompare" style="font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">
+                        {{barchart1name}}</h4>
+
+                    <canvas width="60" height="50" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                        [plugins]="barChartPlugins" [colors]="barChartColors"></canvas>
+                    <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt}">*{{reportWords[206]}}</h6>
+
+                </div>
+
+                <div class=" col-12  col-md-6 align-top1" *ngIf="!showgraph">
+
+                    <h4 style="font-weight: bold;" [ngStyle]="{'color': colortheme_txt}"> BSPI : {{needleValue }}</h4>
+                    <app-reports3></app-reports3>
+                    <app-reports1></app-reports1>
+                </div>
+                <div class=" col-12  col-md-6 align-top" *ngIf="showgraph">
+                    <h4 style="font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">{{barchart2name}}</h4>
+
+                    <canvas width="60" height="50" baseChart [datasets]="barChartData1" [labels]="barChartLabels"
+                        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                        [colors]="barChartColors1"></canvas>
+                    <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt}">*{{reportWords[206]}}</h6>
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center align-row" *ngIf="barchart2">
+
+                <div class="col-12  col-md-6 align-top" *ngIf="!showgraph">
+                    <h4 style="font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">{{barchart2name}}</h4>
+
+                    <canvas width="60" height="50" baseChart [datasets]="barChartData1" [labels]="barChartLabels"
+                        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                        [colors]="barChartColors1"></canvas>
+                    <h6 style="text-align: left;" [ngStyle]="{'color': colortheme_txt}">*{{reportWords[206]}}</h6>
+
+                </div>
+                <div class="col-12  col-md-6 align-top1" *ngIf="showgraph">
+                    <h4 style="font-weight: bold;font-size: 1.1rem;" [ngStyle]="{'color': colortheme_txt}">
+                        {{barchart1name}} BSPI : {{needleValue }}</h4>
+                    <app-reports5></app-reports5>
+                    <app-reports1></app-reports1>
+                </div>
+                <div class="col-12  col-md-6 align-top1">
+                    <h4 style="font-weight: bold;font-size: 1.1rem;" [ngStyle]="{'color': colortheme_txt}">
+                        {{barchart2name}} BSPI : {{needleValue1 }}</h4>
+                    <app-reports4></app-reports4>
+                    <app-reports1></app-reports1>
+                </div>
+
+            </div>
+        </div>
+
+        <mat-card *ngIf="false" [ngStyle]="{'background-color': colortheme_bg}">
+            <mat-card-title style="text-align: center; font-weight: bold;" [ngStyle]="{'color': colortheme_txt}">
+                {{reportWords[58]}}</mat-card-title>
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px grid" fxLayoutAlign="space-around">
+                <ng-container *ngFor="let item of totalUser; index as i;">
+                    <div fxFlex.lt-sm="100%" fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(35% - 32px)">
+
+                        <div *ngIf="i!=targetUser">
+                            <div fxLayoutAlign="center">
+
+                                <div class="row justify-content-center"
+                                    style=" padding:10px; border-radius:20px;height: 200px;"
+                                    [ngStyle]="{'background-color': colortheme_txt}">
+                                    <div class="col-12" style="
+                                    text-align: center; margin-bottom: 20px; margin-left: -30px;">
+                                        <mat-icon [ngStyle]="{'color': colorvalRank_html[i] } "
+                                            style="font-size: 60px;margin-bottom: 10px;text-align: center; ">
+                                            person_pin_circle</mat-icon>
+                                    </div>
+                                    <div class="col-12">
+                                        <p [ngStyle]="{'color': colorvalRank_html[i] }"
+                                            style="font-size: 20px; text-align: center; margin-bottom: 10px; font-weight: bold;">
+                                            {{reportWords[65]}} : {{totalUserName[i]}}</p>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <p [ngStyle]="{'color': colorvalRank_html[i] }"
+                                            style="font-size: 20px;margin-bottom: 5px;text-align: center; font-weight: bold;">
+                                            {{reportWords[1]}} {{totalUserrank[i]}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="i==targetUser">
+                            <div fxLayoutAlign="center">
+
+                                <div class="row justify-content-center"
+                                    style="padding:10px; border-radius:20px;height: 200px;"
+                                    [ngStyle]="{'background-color': colortheme_txt}">
+                                    <div class="col-12" style="
+                                text-align: center; margin-bottom: 20px; margin-left: -30px;">
+                                        <mat-icon class="animated infinite bounce delay-2s"
+                                            [ngStyle]="{'color': colorvalRank_html[i] } "
+                                            style="font-size: 60px;margin-bottom: 10px;text-align: center; ">
+                                            person_pin_circle</mat-icon>
+                                    </div>
+                                    <div class="col-12">
+                                        <p [ngStyle]="{'color': colorvalRank_html[i] }"
+                                            style="font-size: 20px; text-align: center; margin-bottom: 10px; font-weight: bold;">
+                                            {{reportWords[65]}} : {{totalUserName[i]}}</p>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <p [ngStyle]="{'color': colorvalRank_html[i] }"
+                                            style="font-size: 20px;margin-bottom: 5px;text-align: center; font-weight: bold;">
+                                            {{reportWords[1]}} {{totalUserrank[i]}}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </ng-container>
+            </div>
+        </mat-card>
+    </div>
+    <!--selected clp phases score and bspi for both puzzles & skillkit container ends-->
+    <!--selected clp phases score for subskill container starts-->
+    <div class="row justify-content-center" *ngIf="SubSkill_chk" style="margin-top: 4vw;padding-bottom: 20vw;">
+        <div class="col-12 col-md-12 col-lg-6">
+            <div class=" progressbarcol" [ngStyle]="{'background-color': colortheme_bg}">
+                <h4 *ngIf="sub_val_vis" class="timetablehead">{{reportWords[7]}}</h4>
+                <h4 *ngIf="!sub_val_vis" class="timetablehead" style="margin: 30px;font-weight: normal;
+                ">Yet to begin!
+                </h4>
+                <div *ngIf="sub_val_vis">
+                    <div *ngFor="let el of subskillname_Arr; let i = index">
+                        <h5 class="colortext" [ngStyle]="{'color': colortheme_txt}">{{el}}</h5>
+                        <p>
+                            <ngb-progressbar class="memorycolor" type="warning" [value]=subskillval_Arr[i]
+                                [striped]="true" [animated]="true">
+                                <em>{{subskillval_Arr[i]}}</em></ngb-progressbar>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--selected clp phases score for subskill container ends-->
+</div>
+<ng-template #newinfo let-modal>
+    <!--roadmap popup //not used-->
+    <div class="show">
+        <div class="infoheader" style="border-color:orange !important;">
+            <button *ngIf="cyc_val" type="button" class="infoclose" style=" outline: 0 !important;"
+                (click)="modal.close('Click')">X</button>
+            <button *ngIf="!cyc_val" type="button" class="infoclose" style=" outline: 0 !important;"
+                (click)="scoreFn(-1)">X</button>
+        </div>
+        <div *ngIf="cyc_val" class="infobody" style="border-color:orange !important;">
+            <div *ngIf="mob_val">
+                <div class="row justify-content-center head_new"><strong style="color:#3f3d56 !important">PROGRAM
+                        PROGRESSION</strong></div>
+                <div class="row justify-content-center" style="margin-top: 4vw;margin-bottom: 1vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2">
+                        <div class="row innerborder2 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(0)"
+                            [ngStyle]="{'background-color': conditional[0] ? 'white' : '#3f3d56','color': conditional[0] ? 'orange' : 'orange'}">
+                            1 - INITIAL ASSESSMENT (IA)
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" style="margin-left:3vw;text-align: -webkit-center;">
+                    </div>
+                    <div class="col-6 col-lg-6"></div>
+                </div>
+
+
+                <div class="row justify-content-center" style="margin-top:1vw;">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(3)"
+                            [ngStyle]="{'background-color': conditional[3] ? 'white' : '#3f3d56','color': conditional[3] ? 'orange' : 'orange'}">
+                            CYCLE 03
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(2)"
+                            [ngStyle]="{'background-color': conditional[2] ? 'white' : '#3f3d56','color': conditional[2] ? 'orange' : 'orange'}">
+                            CYCLE 02
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(4)"
+                            [ngStyle]="{'background-color': conditional[4] ? 'white' : '#3f3d56','color': conditional[4] ? 'orange' : 'orange'}">
+                            CYCLE 04
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                </div>
+                <div class="row justify-content-center" style="margin-bottom: 1.5vw;margin-top: 1.5vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" style="align-self: center;margin-right: 3.2vw;">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(1)"
+                            [ngStyle]="{'background-color': conditional[1] ? 'white' : '#3f3d56','color': conditional[1] ? 'orange' : 'orange'}">
+                            CYCLE 01
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2">
+                        <div class="row innerborder2 justify-content-center"
+                            [ngStyle]="{'background-color': true ? 'white' : '#3f3d56','color': true ? '#3f3d56' : '#3f3d56'}">
+                            2 - DETAILED ASSESSMENT (DA)
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" style="align-self: center;margin-left: 3.2vw;">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(5)"
+                            [ngStyle]="{'background-color': conditional[5] ? 'white' : '#3f3d56','color': conditional[5] ? 'orange' : 'orange'}">
+                            CYCLE 05
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(8)"
+                            [ngStyle]="{'background-color': conditional[8] ? 'white' : '#3f3d56','color': conditional[8] ? 'orange' : 'orange'}">
+                            CYCLE 08
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(6)"
+                            [ngStyle]="{'background-color': conditional[6] ? 'white' : '#3f3d56','color': conditional[6] ? 'orange' : 'orange'}">
+                            CYCLE 06
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+
+                </div>
+                <div class="row justify-content-center" style="margin-bottom: 5vw;">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(7)"
+                            [ngStyle]="{'background-color': conditional[7] ? 'white' : '#3f3d56','color': conditional[7] ? 'orange' : 'orange'}">
+                            CYCLE 07
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                </div>
+
+
+
+
+                <div *ngIf="isfull_val" class="row justify-content-center" style="margin-top: 5vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(11)"
+                            [ngStyle]="{'background-color': conditional[11] ? 'white' : '#3f3d56','color': conditional[11] ? 'orange' : 'orange'}">
+                            CYCLE 11
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2"></div>
+
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][1]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(12)"
+                            [ngStyle]="{'background-color': conditional[12] ? 'white' : '#3f3d56','color': conditional[12] ? 'orange' : 'orange'}">
+                            CYCLE 12
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][1]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(10)"
+                            [ngStyle]="{'background-color': conditional[10] ? 'white' : '#3f3d56','color': conditional[10] ? 'orange' : 'orange'}">
+                            CYCLE 10
+                        </div>
+                    </div>
+
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-2 col-lg-2"></div>
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center" style=" margin-bottom: 1vw;margin-top: 1vw;">
+                    <div class="col-1 col-lg-1" style="align-self: center;"
+                        [ngStyle]="{'margin-right': mrgin_Arr[val_val][2]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(13)"
+                            [ngStyle]="{'background-color': conditional[13] ? 'white' : '#3f3d56','color': conditional[13] ? 'orange' : 'orange'}">
+                            CYCLE 13
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2">
+                        <div class="row innerborder2 justify-content-center"
+                            [ngStyle]="{'background-color': true ? 'white' : '#3f3d56','color': true ? '#3f3d56' : '#3f3d56'}">
+                            3 PERSONALIZED TRAINING (C1)
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" style="align-self: center;"
+                        [ngStyle]="{'margin-left': mrgin_Arr[val_val][2]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(09)"
+                            [ngStyle]="{'background-color': conditional[9] ? 'white' : '#3f3d56','color': conditional[9] ? 'orange' : 'orange'}">
+                            CYCLE 09
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][1]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(14)"
+                            [ngStyle]="{'background-color': conditional[14] ? 'white' : '#3f3d56','color': conditional[14] ? 'orange' : 'orange'}">
+                            CYCLE 14
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][1]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(16)"
+                            [ngStyle]="{'background-color': conditional[16] ? 'white' : '#3f3d56','color': conditional[16] ? 'orange' : 'orange'}">
+                            CYCLE 16
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-2 col-lg-2"></div>
+
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center" style="margin-bottom: 5vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(15)"
+                            [ngStyle]="{'background-color': conditional[15] ? 'white' : '#3f3d56','color': conditional[15] ? 'orange' : 'orange'}">
+                            CYCLE 15
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2"></div>
+                </div>
+
+
+
+
+
+                <div *ngIf="isfull_val" class="row justify-content-center" style="margin-top: 5vw;">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(19)"
+                            [ngStyle]="{'background-color': conditional[19] ? 'white' : '#3f3d56','color': conditional[19] ? 'orange' : 'orange'}">
+                            CYCLE 19
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(18)"
+                            [ngStyle]="{'background-color': conditional[18] ? 'white' : '#3f3d56','color': conditional[18] ? 'orange' : 'orange'}">
+                            CYCLE 18
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(20)"
+                            [ngStyle]="{'background-color': conditional[20] ? 'white' : '#3f3d56','color': conditional[20] ? 'orange' : 'orange'}">
+                            CYCLE 20
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center"
+                    style="margin-bottom: 1.5vw;margin-top: 1.5vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" style="align-self: center;margin-right: 3.2vw;">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(17)"
+                            [ngStyle]="{'background-color': conditional[17] ? 'white' : '#3f3d56','color': conditional[17] ? 'orange' : 'orange'}">
+                            CYCLE 17
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2">
+                        <div class="row innerborder2 justify-content-center"
+                            [ngStyle]="{'background-color': true ? 'white' : '#3f3d56','color': true ? '#3f3d56' : 'white'}">
+                            4 PERSONALIZED TRAINING (C2)
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" style="align-self: center;margin-left: 3.2vw;">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(21)"
+                            [ngStyle]="{'background-color': conditional[21] ? 'white' : '#3f3d56','color': conditional[21] ? 'orange' : 'orange'}">
+                            CYCLE 21
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-right': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(24)"
+                            [ngStyle]="{'background-color': conditional[24] ? 'white' : '#3f3d56','color': conditional[24] ? 'orange' : 'orange'}">
+                            CYCLE 24
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left': mrgin_Arr[val_val][0]}">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(22)"
+                            [ngStyle]="{'background-color': conditional[22] ? 'white' : '#3f3d56','color': conditional[22] ? 'orange' : 'orange'}">
+                            CYCLE 22
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+
+                </div>
+                <div *ngIf="isfull_val" class="row justify-content-center" style="margin-bottom: 2vw;">
+                    <div class="col-2 col-lg-2"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1">
+                        <div class="row innerborder1 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(23)"
+                            [ngStyle]="{'background-color': conditional[23] ? 'white' : '#3f3d56','color': conditional[23] ? 'orange' : 'orange'}">
+                            CYCLE 23
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" [ngStyle]="{'margin-left':mrgin_Arr[val_val][3]}"></div>
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-1 col-lg-1"></div>
+
+                </div>
+
+
+
+
+                <div class="row justify-content-center" style="margin-top: 5vw;margin-bottom: 3vw;">
+                    <div class="col-1 col-lg-1"></div>
+                    <div class="col-2 col-lg-2" *ngIf="isfull_val">
+                        <div class="row innerborder2 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(25)"
+                            [ngStyle]="{'background-color': conditional[25] ? 'white' : '#3f3d56','color': conditional[25] ? 'orange' : 'orange'}">
+                            5 - POST ASSESSMENT (PA)
+                        </div>
+                    </div>
+                    <div class="col-2 col-lg-2" *ngIf="!isfull_val">
+                        <div class="row innerborder2 animated pulse infinite justify-content-center"
+                            style="cursor: pointer;" (click)="scoreFn(9)"
+                            [ngStyle]="{'background-color': conditional[9] ? 'white' : '#3f3d56','color': conditional[9] ? 'orange' : 'orange'}">
+                            3 - POST ASSESSMENT (PA)
+                        </div>
+                    </div>
+                    <div class="col-1 col-lg-1" style="margin-left:3vw;text-align: -webkit-center;">
+                    </div>
+                    <div class="col-6 col-lg-6"></div>
+                </div>
+            </div>
+            <app-reports2 *ngIf="!mob_val"></app-reports2>
+        </div>
+        <div *ngIf="!cyc_val" class="infobody" style="border-color:orange !important;">
+            <div class="row justify-content-center head_new" style="color:'#3f3d5' !important;font-size:20px;">
+                <strong>{{Assesment_names_val}}</strong>
+            </div>
+            <div *ngIf="Cycle_val" class="row justify-content-center head_new" style="font-size:15px;margin-top:2vw;
+            color:orange !important;
+            "><strong>Cycle {{argn_val}}</strong>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top: 2vw;text-align: center;">
+                <div class="col-12 col-lg-12">
+                    <h6 class="infotxt_head"><strong style="padding:4px;color:#3f3d56"
+                            [ngStyle]="{'color': '#3f3d56'}">BSPI :
+                            {{cycle_score_bspt_Arr[argn_val]}}</strong></h6>
+                </div>
+                <div class="col-12 col-lg-12" style="text-align: -webkit-center;">
+                    <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]=cycle_score_bspt_Arr[argn_val]
+                        [centralLabel]="centralLabel" [options]="options2" [name]="name">
+                    </rg-gauge-chart>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <h6 class="infotxt_head">
+                    <strong style="padding:4px;color:orange">SkillScore</strong></h6>
+            </div>
+            <div class="row justify-content-center" style="margin:.7vw;margin-bottom:2vw;">
+                <div class="col-6 col-md-2" style="text-align: -webkit-center;">
+                    <div class="avatar-upload2 colval3" style="text-align-last: center;">
+                        <div class="avatar-preview2 colval3">
+                            <div id="imagePreview2" style="font-size: 10px;color:black;padding-top:17px;">
+                                <div><strong>Memory</strong></div>
+                                <div><strong>{{score_val_Arr[argn_val][0]}}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: -webkit-center;">
+                    <div class="avatar-upload2 colval3" style="text-align-last: center;">
+                        <div class="avatar-preview2 colval3">
+                            <div id="imagePreview2" style="font-size: 10px; color:black;padding-top:12px;">
+                                <div><strong>Visual Processing</strong></div>
+                                <div><strong>{{score_val_Arr[argn_val][1]}}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: -webkit-center;">
+                    <div class="avatar-upload2 colval3" style="text-align-last: center;">
+                        <div class="avatar-preview2 colval3">
+                            <div id="imagePreview2" style="font-size:10px;color:black;padding-top:12px;">
+                                <div><strong>Focus & Attention</strong></div>
+                                <div><strong>{{score_val_Arr[argn_val][2]}}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: -webkit-center;">
+                    <div class="avatar-upload2 colval3" style="text-align-last: center;">
+                        <div class="avatar-preview2 colval3">
+                            <div id="imagePreview2" style="font-size: 10px;color:black;padding-top:12px;">
+                                <div><strong>Problem Solving</strong></div>
+                                <div><strong>{{score_val_Arr[argn_val][3]}}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2" style="text-align: -webkit-center;">
+                    <div class="avatar-upload2 colval3" style="text-align-last: center;">
+                        <div class="avatar-preview2 colval3">
+                            <div id="imagePreview2" style="font-size:10px;color:black;padding-top:17px;">
+                                <div><strong>Lingustics</strong></div>
+                                <div><strong>{{score_val_Arr[argn_val][4]}}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #certificate let-modal>
+    <!--certificate popup-->
+    <div class="show">
+        <div class="infoheader1" style="border-color:orange !important;">
+            <button type="button" class="infoclose" style="color: black; outline: 0 !important;"
+                (click)="modal.close('Click')">X</button>
+        </div>
+        <div class="infobody" style="border-color:orange !important;">
+            <div *ngIf="img_src" class="row">
+                <div class="col-10" style="align-self: flex-end;">
+                    <h4 style="color: black;text-align: center;font-weight: bold;">CERTIFICATE</h4>
+                </div>
+                <div class="col-2" style="text-align: start;cursor: pointer;" (click)="downloadUrl()">
+                    <mat-icon style="color:black;font-size: 31px;">get_app</mat-icon>
+                </div>
+            </div>
+            <div *ngIf="!img_src" class="row">
+                <div class="col-12" style="align-self: flex-end;">
+                    <h4 style="color: black;text-align: center;font-weight: bold;">CERTIFICATE</h4>
+                </div>
+            </div>
+            <img *ngIf="img_src" src={{this.crt_url}} alt="Snow" style="width:100%;">
+            <h6 *ngIf="!img_src" style="margin-top:5px;text-align:center;
+            color:rgb(97, 96, 96)">something went wrong ,please generate again!</h6>
+        </div>
+
+    </div>
+</ng-template>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-reports'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-reports'"></ngx-ui-loader>

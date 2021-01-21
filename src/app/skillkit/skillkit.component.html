@@ -1,0 +1,383 @@
+<div ngxUiLoaderBlurred>
+    <ng-template #newinfo let-modal>
+        <!--event popup-->
+        <div class="new_show">
+            <div class="new_infoheader"
+                [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <button type="button" class=" new_infoclose" (click)="modal.close('Click');callmsgfn()"
+                    [ngStyle]="{'color': colortheme_txt}">X</button>
+            </div>
+            <div class="new_infobody"
+                [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+                <div class="row justify-content-center" style="color:#db1c15;font-size:28px;font-weight: bold;
+               ">
+                    {{event_heading[event_val]}}</div>
+                <div class="row justify-content-center" style="color:rgb(87, 85, 85);
+                font-size:16px;font-weight: bold;padding-left: 2vw;padding-right: 1vw;
+              margin-top:1vw;text-align-last:center;" [ngStyle]="{'color': colortheme_txt}">
+                    {{event_msg[event_val]}}
+                </div>
+                <div class="row justify-content-center text animated pulse infinite" style="margin-top:20px;">
+                    <button style="background-color: #db1c15; color: white; border-radius:20px; margin:10px;"
+                        (click)="modal.close('Click');eventClick()">
+                        Click Here To Go
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!--event button container starts-->
+    <div *ngIf="event_label" class="row justify-content-end " (click)="eventClick()">
+        <mat-icon class="event_icon_cls" [ngStyle]="{'color': colortheme_txt}">layers icon</mat-icon>
+        <p class="event_txt_cls" [ngStyle]="{'color': colortheme_txt}">{{event_heading[event_val]}}</p>
+    </div>
+    <!--event button container ends-->
+    <!--skillkit puzzles container starts-->
+    <div class="row justify-content-center puzzlecontainer" style="padding-bottom: 17vw;">
+        <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 puzzle" *ngIf="eligibleSkills[0]">
+            <div class="puzzle-card Memorypuzzle animated flipInX">
+                <h5 class="puzzleheading" [ngStyle]="{'background-color': colortheme_bg,
+                'color': colortheme_txt}">{{skillkitWords[13]}}</h5>
+                <img alt="text" class="puzzleimage animated pulse infinite" src={{imgsrcArr[0]}}
+                    style="max-width: 140px; min-width: 140px;" [ngStyle]="{'background-color': colortheme_bg}" />
+                <div class="puzzlefooter" [ngStyle]="{'background-color': colortheme_bg}">
+                    <div style="padding-top:5px;">
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[0][0]}">
+                            radio_button_checked
+                        </mat-icon>
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[0][1]}">
+                            radio_button_checked
+                        </mat-icon>
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[0][2]}">
+                            radio_button_checked
+                        </mat-icon>
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[0][3]}">
+                            radio_button_checked
+                        </mat-icon>
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[0][4]}">
+                            radio_button_checked
+                        </mat-icon>
+                    </div>
+                    <button type="button" class="btn playBtn Memorypuzzle_new" id="mem" (click)="skill_gameplay(0)"
+                        [disabled]="playval[0]" [ngStyle]="{'color':colortheme_txt}">
+                        <strong> {{skillkit_playtxtval[0]}}</strong> </button>
+                    <div>
+
+
+                        <mat-icon id="memstart1" [ngStyle]="{'color':startweenval[0][0] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][0],'goldstar animated flip delay-1s ':startweenval[0][0]}">
+                            star</mat-icon>
+                        <mat-icon id="memstart2" [ngStyle]="{'color':startweenval[0][1] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][1],'goldstar animated flip delay-1s ':startweenval[0][1]}">
+                            star</mat-icon>
+                        <mat-icon id="memstart3" [ngStyle]="{'color':startweenval[0][2] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][2],'goldstar animated flip delay-1s ':startweenval[0][2]}">
+                            star</mat-icon>
+                        <mat-icon id="memstart4" [ngStyle]="{'color':startweenval[0][3] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][3],'goldstar animated flip delay-1s ':startweenval[0][3]}">
+                            star</mat-icon>
+                        <mat-icon id="memstart5" [ngStyle]="{'color':startweenval[0][4] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[0][4],'goldstar animated flip delay-1s ':startweenval[0][4]}">
+                            star</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 puzzle" *ngIf="eligibleSkills[1]">
+            <div class="puzzle-card visualprocessingpuzzle animated flipInX">
+                <h5 class="puzzleheading" [ngStyle]="{'background-color': colortheme_bg,
+                'color': colortheme_txt}">{{skillkitWords[14]}}</h5>
+                <img alt="text" class="puzzleimage animated pulse infinite" src={{imgsrcArr[1]}}
+                    style="max-width: 140px; min-width: 140px;" [ngStyle]="{'background-color': colortheme_bg}" />
+                <div class="puzzlefooter" [ngStyle]="{'background-color': colortheme_bg}">
+                    <div style="padding-top:5px;">
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[1][0]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[1][1]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[1][2]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[1][3]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[1][4]}">
+                            radio_button_checked
+                        </mat-icon>
+
+
+                    </div>
+                    <button type="button" class="btn playBtn visualprocessingpuzzle_new" id="vp"
+                        (click)="skill_gameplay(1)" [disabled]="playval[1]" [ngStyle]="{'color':colortheme_txt}">
+                        <strong> {{skillkit_playtxtval[1]}}</strong> </button>
+                    <div>
+
+
+                        <mat-icon id="vpstart1" [ngStyle]="{'color':startweenval[1][0] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][0],'goldstar animated flip delay-1s ':startweenval[1][0]}">
+                            star</mat-icon>
+
+                        <mat-icon id="vpstart2" [ngStyle]="{'color':startweenval[1][1] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][1],'goldstar animated flip delay-1s ':startweenval[1][1]}">
+                            star</mat-icon>
+
+                        <mat-icon id="vpstart3" [ngStyle]="{'color':startweenval[1][2] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][2],'goldstar animated flip delay-1s ':startweenval[1][2]}">
+                            star</mat-icon>
+
+                        <mat-icon id="vpstart4" [ngStyle]="{'color':startweenval[1][3] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][3],'goldstar animated flip delay-1s ':startweenval[1][3]}">
+                            star</mat-icon>
+
+                        <mat-icon id="vpstart5" [ngStyle]="{'color':startweenval[1][4] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[1][4],'goldstar animated flip delay-1s ':startweenval[1][4]}">
+                            star</mat-icon>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 puzzle" *ngIf="eligibleSkills[2]">
+            <div class="puzzle-card focusattentionpuzzle animated flipInX">
+                <h5 class="puzzleheading" [ngStyle]="{'background-color': colortheme_bg,
+                'color': colortheme_txt}">{{skillkitWords[15]}}</h5>
+                <img alt="text" class="puzzleimage animated pulse infinite" src={{imgsrcArr[2]}}
+                    style="max-width: 140px; min-width: 140px;" [ngStyle]="{'background-color': colortheme_bg}" />
+                <div class="puzzlefooter" [ngStyle]="{'background-color': colortheme_bg}">
+                    <div style="padding-top:5px;">
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[2][0]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[2][1]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[2][2]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[2][3]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[2][4]}">
+                            radio_button_checked
+                        </mat-icon>
+
+
+                    </div>
+                    <button type="button" class="btn playBtn focusattentionpuzzle_new" id="fa"
+                        (click)="skill_gameplay(2)" [disabled]="playval[2]" [ngStyle]="{'color':colortheme_txt}">
+                        <strong> {{skillkit_playtxtval[2]}}</strong> </button>
+                    <div>
+
+
+                        <mat-icon id="fastart1" [ngStyle]="{'color':startweenval[2][0] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][0],'goldstar animated flip delay-1s ':startweenval[2][0]}">
+                            star</mat-icon>
+
+                        <mat-icon id="fastart2" [ngStyle]="{'color':startweenval[2][1] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][1],'goldstar animated flip delay-1s ':startweenval[2][1]}">
+                            star</mat-icon>
+
+                        <mat-icon id="fastart3" [ngStyle]="{'color':startweenval[2][2] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][2],'goldstar animated flip delay-1s ':startweenval[2][2]}">
+                            star</mat-icon>
+
+                        <mat-icon id="fastart4" [ngStyle]="{'color':startweenval[2][3] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][3],'goldstar animated flip delay-1s ':startweenval[2][3]}">
+                            star</mat-icon>
+
+                        <mat-icon id="fastart5" [ngStyle]="{'color':startweenval[2][4] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[2][4],'goldstar animated flip delay-1s ':startweenval[2][4]}">
+                            star</mat-icon>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 puzzle" *ngIf="eligibleSkills[3]">
+            <div class="puzzle-card problemsolvingpuzzle animated flipInX">
+                <h5 class="puzzleheading" [ngStyle]="{'background-color': colortheme_bg,
+                'color': colortheme_txt}">{{skillkitWords[16]}}</h5>
+                <img alt="text" class="puzzleimage animated pulse infinite" src={{imgsrcArr[3]}}
+                    style="max-width: 140px; min-width: 140px;" [ngStyle]="{'background-color': colortheme_bg}" />
+                <div class="puzzlefooter" [ngStyle]="{'background-color': colortheme_bg}">
+                    <div style="padding-top:5px;">
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[3][0]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[3][1]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[3][2]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[3][3]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[3][4]}">
+                            radio_button_checked
+                        </mat-icon>
+
+
+                    </div>
+                    <button type="button" class="btn playBtn problemsolvingpuzzle_new" id="ps"
+                        (click)="skill_gameplay(3)" [disabled]="playval[3]" [ngStyle]="{'color':colortheme_txt}">
+                        <strong> {{skillkit_playtxtval[3]}}</strong> </button>
+                    <div triggers="click">
+
+
+                        <mat-icon id="psstart1" [ngStyle]="{'color':startweenval[3][0] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][0],'goldstar animated flip delay-1s ':startweenval[3][0]}">
+                            star</mat-icon>
+
+                        <mat-icon id="psstart2" [ngStyle]="{'color':startweenval[3][1] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][1],'goldstar animated flip delay-1s ':startweenval[3][1]}">
+                            star</mat-icon>
+
+                        <mat-icon id="psstart3" [ngStyle]="{'color':startweenval[3][2] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][2],'goldstar animated flip delay-1s ':startweenval[3][2]}">
+                            star</mat-icon>
+
+                        <mat-icon id="psstart4" [ngStyle]="{'color':startweenval[3][3] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][3],'goldstar animated flip delay-1s ':startweenval[3][3]}">
+                            star</mat-icon>
+
+                        <mat-icon id="psstart5" [ngStyle]="{'color':startweenval[3][4] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[3][4],'goldstar animated flip delay-1s ':startweenval[3][4]}">
+                            star</mat-icon>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 puzzle" *ngIf="eligibleSkills[4]">
+            <div class="puzzle-card linguisticspuzzle animated flipInX">
+                <h5 class="puzzleheading" [ngStyle]="{'background-color': colortheme_bg,
+                'color': colortheme_txt}">{{skillkitWords[17]}}</h5>
+                <img alt="text" class="puzzleimage animated pulse infinite" src={{imgsrcArr[4]}}
+                    style="max-width: 140px; min-width: 140px;" [ngStyle]="{'background-color': colortheme_bg}" />
+                <div class="puzzlefooter" [ngStyle]="{'background-color': colortheme_bg}">
+                    <div style="padding-top:5px;">
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[4][0]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[4][1]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[4][2]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[4][3]}">
+                            radio_button_checked
+                        </mat-icon>
+
+                        <mat-icon
+                            [ngClass]="{'radioicon material-icons': true, 'skillkit_strikethrough': skillkit_strikethroughval[4][4]}">
+                            radio_button_checked
+                        </mat-icon>
+
+
+                    </div>
+                    <button type="button" class="btn playBtn linguisticspuzzle_new" id="lin"
+                        (click)="skill_gameplay(4)" [disabled]="playval[4]" [ngStyle]="{'color':colortheme_txt}">
+                        <strong> {{skillkit_playtxtval[4]}}</strong> </button>
+                    <div>
+
+                        <mat-icon id="linstart1" [ngStyle]="{'color':startweenval[4][0] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][0],'goldstar animated flip delay-1s ':startweenval[4][0]}">
+                            star</mat-icon>
+
+                        <mat-icon id="linstart2" [ngStyle]="{'color':startweenval[4][1] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][1],'goldstar animated flip delay-1s ':startweenval[4][1]}">
+                            star</mat-icon>
+
+                        <mat-icon id="linstart3" [ngStyle]="{'color':startweenval[4][2] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][2],'goldstar animated flip delay-1s ':startweenval[4][2]}">
+                            star</mat-icon>
+
+                        <mat-icon id="linstart4" [ngStyle]="{'color':startweenval[4][3] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][3],'goldstar animated flip delay-1s ':startweenval[4][3]}">
+                            star</mat-icon>
+
+                        <mat-icon id="linstart5" [ngStyle]="{'color':startweenval[4][4] ? '#ffbc24' :colortheme_txt}"
+                            [ngClass]="{'staricon material-icons':true, 'star':!startweenval[4][4],'goldstar animated flip delay-1s ':startweenval[4][4]}">
+                            star</mat-icon>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--skillkit puzzles container ends-->
+</div>
+<ng-template #skillkitmodel let-modal>
+    <!--skillkit status popup-->
+    <div class="show">
+        <div class="infoheader" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+            <button type="button" class="infoclose" (click)="modal.close('Click');myclose()"
+                [ngStyle]="{'color': colortheme_txt}">X</button>
+        </div>
+        <div class="infobody" [ngStyle]="{'border-color':colortheme_txt,'background-color': colortheme_bg_base}">
+            <h5 [ngStyle]="{'color': colortheme_txt}"> 🙂 {{skillkitWords[166]}} 👍</h5>
+            <p class="infotxt" [ngStyle]="{'color': colortheme_txt}">
+                💠 {{popmsgArr[this.openmodel-1]}}
+            </p>
+            <p class="infotxt" *ngIf="popstar" [ngStyle]="{'color': colortheme_txt}">
+                💠 {{greetingmsgArr[this.openmodel-1]}}
+            </p>
+            <p class="infotxt  newstyle" *ngIf="!popstar" [ngStyle]="{'color': colortheme_txt}" (click)="modal.close('Click');puzzlesfn()">
+                <!-- greatsmsg {{greetingmsgArr[this.openmodel-1]}} -->
+                💠 <u>Click here to continue with puzzles</u>
+            </p>
+        </div>
+    </div>
+</ng-template>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-skillkit'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-skillkit'"></ngx-ui-loader>

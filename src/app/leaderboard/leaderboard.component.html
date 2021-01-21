@@ -1,0 +1,57 @@
+<div ngxUiLoaderBlurred>
+    <div class="trophy_wrapper" >
+        <div class="row">
+          <div class="col-md-12">
+            <div class="head_txt" [ngStyle]="{'color': colortheme_txt1}">Leaderboard</div>
+          </div>
+        </div>
+        <div *ngIf="!this.isleader" [ngStyle]="{'color': colortheme_txt,
+        'background-color': colortheme_bg_base_sec}" 
+        style="margin-top:10px;text-align: center;padding:2vw">Yet to begin!</div>
+        <div class="row pad-bot-30" *ngIf="this.isleader">
+          <div class="col-md-4">
+            <div class="gold-trophy-wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+              <div class="gold-circle">
+              </div>
+              <div class="gold-trophy">
+                  <div class="tro-txt ">1</div>
+              </div>
+              <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt}">{{nameArr[0]}}</div>
+              <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Grade {{gradeArr[0]}}</div>
+              <ngb-progressbar class="linguisticscolor" type="warning" [value]=bspiArr[0]  [striped]="true" [animated]="true"></ngb-progressbar>
+              <div class="bspi-txt" [ngStyle]="{'color': colortheme_txt1}">{{bspiArr[0]}} bspi</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="silver-trophy-wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+              <div class="silver-circle">
+              </div>
+              <div class="silver-trophy">
+                  <div class="tro-txt ">2</div>
+              </div>
+              <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt}">{{nameArr[1]}}</div>
+              <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Grade {{gradeArr[1]}}</div>
+              <ngb-progressbar class="linguisticscolor" type="warning" [value]=bspiArr[1]  [striped]="true" [animated]="true"></ngb-progressbar>
+              <div class="bspi-txt" [ngStyle]="{'color': colortheme_txt1}">{{bspiArr[1]}} bspi</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bronze-trophy-wrapper" [ngStyle]="{'background-color': colortheme_bg_base_sec}">
+              <div class="bronze-circle">
+              </div>
+              <div class="bronze-trophy">
+                <div class="tro-txt ">3</div>
+              </div>
+              <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt}">{{nameArr[2]}}</div>
+                  <div class="trophy-txt" [ngStyle]="{'color': colortheme_txt1}">Grade {{gradeArr[2]}}</div>
+                  <ngb-progressbar class="linguisticscolor" type="warning" [value]=bspiArr[2]  [striped]="true" [animated]="true"></ngb-progressbar>
+                  <div class="bspi-txt" [ngStyle]="{'color': colortheme_txt1}">{{bspiArr[2]}} bspi</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- trophy wrapper ends -->
+    
+</div>
+<ngx-ui-loader *ngIf="load1" class="full" [loaderId]="'loader-lb'"></ngx-ui-loader>
+<ngx-ui-loader *ngIf="!load1" [loaderId]="'loader-lb'"></ngx-ui-loader>
